@@ -3,11 +3,11 @@ import {
   Home,
   Sparkles,
   Bug,
-  Thermometer,
+  Wind,
   Zap,
   Wrench,
-  Paintbrush,
-  Truck,
+  PaintRoller,
+  Trash2,
   type LucideIcon,
 } from "lucide-react";
 
@@ -153,7 +153,7 @@ export const services: Service[] = [
   {
     slug: "hvac",
     name: "HVAC",
-    icon: Thermometer,
+    icon: Wind,
     shortDescription: "AC repair, heating installation, maintenance & indoor air quality solutions.",
     description:
       "Stay comfortable year-round with expert HVAC services from California's top-rated heating and cooling professionals. Whether you need AC repair, furnace installation, or indoor air quality improvements, our verified HVAC technicians deliver reliable, efficient solutions for your home.",
@@ -243,7 +243,7 @@ export const services: Service[] = [
   {
     slug: "painting",
     name: "Painting",
-    icon: Paintbrush,
+    icon: PaintRoller,
     shortDescription: "Interior & exterior painting, cabinet refinishing & color consultation.",
     description:
       "Transform your home with professional painting services from experienced local painters. Our network of verified painting contractors delivers flawless results for interior and exterior projects, from single accent walls to complete home repaints, serving homeowners throughout Southern California.",
@@ -267,6 +267,36 @@ export const services: Service[] = [
       {
         q: "Can you help me choose paint colors?",
         a: "Yes, many of our painting partners offer color consultation services and can provide sample swatches so you can see how colors look in your space.",
+      },
+    ],
+  },
+  {
+    slug: "junk-removal",
+    name: "Junk Removal",
+    icon: Trash2,
+    shortDescription: "Furniture removal, appliance hauling, construction debris & eco-friendly disposal.",
+    description:
+      "Clear out the clutter with professional junk removal services. Our verified teams handle everything from old furniture and appliances to construction debris and yard waste. We offer eco-friendly disposal and recycling options for homeowners across Orange County and Los Angeles County.",
+    features: [
+      "Furniture and appliance removal",
+      "Construction debris cleanup",
+      "Yard waste and brush removal",
+      "Eco-friendly recycling and disposal",
+      "Same-day pickup available",
+      "Single-item to full property cleanouts",
+    ],
+    faqs: [
+      {
+        q: "What types of items can you remove?",
+        a: "We handle almost anything: furniture, appliances, electronics, construction debris, yard waste, and general clutter. Hazardous materials require special arrangements.",
+      },
+      {
+        q: "How quickly can you pick up my junk?",
+        a: "Many of our junk removal partners offer same-day or next-day service. Submit a request and we'll connect you with available teams in your area.",
+      },
+      {
+        q: "Do you recycle or donate items?",
+        a: "Yes, our junk removal professionals prioritize eco-friendly disposal, recycling, and donating usable items to local charities whenever possible.",
       },
     ],
   },
