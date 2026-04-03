@@ -28,6 +28,7 @@ import {
   Loader2,
 } from 'lucide-react';
 import { toast } from 'sonner';
+import { trackFormSubmit } from '@/lib/ghl-tracking';
 
 const SERVICE_CATEGORIES = [
   'Plumbing',
@@ -140,6 +141,18 @@ export default function PartnerPage() {
       }
 
       toast.success('Application submitted! We\'ll be in touch soon.');
+
+      // Track form submission in GHL
+      trackFormSubmit('partner', {
+        company_name: form.companyName,
+        contact_name: form.contactName,
+        email: form.email,
+        phone: form.phone,
+        license_number: form.licenseNumber,
+        years_in_business: form.yearsInBusiness,
+        service_categories: selectedCategories.join(', '),
+        service_areas: selectedAreas.join(', '),
+      });
 
       // Reset form
       setForm({

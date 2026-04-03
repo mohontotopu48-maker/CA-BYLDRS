@@ -47,10 +47,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script
+        {/* GoHighLevel External Tracking Script */}
+        <script
           src="https://link.msgsndr.com/js/external-tracking.js"
           data-tracking-id="tk_10e022fb5c9f4ebea7a518b61fa81171"
-          strategy="afterInteractive"
+          async
         />
       </head>
       <body

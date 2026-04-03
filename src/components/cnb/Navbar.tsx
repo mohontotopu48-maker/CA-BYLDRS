@@ -44,11 +44,14 @@ export function Navbar() {
             onClick={() => handleNav('home')}
             className="flex items-center gap-2 group"
           >
-            <img
-              src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
-              alt="CA BYLDRS Logo"
-              className="h-10 w-auto object-contain rounded-lg"
-            />
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-orange-400 to-orange-600 opacity-0 group-hover:opacity-40 blur-sm transition-opacity duration-500" />
+              <img
+                src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
+                alt="CA BYLDRS Logo"
+                className="relative h-10 lg:h-11 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
           </button>
 
           {/* Desktop Navigation */}
@@ -121,11 +124,14 @@ export function Navbar() {
                 <div className="flex flex-col h-full">
                   <div className="p-6 border-b border-border">
                     <div className="flex items-center gap-2">
-                      <img
-                        src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
-                        alt="CA BYLDRS Logo"
-                        className="h-9 w-auto object-contain rounded-lg"
-                      />
+                      <div className="relative">
+                        <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-orange-400 to-orange-600 opacity-30 blur-sm" />
+                        <img
+                          src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
+                          alt="CA BYLDRS Logo"
+                          className="relative h-10 w-auto object-contain rounded-lg"
+                        />
+                      </div>
                       <div>
                         <p className="font-bold text-sm">CA BYLDRS</p>
                         <p className="text-xs text-muted-foreground">Trusted Local Home Services</p>

@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Shield, MapPin, ChevronRight, Phone, Users } from 'lucide-react';
 import { useRouter } from '@/lib/router-store';
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/cnb/AnimatedSection';
@@ -13,17 +12,11 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient">
       {/* Floating decorative elements */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {/* Top-left blob */}
         <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-white/10 blur-2xl animate-float" />
-        {/* Top-right blob */}
         <div className="absolute -top-10 right-10 w-56 h-56 rounded-full bg-white/15 blur-xl animate-float-delayed" />
-        {/* Bottom-left circle */}
         <div className="absolute bottom-32 -left-10 w-40 h-40 rounded-full glass animate-float-slow" />
-        {/* Bottom-right circle */}
         <div className="absolute -bottom-16 right-20 w-64 h-64 rounded-full bg-orange-300/10 blur-2xl animate-float" />
-        {/* Center-right accent */}
         <div className="absolute top-1/3 right-0 w-32 h-32 rounded-full glass animate-float-delayed opacity-60" />
-        {/* Small floating dots */}
         <div className="absolute top-20 left-1/4 w-3 h-3 rounded-full bg-white/40 animate-float" />
         <div className="absolute top-40 right-1/3 w-2 h-2 rounded-full bg-white/30 animate-float-delayed" />
         <div className="absolute bottom-40 left-1/3 w-4 h-4 rounded-full bg-white/25 animate-float-slow" />
@@ -34,14 +27,22 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
         <div className="text-center">
-          {/* Logo */}
+          {/* Logo with eye-catching glow */}
           <AnimatedSection delay={0}>
             <div className="inline-flex items-center justify-center mb-8">
-              <img
-                src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
-                alt="CA BYLDRS"
-                className="h-16 sm:h-20 md:h-24 w-auto object-contain drop-shadow-2xl"
-              />
+              <div className="relative">
+                <div aria-hidden="true">
+                  <div className="absolute -inset-4 rounded-full bg-white/20 blur-2xl animate-float" />
+                  <div className="absolute -inset-2 rounded-full bg-white/10 blur-lg animate-float-delayed" />
+                </div>
+                <div className="relative rounded-2xl p-3 sm:p-4 bg-white/10 backdrop-blur-md border border-white/20 shadow-lg shadow-orange-500/10">
+                  <img
+                    src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
+                    alt="CA BYLDRS"
+                    className="h-20 sm:h-24 md:h-28 lg:h-32 w-auto object-contain drop-shadow-2xl"
+                  />
+                </div>
+              </div>
             </div>
           </AnimatedSection>
 
@@ -58,14 +59,13 @@ export default function HeroSection() {
           {/* Subheadline */}
           <AnimatedSection delay={0.25}>
             <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-              Unlike Angi or HomeAdvisor, we never sell your info to 5+ contractors. Your request goes to only 1-3 community-trusted, licensed professionals in Orange County & Los Angeles County. No spam. No shared leads. Just real local experts who show up.
+              Unlike Angi or HomeAdvisor, we never sell your info to 5+ contractors. Your request goes to only 1-3 community-trusted, licensed professionals in Orange County &amp; Los Angeles County. No spam. No shared leads. Just real local experts who show up.
             </p>
           </AnimatedSection>
 
           {/* CTA Buttons */}
           <AnimatedSection delay={0.4}>
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-              {/* Primary CTA */}
               <Button
                 size="lg"
                 className="cta-glow bg-white text-orange-700 hover:bg-orange-50 font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-auto"
@@ -75,7 +75,6 @@ export default function HeroSection() {
                 <ChevronRight className="size-5 ml-1" />
               </Button>
 
-              {/* Secondary CTA */}
               <Button
                 size="lg"
                 variant="outline"
@@ -86,7 +85,6 @@ export default function HeroSection() {
                 Emergency Help
               </Button>
 
-              {/* Tertiary CTA */}
               <Button
                 size="lg"
                 variant="outline"
@@ -135,8 +133,8 @@ export default function HeroSection() {
                     <MapPin className="size-5 text-white" />
                   </div>
                   <div className="text-left">
-                    <p className="text-sm sm:text-base font-semibold text-white">100% Local & Verified</p>
-                    <p className="text-xs text-white/60 hidden sm:block">Licensed pros in OC & LA only</p>
+                    <p className="text-sm sm:text-base font-semibold text-white">100% Local &amp; Verified</p>
+                    <p className="text-xs text-white/60 hidden sm:block">Licensed pros in OC &amp; LA only</p>
                   </div>
                 </div>
               </StaggerItem>

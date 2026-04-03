@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useCallback, useEffect } from 'react';
+import { trackPageView } from '@/lib/ghl-tracking';
 
 type PageKey =
   | 'home'
@@ -14,6 +15,7 @@ type PageKey =
   | 'emergency'
   | 'partner'
   | 'journey'
+  | 'booking'
   | 'privacy'
   | 'terms';
 
@@ -26,6 +28,37 @@ interface RouterState {
 
 const RouterContext = createContext<RouterState | null>(null);
 
+/* Map page keys to human-readable titles for GHL tracking */
+const pageTitles: Record<string, string> = {
+  home: 'Home',
+  services: 'All Services',
+  'orange-county': 'Orange County Services',
+  'los-angeles-county': 'Los Angeles County Services',
+  about: 'About CA BYLDRS',
+  contact: 'Request Service',
+  emergency: 'Emergency Help',
+  partner: 'Become a Partner',
+  journey: 'How It Works',
+  booking: 'Book Appointment',
+  privacy: 'Privacy Policy',
+  terms: 'Terms of Service',
+};
+
+function getPageTitle(key: string): string {
+  if (pageTitles[key]) return pageTitles[key];
+  if (key.startsWith('service/')) {
+    const slug = key.replace('service/', '');
+    return slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  }
+  if (key.includes('county/') && key.includes('/service/')) {
+    const parts = key.replace('county/', '').split('/service/');
+    const county = parts[0].split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    const service = parts[1].split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    return `${service} in ${county}`;
+  }
+  return 'CA BYLDRS';
+}
+
 export function RouterProvider({ children }: { children: React.ReactNode }) {
   const [currentPage, setCurrentPage] = useState<PageKey>('home');
   const [history, setHistory] = useState<PageKey[]>(['home']);
@@ -34,19 +67,33 @@ export function RouterProvider({ children }: { children: React.ReactNode }) {
     setCurrentPage(page);
     setHistory((prev) => [...prev, page]);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Track virtual pageview in GHL
+    trackPageView(page, getPageTitle(page));
   }, []);
 
   const goBack = useCallback(() => {
     setHistory((prev) => {
       if (prev.length > 1) {
         const newHistory = prev.slice(0, -1);
-        setCurrentPage(newHistory[newHistory.length - 1]);
+        const prevPage = newHistory[newHistory.length - 1];
+        setCurrentPage(prevPage);
+
+        // Track virtual pageview in GHL
+        trackPageView(prevPage, getPageTitle(prevPage));
+
         return newHistory;
       }
       setCurrentPage('home');
+      trackPageView('home', 'Home');
       return ['home'];
     });
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  // Track initial page load
+  useEffect(() => {
+    trackPageView('home', 'Home');
   }, []);
 
   // Listen for browser back button

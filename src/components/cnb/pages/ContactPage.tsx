@@ -25,6 +25,7 @@ import {
   Send,
   ChevronRight,
 } from 'lucide-react';
+import { trackFormSubmit } from '@/lib/ghl-tracking';
 
 interface FormData {
   fullName: string;
@@ -96,6 +97,16 @@ export default function ContactPage() {
       }
 
       toast.success('Your service request has been submitted successfully! We\'ll be in touch shortly.');
+      // Track form submission in GHL
+      trackFormSubmit('lead', {
+        full_name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        service_type: formData.serviceType,
+        county: formData.county,
+        city: formData.city,
+        urgency: formData.urgency,
+      });
       setFormData(initialFormData);
     } catch {
       toast.error('Something went wrong. Please try again.');

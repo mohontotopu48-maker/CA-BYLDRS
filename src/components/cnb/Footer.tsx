@@ -18,11 +18,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-5">
+            <div className="relative inline-flex">
+              <div className="absolute -inset-1.5 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 opacity-20 blur-sm" />
               <img
                 src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
                 alt="CA BYLDRS Logo"
-                className="h-10 w-auto object-contain rounded-lg brightness-0 invert"
+                className="relative h-12 w-auto object-contain rounded-lg brightness-0 invert"
               />
             </div>
             <p className="text-sm text-neutral-400 mb-6 leading-relaxed">

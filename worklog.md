@@ -188,3 +188,48 @@ Stage Summary:
 - 5 existing sections completely rewritten with competitor-aware content
 - Every piece of content addresses a specific competitor weakness
 - Zero lint errors, clean compilation, dev server serves 200
+
+---
+Task ID: 4
+Agent: Main Agent
+Task: GoHighLevel tracking script integration + eye-catching logo
+
+Work Log:
+- Fixed GHL tracking script in layout.tsx: changed from Next.js Script component to native <script> tag with async attribute (proper GHL loading)
+- Created comprehensive GHL tracking utility at /src/lib/ghl-tracking.ts with functions for:
+  - trackPageView(pageName, pageTitle) - virtual SPA pageviews
+  - trackFormSubmit(formType, data) - contact form & partner form submissions
+  - trackPhoneClick(phoneNumber, source)
+  - trackEmailClick(email, source)
+  - trackCTAClick(ctaName, destination)
+  - trackWhatsAppClick(source)
+  - trackServiceView(serviceName, serviceSlug)
+  - trackLocationView(countyName, countySlug)
+  - trackBookingView(source)
+  - trackEmergencyView()
+- Integrated GHL tracking into router-store.tsx:
+  - trackPageView fires on every navigation with page title mapping
+  - trackPageView fires on browser back button
+  - trackPageView fires on initial page load
+  - Document title updates dynamically for GHL's automatic tracking
+- Integrated GHL tracking into ContactPage.tsx:
+  - trackFormSubmit('lead', {full_name, email, phone, service_type, county, city, urgency})
+- Integrated GHL tracking into PartnerPage.tsx:
+  - trackFormSubmit('partner', {company_name, contact_name, email, phone, license, years, categories, areas})
+- Integrated GHL tracking into WhatsAppButton.tsx:
+  - trackWhatsAppClick('floating_button') on link click
+- Made logo eye-catching across all placements:
+  - Hero: Logo wrapped in glassmorphic card with two animated glow layers behind it (animate-float + animate-float-delayed), orange shadow glow, 20-32px responsive sizing
+  - Navbar Desktop: Logo has orange gradient glow effect on hover (opacity-0 to opacity-40), subtle scale-105 on hover
+  - Navbar Mobile (Sheet): Logo has static orange glow background
+  - Footer: Logo larger (h-12) with orange gradient glow halo effect, inverted for dark background
+- Removed unused `motion` import from HeroSection (fixed ESLint parsing error)
+- ESLint passes with zero errors, dev server compiles and serves 200
+
+Stage Summary:
+- GoHighLevel tracking script properly loaded via native <script> tag with async
+- Full GHL tracking on: page visits, form submissions, WhatsApp clicks
+- Virtual pageview tracking for SPA navigation (no real URL changes needed)
+- Document title dynamically updates to match current page
+- Logo redesigned with eye-catching glow effects across hero, navbar, mobile, and footer
+- Zero lint errors, server compiling clean

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { MessageCircle, X } from 'lucide-react';
+import { trackWhatsAppClick } from '@/lib/ghl-tracking';
 
 export function WhatsAppButton() {
   const [open, setOpen] = useState(false);
@@ -27,6 +28,7 @@ export function WhatsAppButton() {
             href="https://chat.whatsapp.com/DUd7H5GOSO3Al5KsTPt1oj"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick('floating_button')}
             className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-sm font-semibold py-2.5 px-4 rounded-xl transition-colors"
           >
             <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
