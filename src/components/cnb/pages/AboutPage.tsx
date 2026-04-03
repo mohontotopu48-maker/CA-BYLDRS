@@ -72,7 +72,7 @@ export default function AboutPage() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
-              About California Next Builder
+              About CA BYLDRS
             </h1>
           </AnimatedSection>
           <AnimatedSection delay={0.15}>
@@ -96,7 +96,7 @@ export default function AboutPage() {
               </div>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  California Next Builder is a local service lead acquisition, qualification, and routing platform built specifically for Orange County and Los Angeles County homeowners.
+                  CA BYLDRS is a local service lead acquisition, qualification, and routing platform built specifically for Orange County and Los Angeles County homeowners.
                 </p>
                 <p>
                   Our platform bridges the gap between homeowners who need reliable home services and the professionals who can deliver them. We understand the frustration of searching through endless listings, reading reviews of questionable authenticity, and hoping the contractor you pick will show up on time and do quality work. That&apos;s why we built a system that takes the guesswork out of finding help.

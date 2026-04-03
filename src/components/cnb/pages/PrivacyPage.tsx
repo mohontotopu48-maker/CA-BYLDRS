@@ -41,7 +41,7 @@ export default function PrivacyPage() {
 
               {/* Intro */}
               <p className="text-base leading-relaxed text-stone-600 dark:text-stone-300">
-                At California Next Builder, we are committed to protecting your privacy. This
+                At CA BYLDRS, we are committed to protecting your privacy. This
                 Privacy Policy explains how we collect, use, disclose, and safeguard your
                 information when you visit our website or use our lead-matching services. Please
                 read this policy carefully. By using our services, you consent to the data
@@ -207,7 +207,7 @@ export default function PrivacyPage() {
                 </p>
                 <div className="bg-stone-50 dark:bg-stone-800/50 rounded-xl p-6 space-y-2 text-sm text-stone-700 dark:text-stone-300">
                   <p>
-                    <strong className="text-stone-900 dark:text-stone-100">California Next Builder</strong>
+                    <strong className="text-stone-900 dark:text-stone-100">CA BYLDRS</strong>
                   </p>
                   <p>Email: privacy@californianextbuilder.com</p>
                   <p>Address: Orange County, California</p>

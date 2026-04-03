@@ -34,6 +34,17 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
         <div className="text-center">
+          {/* Logo */}
+          <AnimatedSection delay={0}>
+            <div className="inline-flex items-center justify-center mb-8">
+              <img
+                src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
+                alt="CA BYLDRS"
+                className="h-16 sm:h-20 md:h-24 w-auto object-contain drop-shadow-2xl"
+              />
+            </div>
+          </AnimatedSection>
+
           {/* Headline */}
           <AnimatedSection delay={0.1}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-lg">

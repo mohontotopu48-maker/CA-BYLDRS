@@ -302,7 +302,7 @@ export const counties: County[] = [
       "Westminster",
     ],
     description:
-      "California Next Builder is proud to be Orange County's most trusted platform for connecting homeowners with verified local professionals. From the coast of Newport Beach to the heart of Anaheim, we serve every community in Orange County with fast response times and quality-matched service providers.",
+      "CA BYLDRS is proud to be Orange County's most trusted platform for connecting homeowners with verified local professionals. From the coast of Newport Beach to the heart of Anaheim, we serve every community in Orange County with fast response times and quality-matched service providers.",
   },
   {
     slug: "los-angeles-county",
@@ -321,15 +321,14 @@ export const counties: County[] = [
       "Burbank",
     ],
     description:
-      "Serving the vast and diverse communities of Los Angeles County, California Next Builder connects homeowners with licensed, verified professionals across every neighborhood. Whether you're in downtown LA, the coastal communities, or the San Fernando Valley, we match you with the right local expert for your home service needs.",
+      "Serving the vast and diverse communities of Los Angeles County, CA BYLDRS connects homeowners with licensed, verified professionals across every neighborhood. Whether you're in downtown LA, the coastal communities, or the San Fernando Valley, we match you with the right local expert for your home service needs.",
   },
 ];
 
 export const navLinks = [
   { label: "Home", href: "home" },
   { label: "Services", href: "services" },
-  { label: "Orange County", href: "orange-county" },
-  { label: "Los Angeles County", href: "los-angeles-county" },
+  { label: "Book Now", href: "booking" },
   { label: "About", href: "about" },
   { label: "Contact", href: "contact" },
 ];

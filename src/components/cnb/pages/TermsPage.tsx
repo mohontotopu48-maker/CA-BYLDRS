@@ -41,7 +41,7 @@ export default function TermsPage() {
 
               {/* Intro */}
               <p className="text-base leading-relaxed text-stone-600 dark:text-stone-300">
-                Welcome to California Next Builder. These Terms of Service (&quot;Terms&quot;) govern
+                Welcome to CA BYLDRS. These Terms of Service (&quot;Terms&quot;) govern
                 your use of our website and lead-matching platform. By accessing or using our
                 services, you agree to be bound by these Terms. If you do not agree to these
                 Terms, please do not use our platform.
@@ -53,7 +53,7 @@ export default function TermsPage() {
                   1. Acceptance of Terms
                 </h2>
                 <p className="text-base leading-relaxed text-stone-600 dark:text-stone-300">
-                  By accessing the California Next Builder website, submitting a service request,
+                  By accessing the CA BYLDRS website, submitting a service request,
                   or creating a contractor account, you acknowledge that you have read,
                   understood, and agree to be bound by these Terms of Service, as well as our
                   Privacy Policy. These Terms apply to all visitors, homeowners, and contractor
@@ -68,7 +68,7 @@ export default function TermsPage() {
                   2. Service Description
                 </h2>
                 <p className="text-base leading-relaxed text-stone-600 dark:text-stone-300">
-                  California Next Builder is a lead-matching platform that connects homeowners in
+                  CA BYLDRS is a lead-matching platform that connects homeowners in
                   Orange County and Los Angeles County with licensed local contractors. We are not
                   a contractor, and we do not directly perform any home services. Our role is
                   limited to facilitating introductions between homeowners seeking services and
@@ -126,7 +126,7 @@ export default function TermsPage() {
                 </h2>
                 <p className="text-base leading-relaxed text-stone-600 dark:text-stone-300">
                   All contractor partners on our platform are independent contractors and are not
-                  employees, agents, or representatives of California Next Builder. We do not
+                  employees, agents, or representatives of CA BYLDRS. We do not
                   supervise, direct, or control the work performed by any contractor. Each
                   contractor is solely responsible for the quality and timeliness of their own
                   work, maintaining proper licensing and insurance, and complying with all
@@ -146,14 +146,14 @@ export default function TermsPage() {
                   5. Limitation of Liability
                 </h2>
                 <p className="text-base leading-relaxed text-stone-600 dark:text-stone-300">
-                  To the fullest extent permitted by applicable law, California Next Builder, its
+                  To the fullest extent permitted by applicable law, CA BYLDRS, its
                   officers, directors, employees, agents, and affiliates shall not be liable for
                   any indirect, incidental, special, consequential, or punitive damages, including
                   but not limited to loss of profits, data, or goodwill, arising out of or related
                   to your use of or inability to use the platform.
                 </p>
                 <p className="text-base leading-relaxed text-stone-600 dark:text-stone-300">
-                  California Next Builder shall not be liable for any damages arising from the
+                  CA BYLDRS shall not be liable for any damages arising from the
                   acts, omissions, errors, or misconduct of any contractor matched through our
                   platform, including but not limited to property damage, personal injury, or
                   financial loss. Our total liability to you for any claims arising from these
@@ -192,7 +192,7 @@ export default function TermsPage() {
                 </p>
                 <div className="bg-stone-50 dark:bg-stone-800/50 rounded-xl p-6 space-y-2 text-sm text-stone-700 dark:text-stone-300">
                   <p>
-                    <strong className="text-stone-900 dark:text-stone-100">California Next Builder</strong>
+                    <strong className="text-stone-900 dark:text-stone-100">CA BYLDRS</strong>
                   </p>
                   <p>Email: legal@californianextbuilder.com</p>
                   <p>Address: Orange County, California</p>

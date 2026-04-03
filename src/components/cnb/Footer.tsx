@@ -18,14 +18,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
-                <span className="text-white font-black text-lg leading-none">CN</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-white text-base leading-tight">California</span>
-                <span className="font-semibold text-orange-400 text-xs leading-tight">Next Builder</span>
-              </div>
+            <div className="flex items-center gap-3 mb-5">
+              <img
+                src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
+                alt="CA BYLDRS Logo"
+                className="h-10 w-auto object-contain rounded-lg brightness-0 invert"
+              />
             </div>
             <p className="text-sm text-neutral-400 mb-6 leading-relaxed">
               Connecting Orange County &amp; Los Angeles County homeowners with verified, licensed local professionals. Built for trust, speed, and quality service matching.
@@ -41,7 +39,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2 text-sm text-neutral-400">
                 <Mail className="h-4 w-4 text-orange-400 shrink-0" />
-                <span>hello@californianextbuilder.com</span>
+                <span>hello@cabyldrs.com</span>
               </div>
             </div>
           </div>
@@ -146,7 +144,7 @@ export function Footer() {
       <div className="border-t border-neutral-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-neutral-500">
-            &copy; {new Date().getFullYear()} California Next Builder. All rights reserved.
+            &copy; {new Date().getFullYear()} CA BYLDRS. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <button

@@ -15,23 +15,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "California Next Builder — Trusted Local Home Services in Orange County & Los Angeles County",
+  title: "CA BYLDRS — Trusted Local Home Services in Orange County & Los Angeles County",
   description:
     "Get connected with verified local professionals for plumbing, roofing, cleaning, pest control, HVAC, electrical, handyman, and painting services. Serving Orange County and Los Angeles County.",
   keywords: [
-    "California home services",
+    "CA BYLDRS home services",
     "Orange County contractors",
     "Los Angeles County home services",
     "plumbing Orange County",
     "roofing Los Angeles",
-    "HVAC repair California",
+    "HVAC repair Southern California",
     "local contractors",
     "verified professionals",
     "home service matching",
   ],
-  authors: [{ name: "California Next Builder" }],
+  authors: [{ name: "CA BYLDRS" }],
   openGraph: {
-    title: "California Next Builder — Trusted Local Home Services",
+    title: "CA BYLDRS — Trusted Local Home Services",
     description:
       "Connecting homeowners with verified local professionals in Orange County & Los Angeles County for plumbing, roofing, cleaning, and more.",
     type: "website",

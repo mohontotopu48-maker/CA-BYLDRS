@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { RouterProvider, useRouter, parsePageKey } from '@/lib/router-store';
 import { Navbar } from '@/components/cnb/Navbar';
 import { Footer } from '@/components/cnb/Footer';
@@ -13,6 +14,7 @@ import WhyChooseUs from '@/components/cnb/homepage/WhyChooseUs';
 import CountyCoverage from '@/components/cnb/homepage/CountyCoverage';
 import HighIntentCTA from '@/components/cnb/homepage/HighIntentCTA';
 import ContractorCTA from '@/components/cnb/homepage/ContractorCTA';
+import BookingCalendar from '@/components/cnb/homepage/BookingCalendar';
 
 // Inner pages
 import ServicePage from '@/components/cnb/pages/ServicePage';
@@ -25,6 +27,23 @@ import EmergencyPage from '@/components/cnb/pages/EmergencyPage';
 import PartnerPage from '@/components/cnb/pages/PartnerPage';
 import PrivacyPage from '@/components/cnb/pages/PrivacyPage';
 import TermsPage from '@/components/cnb/pages/TermsPage';
+import { WhatsAppButton } from '@/components/cnb/WhatsAppButton';
+
+function BookingPage() {
+  const { navigate } = useRouter();
+
+  useEffect(() => {
+    navigate('home');
+    setTimeout(() => {
+      const el = document.getElementById('booking-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 300);
+  }, [navigate]);
+
+  return <HomePage />;
+}
 
 function HomePage() {
   return (
@@ -35,6 +54,9 @@ function HomePage() {
       <HowItWorks />
       <WhyChooseUs />
       <CountyCoverage />
+      <div id="booking-section">
+        <BookingCalendar />
+      </div>
       <HighIntentCTA />
       <ContractorCTA />
     </>
@@ -77,6 +99,8 @@ function PageRouter() {
           return <PrivacyPage />;
         case 'terms':
           return <TermsPage />;
+        case 'booking':
+          return <BookingPage />;
         default:
           return <HomePage />;
       }
@@ -94,6 +118,7 @@ export default function Home() {
           <PageRouter />
         </main>
         <Footer />
+        <WhatsAppButton />
       </div>
     </RouterProvider>
   );

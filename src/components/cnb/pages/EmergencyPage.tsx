@@ -243,7 +243,7 @@ export default function EmergencyPage() {
               </h3>
               <p className="text-sm text-amber-800 leading-relaxed">
                 If you or anyone is in immediate danger, experiencing a medical emergency, or if there is an active fire, gas explosion, or electrical fire, please call{' '}
-                <span className="font-bold text-amber-900">911</span> immediately. California Next Builder connects homeowners with service professionals for property-related emergencies — we are not a substitute for emergency services.
+                <span className="font-bold text-amber-900">911</span> immediately. CA BYLDRS connects homeowners with service professionals for property-related emergencies — we are not a substitute for emergency services.
               </p>
             </div>
           </div>

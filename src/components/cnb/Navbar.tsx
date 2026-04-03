@@ -44,27 +44,11 @@ export function Navbar() {
             onClick={() => handleNav('home')}
             className="flex items-center gap-2 group"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-lg group-hover:shadow-orange-300/50 transition-shadow">
-              <span className="text-white font-black text-lg leading-none">CN</span>
-            </div>
-            <div className="flex flex-col">
-              <span
-                className={cn(
-                  'font-bold text-base leading-tight transition-colors',
-                  scrolled || !isHome ? 'text-foreground' : 'text-white'
-                )}
-              >
-                California
-              </span>
-              <span
-                className={cn(
-                  'font-semibold text-xs leading-tight transition-colors',
-                  scrolled || !isHome ? 'text-orange-600 dark:text-orange-400' : 'text-orange-200'
-                )}
-              >
-                Next Builder
-              </span>
-            </div>
+            <img
+              src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
+              alt="CA BYLDRS Logo"
+              className="h-10 w-auto object-contain rounded-lg"
+            />
           </button>
 
           {/* Desktop Navigation */}
@@ -137,11 +121,13 @@ export function Navbar() {
                 <div className="flex flex-col h-full">
                   <div className="p-6 border-b border-border">
                     <div className="flex items-center gap-2">
-                      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
-                        <span className="text-white font-black text-base leading-none">CN</span>
-                      </div>
+                      <img
+                        src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
+                        alt="CA BYLDRS Logo"
+                        className="h-9 w-auto object-contain rounded-lg"
+                      />
                       <div>
-                        <p className="font-bold text-sm">California Next Builder</p>
+                        <p className="font-bold text-sm">CA BYLDRS</p>
                         <p className="text-xs text-muted-foreground">Trusted Local Home Services</p>
                       </div>
                     </div>

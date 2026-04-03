@@ -47,7 +47,7 @@ export default function ContractorCTA() {
 
               <StaggerItem>
                 <p className="max-w-lg text-muted-foreground leading-relaxed">
-                  Join California Next Builder and receive local lead
+                  Join CA BYLDRS and receive local lead
                   opportunities in your service category. We handle the marketing
                   — you focus on what you do best.
                 </p>
