@@ -303,3 +303,75 @@ Stage Summary:
 - All images have explicit dimensions for CLS prevention
 - Mobile responsive verified with proper breakpoints
 - Accessibility improved with skip nav and ARIA attributes
+
+---
+## Task ID: 5 - dark-theme-designer
+### Work Task
+Apply reference dark theme design to CA BYLDRS — making dark mode the DEFAULT and ONLY theme, matching the premium reference site design specifications.
+
+### Work Summary
+Modified 6 files to convert the CA BYLDRS site from a light/dark toggle to a permanent dark theme:
+
+**1. `/src/app/layout.tsx`**
+- Replaced `Geist` and `Geist_Mono` fonts with `Outfit` (headings, bold 700) and `Inter` (body, 400/500/600) via `next/font/google`
+- Added `className="dark"` to `<html>` tag to force dark mode permanently
+- Updated `themeColor` from `#F97316` to `#0a0c10`
+- Updated body className to use `outfit.variable` and `inter.variable`
+- Kept all metadata, structured data, GHL tracking script, preload, favicon, Toaster, skip nav intact
+
+**2. `/src/app/globals.css`**
+- Replaced `:root` CSS variables with dark theme colors: `--background: #0a0c10`, `--foreground: #f0f2f5`, `--card: #0f1117`, `--muted: #1a1d25`, `--muted-foreground: #9ba1a6`, `--border: rgba(255,255,255,0.06)`, `--primary: #FF7B00`, `--primary-foreground: #ffffff`
+- Updated `@theme inline` block: `--font-sans` now maps to `var(--font-inter)`, added `--font-heading: var(--font-outfit)`
+- Simplified `.dark` class to mirror `:root` (both dark)
+- Hero gradient: changed from animated warm orange gradient to `#0a0c10` with radial orange glow at 50% 20% (`rgba(255,123,0,0.15)`)
+- Glass classes: updated to `rgba(255,255,255,0.03)` bg with `rgba(255,255,255,0.06)` border
+- Added `.glass-card` class with hover orange glow border effect
+- Orange glow: changed from `#F97316` to `#FF7B00` across all glow effects
+- Custom scrollbar: dark track (`#0a0c10`) with dark thumb that highlights to `#FF7B00` on hover
+
+**3. `/src/components/cnb/homepage/HeroSection.tsx`**
+- Background: `#0a0c10` with radial orange glow via `hero-gradient` class
+- Floating decorations: changed from bright white/orange to subtle `#FF7B00` with low opacity
+- Logo container: dark glass style with `bg-white/[0.03]` and `border-white/[0.06]`
+- Logo glow layers: gradient from `#FF7B00` to `#FF9F1C`
+- CTA primary button: gradient from `#FF7B00` to `#FF9F1C` with white text
+- CTA secondary buttons: dark glass borders `border-white/[0.06]`
+- Trust badges: `glass-card` with `#FF7B00` icon colors, `#f0f2f5` text, `#9ba1a6` descriptions
+- Bottom fade: from `#0a0c10` instead of orange-50
+
+**4. `/src/components/cnb/Navbar.tsx`**
+- Scrolled state: `bg-[#0a0c10]/85` with `backdrop-blur-xl` and `border-white/[0.06]`
+- Nav links active: `text-[#FF7B00]` with `bg-[#FF7B00]/10`
+- Nav links inactive (scrolled): `text-[#9ba1a6]` with `hover:text-[#FF7B00]`
+- CTA button: gradient from `#FF7B00` to `#FF9F1C`
+- Mobile menu: dark text colors matching theme
+- All orange-400/500/600 references replaced with `#FF7B00`/`#FF9F1C`
+
+**5. `/src/components/cnb/Footer.tsx`**
+- Background: solid `bg-[#050608]` (deepest dark)
+- Text: `text-[#9ba1a6]` for body, `text-[#f0f2f5]` for headings
+- Orange accents: `#FF7B00` (was orange-400) for icons and hover states
+- Logo glow: gradient from `#FF7B00` to `#FF9F1C`
+- CTA button: gradient from `#FF7B00` to `#FF9F1C`
+- Bottom bar border: `border-white/[0.06]`
+
+**6. `/src/components/cnb/homepage/BookingCalendar.tsx`**
+- Background decorations: subtle `#FF7B00` with very low opacity glows
+- Section badge: `bg-[#FF7B00]/10` with `text-[#FF7B00]`
+- Step indicators: gradient from `#FF7B00` to `#FF9F1C`
+- Trust badges: `glass-card` with `#FF7B00` icons
+- Calendar card glow border: `#FF7B00` to `#FF9F1C` gradient
+- iframe container: `bg-[#0f1117]` with `border-[rgba(255,255,255,0.06)]`
+- Bottom note: `bg-[#FF7B00]/10` with `text-[#FF9F1C]`
+- Contact sidebar cards: `glass-card` with dark icon backgrounds (`bg-green-500/10`, `bg-blue-500/10`)
+- Quick info card: `bg-[#FF7B00]/5` with subtle border
+
+**Key Design Decisions:**
+- Dark mode is now the ONLY mode — `className="dark"` on `<html>` ensures permanent dark rendering
+- All color references use hex values (`#FF7B00`, `#FF9F1C`, `#0a0c10`) for consistency with reference design
+- Glass effect uses very subtle `rgba(255,255,255,0.03)` backgrounds for premium depth
+- Orange primary shifted from Tailwind `orange-500` (#F97316) to reference `#FF7B00`
+- Added `.glass-card` CSS utility class for reusable service-card styling with hover orange glow
+- All animations preserved (float, pulse-glow, stagger entries, orbit ring spin)
+- No content, functionality, routing, or API logic changed
+- ESLint passes with zero errors, dev server serves 200

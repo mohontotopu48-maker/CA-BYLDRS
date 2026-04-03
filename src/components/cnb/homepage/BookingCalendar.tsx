@@ -38,15 +38,15 @@ export default function BookingCalendar() {
   return (
     <section id="booking" className="relative py-20 md:py-28 overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-orange-50/30 to-background" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-orange-100/30 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-orange-200/20 blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 left-0 w-72 h-72 rounded-full bg-amber-100/20 blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-[#FF7B00]/5 to-background" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-[#FF7B00]/5 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-[#FF9F1C]/3 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-72 h-72 rounded-full bg-[#FF7B00]/3 blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <AnimatedSection className="text-center mb-10 md:mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-sm font-semibold mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF7B00]/10 text-[#FF7B00] text-sm font-semibold mb-6">
             <Calendar className="h-4 w-4" />
             <span>Book Your Service</span>
           </div>
@@ -66,7 +66,7 @@ export default function BookingCalendar() {
               return (
                 <div key={step.num} className="flex items-center gap-2 sm:gap-4">
                   <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/30">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#FF7B00] to-[#FF9F1C] flex items-center justify-center shadow-lg shadow-[#FF7B00]/30">
                       <StepIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                     </div>
                     <div className="hidden sm:block">
@@ -77,8 +77,8 @@ export default function BookingCalendar() {
                   </div>
                   {idx < STEPS.length - 1 && (
                     <>
-                      <ArrowRight className="h-5 w-5 text-orange-300 mx-1 sm:mx-2 hidden sm:block" />
-                      <div className="sm:hidden w-6 h-0.5 bg-orange-300 mx-1" />
+                      <ArrowRight className="h-5 w-5 text-[#FF7B00] mx-1 sm:mx-2 hidden sm:block" />
+                      <div className="sm:hidden w-6 h-0.5 bg-[#FF7B00] mx-1" />
                     </>
                   )}
                 </div>
@@ -95,9 +95,9 @@ export default function BookingCalendar() {
               return (
                 <div
                   key={badge.label}
-                  className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 rounded-xl bg-white dark:bg-neutral-900 border border-orange-100 dark:border-orange-800/30 shadow-sm hover:shadow-md transition-shadow"
+                  className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 rounded-xl glass-card hover:shadow-md transition-shadow"
                 >
-                  <BadgeIcon className="h-4 w-4 sm:h-5 sm:w-5 text-orange-500 shrink-0" />
+                  <BadgeIcon className="h-4 w-4 sm:h-5 sm:w-5 text-[#FF7B00] shrink-0" />
                   <div>
                     <p className="text-xs sm:text-sm font-semibold text-foreground leading-tight">{badge.label}</p>
                     <p className="text-[10px] sm:text-xs text-muted-foreground hidden sm:block">{badge.desc}</p>
@@ -114,17 +114,17 @@ export default function BookingCalendar() {
           <AnimatedSection delay={0.2}>
             <div className="relative">
               {/* Animated glow border */}
-              <div className="absolute -inset-[2px] bg-gradient-to-r from-orange-400 via-orange-500 to-amber-400 rounded-3xl opacity-30 blur-sm animate-pulse-glow" />
-              <div className="absolute -inset-[1px] bg-gradient-to-r from-orange-400 via-orange-500 to-amber-400 rounded-3xl opacity-60" />
+              <div className="absolute -inset-[2px] bg-gradient-to-r from-[#FF7B00] via-[#FF9F1C] to-[#FF7B00] rounded-3xl opacity-30 blur-sm animate-pulse-glow" />
+              <div className="absolute -inset-[1px] bg-gradient-to-r from-[#FF7B00] via-[#FF9F1C] to-[#FF7B00] rounded-3xl opacity-60" />
 
-              <div className="relative bg-card rounded-3xl shadow-2xl shadow-orange-900/10 overflow-hidden">
+              <div className="relative bg-card rounded-3xl shadow-2xl shadow-[#FF7B00]/5 overflow-hidden">
                 {/* Card header accent */}
-                <div className="h-1.5 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600" />
+                <div className="h-1.5 bg-gradient-to-r from-[#FF7B00] via-[#FF9F1C] to-[#FF7B00]" />
 
                 <div className="p-4 sm:p-6 md:p-8">
                   {/* Calendar heading inside card */}
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/30">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FF7B00] to-[#FF9F1C] flex items-center justify-center shadow-lg shadow-[#FF7B00]/30">
                       <Calendar className="h-6 w-6 text-white" />
                     </div>
                     <div>
@@ -134,7 +134,7 @@ export default function BookingCalendar() {
                   </div>
 
                   {/* iframe booking calendar */}
-                  <div className="rounded-xl overflow-hidden border border-border bg-white">
+                  <div className="rounded-xl overflow-hidden border border-[rgba(255,255,255,0.06)] bg-[#0f1117]">
                     <iframe
                       ref={iframeRef}
                       src="https://api.leadconnectorhq.com/widget/booking/4TnklQgWAtDSES0CaoDc"
@@ -148,8 +148,8 @@ export default function BookingCalendar() {
                   </div>
 
                   {/* Bottom note */}
-                  <div className="mt-6 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
-                    <p className="text-sm text-orange-700 dark:text-orange-300 text-center">
+                  <div className="mt-6 p-4 bg-[#FF7B00]/10 rounded-xl">
+                    <p className="text-sm text-[#FF9F1C] text-center">
                       <strong>Note:</strong> After booking, our team will review your request and connect you with the best available professional in your area. You&apos;ll receive a confirmation within 24 hours.
                     </p>
                   </div>
@@ -163,11 +163,11 @@ export default function BookingCalendar() {
             <div className="space-y-4 lg:sticky lg:top-24">
               {/* Glowing CTA */}
               <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-orange-400 to-orange-600 rounded-2xl opacity-40 blur-md animate-pulse-glow" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#FF7B00] to-[#FF9F1C] rounded-2xl opacity-40 blur-md animate-pulse-glow" />
                 <Button
                   onClick={() => navigate('contact')}
                   size="lg"
-                  className="relative w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-6 text-base rounded-2xl shadow-xl transition-all duration-300 cursor-pointer h-auto"
+                  className="relative w-full bg-gradient-to-r from-[#FF7B00] to-[#FF9F1C] hover:from-[#FF9F1C] hover:to-[#FF7B00] text-white font-bold py-6 text-base rounded-2xl shadow-xl transition-all duration-300 cursor-pointer h-auto"
                 >
                   Book Now
                   <ChevronRight className="size-5 ml-2" />
@@ -177,10 +177,10 @@ export default function BookingCalendar() {
               {/* Phone Option */}
               <a
                 href="tel:+15629440500"
-                className="flex items-center gap-3 p-4 rounded-2xl bg-white dark:bg-neutral-900 border border-orange-100 dark:border-orange-800/30 shadow-sm hover:shadow-md hover:border-orange-200 transition-all group"
+                className="flex items-center gap-3 p-4 rounded-2xl glass-card hover:shadow-md hover:border-[#FF7B00]/20 transition-all group"
               >
-                <div className="w-11 h-11 rounded-xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center shrink-0 group-hover:bg-green-200 dark:group-hover:bg-green-900/50 transition-colors">
-                  <Phone className="h-5 w-5 text-green-600" />
+                <div className="w-11 h-11 rounded-xl bg-green-500/10 flex items-center justify-center shrink-0 group-hover:bg-green-500/20 transition-colors">
+                  <Phone className="h-5 w-5 text-green-500" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Call Us Directly</p>
@@ -191,10 +191,10 @@ export default function BookingCalendar() {
               {/* Email Option */}
               <a
                 href="mailto:info.vsualdm@gmail.com"
-                className="flex items-center gap-3 p-4 rounded-2xl bg-white dark:bg-neutral-900 border border-orange-100 dark:border-orange-800/30 shadow-sm hover:shadow-md hover:border-orange-200 transition-all group"
+                className="flex items-center gap-3 p-4 rounded-2xl glass-card hover:shadow-md hover:border-[#FF7B00]/20 transition-all group"
               >
-                <div className="w-11 h-11 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0 group-hover:bg-blue-200 dark:group-hover:bg-blue-900/50 transition-colors">
-                  <Mail className="h-5 w-5 text-blue-600" />
+                <div className="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0 group-hover:bg-blue-500/20 transition-colors">
+                  <Mail className="h-5 w-5 text-blue-500" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Email Us</p>
@@ -203,8 +203,8 @@ export default function BookingCalendar() {
               </a>
 
               {/* Quick Info */}
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950/30 dark:to-amber-950/30 border border-orange-100 dark:border-orange-800/30">
-                <p className="text-xs text-orange-600 dark:text-orange-400 font-semibold uppercase tracking-wider mb-2">
+              <div className="p-4 rounded-2xl bg-[#FF7B00]/5 border border-[rgba(255,255,255,0.06)]">
+                <p className="text-xs text-[#FF7B00] font-semibold uppercase tracking-wider mb-2">
                   Quick Info
                 </p>
                 <div className="space-y-1.5 text-sm text-muted-foreground">

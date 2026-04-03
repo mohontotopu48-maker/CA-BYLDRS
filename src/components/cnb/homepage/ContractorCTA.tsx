@@ -146,7 +146,7 @@ export default function ContractorCTA() {
                   </div>
                 </div>
                 <a
-                  href="https://chat.whatsapp.com/DUd7H5GOSO3Al5KsTPt1oj"
+                  href="https://chat.whatsapp.com/Hn4Ox86GwWz0Wp1oDQ6aA0"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-green-700 dark:text-green-400 hover:text-green-800 transition-colors"

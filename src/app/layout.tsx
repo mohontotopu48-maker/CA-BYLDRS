@@ -1,23 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#F97316',
+  themeColor: '#0a0c10',
 };
 
 export const metadata: Metadata = {
@@ -62,7 +64,7 @@ export const metadata: Metadata = {
     description: "Connecting homeowners with verified local professionals in OC & LA County. No spam, no shared leads.",
     images: ["https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"],
   },
-  alternates: { canonical: "https://cabyldrs.com" },
+  alternates: { canonical: "https://cabyldrs.com", domains: ["cabyldrs.com", "nxlbyldr.com"] },
 };
 
 export default function RootLayout({
@@ -71,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       {/* Structured Data - LocalBusiness */}
       <script
         type="application/ld+json"
@@ -86,7 +88,7 @@ export default function RootLayout({
             email: 'info.vsualdm@gmail.com',
             address: { '@type': 'PostalAddress', streetAddress: '3400 Twilight Dr.', addressLocality: 'Fullerton', addressRegion: 'CA', postalCode: '92835', addressCountry: 'US' },
             areaServed: [{ '@type': 'AdministrativeArea', name: 'Orange County' }, { '@type': 'AdministrativeArea', name: 'Los Angeles County' }],
-            serviceType: ['Plumbing', 'Roofing', 'Cleaning', 'Pest Control', 'HVAC', 'Electrical', 'Handyman', 'Painting'],
+            serviceType: ['Plumbing', 'Roofing', 'Cleaning', 'Pest Control', 'HVAC', 'Electrical', 'Handyman', 'Painting', 'Junk Removal'],
             openingHours: ['Mo-Fr 08:00-18:00', 'Sa 09:00-15:00'],
             priceRange: 'Free',
             image: 'https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png',
@@ -106,7 +108,7 @@ export default function RootLayout({
         <link rel="icon" href="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png" type="image/png" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        className={`${outfit.variable} ${inter.variable} antialiased bg-background text-foreground`}
       >
         {children}
         <Toaster />

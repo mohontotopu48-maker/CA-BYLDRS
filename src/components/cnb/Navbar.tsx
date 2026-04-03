@@ -33,7 +33,7 @@ export function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         scrolled || !isHome
-          ? 'bg-white/90 dark:bg-neutral-900/90 backdrop-blur-xl shadow-sm border-b border-orange-100/50 dark:border-orange-900/20'
+          ? 'bg-[#0a0c10]/85 backdrop-blur-xl shadow-sm border-b border-white/[0.06]'
           : 'bg-transparent'
       )}
     >
@@ -64,9 +64,9 @@ export function Navbar() {
                 className={cn(
                   'px-3 xl:px-4 py-2 rounded-lg text-sm font-medium transition-all',
                   currentPage === link.href
-                    ? 'text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/20'
+                    ? 'text-[#FF7B00] bg-[#FF7B00]/10'
                     : scrolled || !isHome
-                    ? 'text-foreground/70 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-orange-50/50 dark:hover:bg-orange-900/10'
+                    ? 'text-[#9ba1a6] hover:text-[#FF7B00] hover:bg-white/[0.03]'
                     : 'text-white/80 hover:text-white hover:bg-white/10'
                 )}
               >
@@ -83,7 +83,7 @@ export function Navbar() {
               onClick={() => handleNav('emergency')}
               className={cn(
                 'gap-1.5',
-                scrolled || !isHome ? 'text-red-600 hover:text-red-700 hover:bg-red-50' : 'text-white hover:bg-white/10'
+                scrolled || !isHome ? 'text-red-500 hover:text-red-400 hover:bg-red-500/10' : 'text-white hover:bg-white/10'
               )}
             >
               <Phone className="h-4 w-4" />
@@ -91,7 +91,7 @@ export function Navbar() {
             </Button>
             <Button
               onClick={() => handleNav('contact')}
-              className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-md hover:shadow-lg cta-glow transition-all"
+              className="bg-gradient-to-r from-[#FF7B00] to-[#FF9F1C] hover:from-[#FF9F1C] hover:to-[#FF7B00] text-white shadow-md hover:shadow-lg cta-glow transition-all"
             >
               Request Service
               <ChevronRight className="h-4 w-4 ml-1" />
@@ -104,7 +104,7 @@ export function Navbar() {
               variant="ghost"
               size="icon"
               onClick={() => handleNav('emergency')}
-              className="text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20"
+              className="text-red-500 hover:bg-red-500/10"
             >
               <Phone className="h-5 w-5" />
             </Button>
@@ -114,7 +114,7 @@ export function Navbar() {
                   variant="ghost"
                   size="icon"
                   className={cn(
-                    scrolled || !isHome ? 'text-foreground' : 'text-white'
+                    scrolled || !isHome ? 'text-[#f0f2f5]' : 'text-white'
                   )}
                 >
                   <Menu className="h-5 w-5" />
@@ -148,8 +148,8 @@ export function Navbar() {
                         className={cn(
                           'w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all',
                           currentPage === link.href
-                            ? 'text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/20'
-                            : 'text-foreground/70 hover:text-foreground hover:bg-muted'
+                            ? 'text-[#FF7B00] bg-[#FF7B00]/10'
+                            : 'text-[#9ba1a6] hover:text-[#f0f2f5] hover:bg-muted'
                         )}
                       >
                         {link.label}
@@ -159,14 +159,14 @@ export function Navbar() {
                   <div className="p-4 border-t border-border space-y-3">
                     <Button
                       variant="outline"
-                      className="w-full gap-2 border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700"
+                      className="w-full gap-2 border-red-500/20 text-red-500 hover:bg-red-500/10 hover:text-red-400"
                       onClick={() => handleNav('emergency')}
                     >
                       <Phone className="h-4 w-4" />
                       Emergency Help
                     </Button>
                     <Button
-                      className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white"
+                      className="w-full bg-gradient-to-r from-[#FF7B00] to-[#FF9F1C] hover:from-[#FF9F1C] hover:to-[#FF7B00] text-white"
                       onClick={() => handleNav('contact')}
                     >
                       Request Service

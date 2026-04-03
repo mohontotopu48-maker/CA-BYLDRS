@@ -25,7 +25,7 @@ export function WhatsAppButton() {
             Join our WhatsApp community for instant updates, exclusive deals, and direct support from our team.
           </p>
           <a
-            href="https://chat.whatsapp.com/DUd7H5GOSO3Al5KsTPt1oj"
+            href="https://chat.whatsapp.com/Hn4Ox86GwWz0Wp1oDQ6aA0"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick('floating_button')}

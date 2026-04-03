@@ -40,6 +40,7 @@ const SERVICE_CATEGORIES = [
   'Electrical',
   'Handyman',
   'Painting',
+  'Junk Removal',
 ] as const;
 
 const SERVICE_AREAS = ['Orange County', 'Los Angeles County'] as const;
