@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Shield, Clock, MapPin, ChevronRight, Phone, Users } from 'lucide-react';
+import { Shield, MapPin, ChevronRight, Phone, Users } from 'lucide-react';
 import { useRouter } from '@/lib/router-store';
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/cnb/AnimatedSection';
 import { Button } from '@/components/ui/button';
@@ -48,9 +48,9 @@ export default function HeroSection() {
           {/* Headline */}
           <AnimatedSection delay={0.1}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-lg">
-              Trusted Local Home Services
+              Trust Your Local Pro
               <span className="block mt-2 sm:mt-3">
-                for Orange County & Los Angeles County
+                Not a Lead Farm
               </span>
             </h1>
           </AnimatedSection>
@@ -58,7 +58,7 @@ export default function HeroSection() {
           {/* Subheadline */}
           <AnimatedSection delay={0.25}>
             <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-              Get connected with verified local professionals for plumbing, roofing, cleaning, pest control, HVAC, electrical, handyman services, and more.
+              Unlike Angi or HomeAdvisor, we never sell your info to 5+ contractors. Your request goes to only 1-3 community-trusted, licensed professionals in Orange County & Los Angeles County. No spam. No shared leads. Just real local experts who show up.
             </p>
           </AnimatedSection>
 
@@ -111,8 +111,8 @@ export default function HeroSection() {
                     <Shield className="size-5 text-white" />
                   </div>
                   <div className="text-left">
-                    <p className="text-sm sm:text-base font-semibold text-white">Verified Local Pros</p>
-                    <p className="text-xs text-white/60 hidden sm:block">Licensed & insured experts</p>
+                    <p className="text-sm sm:text-base font-semibold text-white">Never Shared Leads</p>
+                    <p className="text-xs text-white/60 hidden sm:block">Your request goes to 1-3 pros, not 5+</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -120,11 +120,11 @@ export default function HeroSection() {
               <StaggerItem>
                 <div className="glass rounded-xl px-4 py-4 sm:px-6 sm:py-5 flex items-center justify-center gap-3 hover:bg-white/20 transition-all duration-300 group">
                   <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                    <Clock className="size-5 text-white" />
+                    <Shield className="size-5 text-white" />
                   </div>
                   <div className="text-left">
-                    <p className="text-sm sm:text-base font-semibold text-white">Fast Lead Response</p>
-                    <p className="text-xs text-white/60 hidden sm:block">Quick quote turnaround</p>
+                    <p className="text-sm sm:text-base font-semibold text-white">Zero Spam Guarantee</p>
+                    <p className="text-xs text-white/60 hidden sm:block">No unwanted calls or emails</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -135,8 +135,8 @@ export default function HeroSection() {
                     <MapPin className="size-5 text-white" />
                   </div>
                   <div className="text-left">
-                    <p className="text-sm sm:text-base font-semibold text-white">County-Based Matching</p>
-                    <p className="text-xs text-white/60 hidden sm:block">Serving OC & LA County</p>
+                    <p className="text-sm sm:text-base font-semibold text-white">100% Local & Verified</p>
+                    <p className="text-xs text-white/60 hidden sm:block">Licensed pros in OC & LA only</p>
                   </div>
                 </div>
               </StaggerItem>

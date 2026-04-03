@@ -88,3 +88,103 @@ Stage Summary:
 - Interactive tab switcher between Customer and Contractor journeys
 - All contact info verified consistent across all pages
 - Zero lint errors, clean compilation
+
+---
+## Task ID: 3 - SocialProof Component Builder
+### Work Task
+Create a new SocialProof testimonials/social proof section component at `/src/components/cnb/homepage/SocialProof.tsx` for the CA BYLDRS project.
+
+### Work Summary
+- Created `SocialProof.tsx` with all specified requirements:
+  - `'use client'` directive with proper imports (AnimatedSection, StaggerContainer, StaggerItem)
+  - 6 testimonial cards: 3 homeowners (Maria G., David L., Sarah K.) and 3 contractors (Mike R., James T., Ana P.) with exact quotes, locations, and service badges
+  - Tab switcher with animated indicator (`layoutId="testimonial-tab"`) matching ServiceJourney design — orange for Homeowners, teal for Contractors
+  - Star ratings using Lucide `Star` icon (filled amber for active stars)
+  - Gradient avatar placeholders with initials (no real photos)
+  - Quote icon (`Quote` from Lucide) for visual emphasis
+  - Service type badges with contextual icons (`Users` for homeowners, `HardHat` for contractors)
+  - Horizontal scrollable cards on mobile (`overflow-x-auto`, `snap-x`, `snap-mandatory`), 3-column grid on desktop (`lg:grid-cols-3`)
+  - Hover lift effect (`whileHover={{ y: -6 }}`) with spring animation
+  - Stagger animation entry on desktop cards
+  - AnimatePresence for smooth tab transitions
+  - Bottom trust indicator bar showing avatar stack with "500+ Happy Customers" and 4.9 average rating
+  - Orange theme throughout with subtle background gradients, floating decorative dots, and accent borders
+  - White cards with subtle orange border and shadow, hover glow effect
+- ESLint passes with zero errors
+- Dev server running with no runtime issues
+
+---
+## Task ID: 3 - hero-content-rewrite
+### Work Task
+Rewrite HeroSection component content to emphasize trust, anti-spam messaging, and competitor differentiation based on Angi/Thumbtack/HomeAdvisor research findings.
+
+### Work Summary
+- Rewrote `/src/components/cnb/homepage/HeroSection.tsx` with new competitor-differentiating content
+- **Headline**: Changed from "Trusted Local Home Services" to "Trust Your Local Pro / Not a Lead Farm" — directly addresses the #1 homeowner fear
+- **Subheadline**: Completely rewritten to call out competitors by name (Angi, HomeAdvisor), highlight NO shared leads (1-3 pros, not 5+), zero spam, and community-trusted local experts in OC & LA County
+- **Trust badges**: Replaced generic badges with pain-point-solving ones:
+  1. "Never Shared Leads" (Shield icon) — "Your request goes to 1-3 pros, not 5+"
+  2. "Zero Spam Guarantee" (Shield icon) — "No unwanted calls or emails"
+  3. "100% Local & Verified" (MapPin icon) — "Licensed pros in OC & LA only"
+- **CTA buttons**: Kept identical (Request Service, Emergency Help, Become a Partner)
+- **Visual design**: Preserved all animation classes (AnimatedSection, StaggerContainer, StaggerItem), framer-motion imports, lucide icons, glass/animate-float/hero-gradient CSS classes, floating blobs, and layout structure
+- Removed unused `Clock` icon import, added second `Shield` for duplicate badge usage
+- ESLint passes with zero errors, dev server serves 200
+
+---
+## Task ID: 4 - WhyUsVsThem Component Builder
+### Work Task
+Create a new "Why CA BYLDRS vs Other Platforms" comparison section at `/src/components/cnb/homepage/WhyUsVsThem.tsx`.
+
+### Work Summary
+- Created `WhyUsVsThem.tsx` with all specified requirements:
+  - `'use client'` directive with AnimatedSection, StaggerContainer, StaggerItem imports
+  - 6-row comparison table covering: Lead Sharing, Spam & Noise, Verification, Local Expertise, Cost for Homeowners, Cost for Contractors
+  - Desktop: 3-column table (Feature | Other Platforms | CA BYLDRS) with dark gradient header
+  - Mobile: Stacked cards with feature header, "Other Platforms" and "CA BYLDRS" sub-rows
+  - "Other Platforms" column styled with red XCircle icons and muted text
+  - "CA BYLDRS" column styled with green CheckCircle2 icons and bold text
+  - Gradient badge at top with pulsing dot: "Why Homeowners Switch to CA BYLDRS"
+  - Competitor name strip showing Angi, Thumbtack, HomeAdvisor, Porch, Others with XCircle indicators
+  - Alternating row backgrounds with hover effects (orange-tinted on hover)
+  - Each feature row has contextual Lucide icons (Users, Megaphone, Shield, MapPin, BadgeDollarSign, ShieldAlert)
+  - Table footer with emerald-to-orange gradient and trust message
+  - Bottom trust message bar with 3 trust indicators (No hidden fees, Real humans verify, 100% local)
+  - Dark mode support throughout with dark: variants
+  - Decorative background blurred orbs (orange and emerald)
+  - Staggered animation entry for all rows
+  - ESLint passes with zero errors, dev server clean
+
+---
+Task ID: 3
+Agent: Main Agent
+Task: Competitor research, trust-local content strategy, and full website redesign
+
+Work Log:
+- Performed 6 web searches researching competitors (Angi, Thumbtack, HomeAdvisor, Porch, Bark)
+- Analyzed Trustpilot reviews (Angi 2.3/5, 37K+ negative reviews)
+- Identified key competitor failures: shared leads (5+), fake leads, $180-200/lead, spam calls, no verification, no local focus
+- Researched OC market: $1.1M median home price, 80% contractor labor shortage, 4.1% unemployment
+- Researched trust-building best practices: social proof near conversion points, specific metrics, business credentials
+- Researched CRO best practices: simplified forms, clear CTAs, trust signals, performance
+
+Content & UI Redesign (11 sections):
+1. HeroSection: "Trust Your Local Pro / Not a Lead Farm" — calls out competitors by name, anti-spam messaging
+2. TrustBar: 6 trust metrics (Never Shared Leads, 3-Step Verified, 100% Local, 500+ Customers, <5 Min Match, Always Free)
+3. NEW WhyUsVsThem: 6-row comparison table (CA BYLDRS vs Other Platforms) with red X/green checkmark indicators
+4. ServicesGrid: Kept existing (8 service cards)
+5. ServiceJourney: Kept existing (Customer + Contractor mind map with tab switcher)
+6. WhyChooseUs: 6 new differentiator cards addressing competitor pain points (Your Lead Your Choice, Zero Spam, Licensed/Insured/Background-Checked, Hyper-Local, Always Free, Community-Driven)
+7. NEW SocialProof: 6 testimonials (3 homeowners, 3 contractors) with tab switcher, star ratings, avatar initials, horizontal scroll mobile
+8. CountyCoverage: Kept existing
+9. BookingCalendar: Kept existing
+10. HighIntentCTA: "Ready to Find a Pro You Can Actually Trust?" with trust micro-bar
+11. ContractorCTA: "Other Platforms Are Rigged Against You. We're Different." with pain point cards, contractor testimonial, WhatsApp community card
+
+Stage Summary:
+- Full competitor research completed across 6 search queries
+- "Trust Local" content strategy applied to entire homepage
+- 2 new sections created (WhyUsVsThem comparison table, SocialProof testimonials)
+- 5 existing sections completely rewritten with competitor-aware content
+- Every piece of content addresses a specific competitor weakness
+- Zero lint errors, clean compilation, dev server serves 200

@@ -8,13 +8,15 @@ import { Footer } from '@/components/cnb/Footer';
 // Homepage sections
 import HeroSection from '@/components/cnb/homepage/HeroSection';
 import TrustBar from '@/components/cnb/homepage/TrustBar';
+import WhyUsVsThem from '@/components/cnb/homepage/WhyUsVsThem';
 import ServicesGrid from '@/components/cnb/homepage/ServicesGrid';
 import ServiceJourney from '@/components/cnb/homepage/ServiceJourney';
 import WhyChooseUs from '@/components/cnb/homepage/WhyChooseUs';
+import SocialProof from '@/components/cnb/homepage/SocialProof';
 import CountyCoverage from '@/components/cnb/homepage/CountyCoverage';
+import BookingCalendar from '@/components/cnb/homepage/BookingCalendar';
 import HighIntentCTA from '@/components/cnb/homepage/HighIntentCTA';
 import ContractorCTA from '@/components/cnb/homepage/ContractorCTA';
-import BookingCalendar from '@/components/cnb/homepage/BookingCalendar';
 
 // Inner pages
 import ServicePage from '@/components/cnb/pages/ServicePage';
@@ -66,11 +68,13 @@ function HomePage() {
     <>
       <HeroSection />
       <TrustBar />
+      <WhyUsVsThem />
       <ServicesGrid />
       <div id="journey-section">
         <ServiceJourney />
       </div>
       <WhyChooseUs />
+      <SocialProof />
       <CountyCoverage />
       <div id="booking-section">
         <BookingCalendar />
