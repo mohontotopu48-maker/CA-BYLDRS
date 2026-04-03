@@ -19,9 +19,13 @@ type PageKey =
   | 'privacy'
   | 'terms';
 
+interface NavigateOptions {
+  scroll?: boolean;
+}
+
 interface RouterState {
   currentPage: PageKey;
-  navigate: (page: PageKey) => void;
+  navigate: (page: PageKey, options?: NavigateOptions) => void;
   goBack: () => void;
   history: PageKey[];
 }
@@ -63,10 +67,14 @@ export function RouterProvider({ children }: { children: React.ReactNode }) {
   const [currentPage, setCurrentPage] = useState<PageKey>('home');
   const [history, setHistory] = useState<PageKey[]>(['home']);
 
-  const navigate = useCallback((page: PageKey) => {
+  const navigate = useCallback((page: PageKey, options?: NavigateOptions) => {
     setCurrentPage(page);
     setHistory((prev) => [...prev, page]);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Only scroll to top if not explicitly disabled (e.g. for section scroll)
+    if (options?.scroll !== false) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
     // Track virtual pageview in GHL
     trackPageView(page, getPageTitle(page));

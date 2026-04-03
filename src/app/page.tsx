@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { RouterProvider, useRouter, parsePageKey } from '@/lib/router-store';
 import { Navbar } from '@/components/cnb/Navbar';
 import { Footer } from '@/components/cnb/Footer';
@@ -34,13 +35,21 @@ function BookingPage() {
   const { navigate } = useRouter();
 
   useEffect(() => {
-    navigate('home');
-    setTimeout(() => {
+    // Navigate to home without scrolling to top
+    navigate('home', { scroll: false });
+
+    // Wait for React to render, then scroll to booking section
+    const timer = setTimeout(() => {
       const el = document.getElementById('booking-section');
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Account for fixed navbar height
+        const offset = 80;
+        const top = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
-    }, 300);
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, [navigate]);
 
   return <HomePage />;
@@ -50,13 +59,21 @@ function JourneyPage() {
   const { navigate } = useRouter();
 
   useEffect(() => {
-    navigate('home');
-    setTimeout(() => {
+    // Navigate to home without scrolling to top
+    navigate('home', { scroll: false });
+
+    // Wait for React to render, then scroll to journey section
+    const timer = setTimeout(() => {
       const el = document.getElementById('journey-section');
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Account for fixed navbar height
+        const offset = 80;
+        const top = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
-    }, 300);
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, [navigate]);
 
   return <HomePage />;
