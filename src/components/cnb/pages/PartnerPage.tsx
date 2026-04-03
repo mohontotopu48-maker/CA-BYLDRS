@@ -312,7 +312,7 @@ export default function PartnerPage() {
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="(714) 555-0123"
+                    placeholder="+1 (562) 944-0500"
                     value={form.phone}
                     onChange={(e) => updateField('phone', e.target.value)}
                     required

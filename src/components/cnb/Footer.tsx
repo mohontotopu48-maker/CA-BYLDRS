@@ -35,7 +35,11 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2 text-sm text-neutral-400">
                 <Phone className="h-4 w-4 text-orange-400 shrink-0" />
-                <span>(714) 555-0199</span>
+                <a href="tel:+15629440500" className="hover:text-orange-400 transition-colors">+1 (562) 944-0500</a>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-neutral-400">
+                <MapPin className="h-4 w-4 text-orange-400 shrink-0" />
+                <span>3400 Twilight Dr. Fullerton, CA 92835</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-neutral-400">
                 <Mail className="h-4 w-4 text-orange-400 shrink-0" />

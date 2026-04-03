@@ -101,10 +101,10 @@ export default function EmergencyPage() {
                 Call Now for Immediate Help
               </h2>
               <a
-                href="tel:+17145550199"
+                href="tel:+15629440500"
                 className="text-3xl sm:text-4xl md:text-5xl font-bold text-red-600 hover:text-red-700 transition-colors inline-block"
               >
-                (714) 555-0199
+                +1 (562) 944-0500
               </a>
               <p className="mt-3 text-sm text-muted-foreground">
                 Available 24/7 for emergency requests
@@ -215,11 +215,11 @@ export default function EmergencyPage() {
                   <ChevronRight className="size-5 ml-1" />
                 </Button>
                 <a
-                  href="tel:+17145550199"
+                  href="tel:+15629440500"
                   className="inline-flex items-center justify-center gap-2 px-8 py-5 text-lg font-semibold rounded-xl border-2 border-white/40 text-white bg-white/10 hover:bg-white/20 hover:border-white/60 backdrop-blur-sm transition-all duration-300 h-auto"
                 >
                   <Phone className="size-5" />
-                  Call (714) 555-0199
+                  Call +1 (562) 944-0500
                 </a>
               </div>
             </CardContent>

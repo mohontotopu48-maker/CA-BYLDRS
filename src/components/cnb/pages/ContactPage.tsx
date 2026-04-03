@@ -163,7 +163,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-foreground">Phone</h3>
                       <p className="text-sm text-muted-foreground mt-0.5">
-                        (714) 555-0199
+                        <a href="tel:+15629440500" className="hover:text-orange-600 transition-colors">+1 (562) 944-0500</a>
                       </p>
                     </div>
                   </CardContent>
@@ -177,7 +177,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-foreground">Email</h3>
                       <p className="text-sm text-muted-foreground mt-0.5">
-                        info@californianextbuilder.com
+                        hello@cabyldrs.com
                       </p>
                     </div>
                   </CardContent>
@@ -189,9 +189,9 @@ export default function ContactPage() {
                       <MapPin className="size-5 text-orange-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground">Service Area</h3>
+                      <h3 className="font-semibold text-foreground">Address</h3>
                       <p className="text-sm text-muted-foreground mt-0.5">
-                        Orange County & Los Angeles County
+                        3400 Twilight Dr. Fullerton, CA 92835
                       </p>
                     </div>
                   </CardContent>
@@ -266,7 +266,7 @@ export default function ContactPage() {
                       <Input
                         id="phone"
                         type="tel"
-                        placeholder="(714) 555-0000"
+                        placeholder="+1 (562) 944-0500"
                         value={formData.phone}
                         onChange={(e) => handleChange('phone', e.target.value)}
                         required

@@ -209,9 +209,9 @@ export default function PrivacyPage() {
                   <p>
                     <strong className="text-stone-900 dark:text-stone-100">CA BYLDRS</strong>
                   </p>
-                  <p>Email: privacy@californianextbuilder.com</p>
-                  <p>Address: Orange County, California</p>
-                  <p>Phone: (714) 555-0199</p>
+                  <p>Email: privacy@cabyldrs.com</p>
+                  <p>Address: 3400 Twilight Dr. Fullerton, CA 92835, United States</p>
+                  <p>Phone: +1 (562) 944-0500</p>
                 </div>
               </div>
 
