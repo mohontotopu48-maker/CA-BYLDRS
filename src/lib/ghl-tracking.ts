@@ -22,25 +22,44 @@ declare global {
 /* Fire a GHL track event if the SDK is loaded */
 function ghlTrack(event: string, data?: Record<string, unknown>) {
   try {
-    // Push to GHL's dataLayer if available
-    if (typeof window !== 'undefined') {
-      // Standard GHL tracking approach
-      (window as unknown as Record<string, unknown>).__ghlTrack = event;
-      
-      // Also try the global function
-      const w = window as Window;
-      if (w.ghl?.track) {
-        w.ghl.track(event, data);
-      }
+    if (typeof window === 'undefined') return;
 
-      // Dispatch custom event for any additional listeners
-      window.dispatchEvent(
-        new CustomEvent('ghl:event', { detail: { event, data, timestamp: Date.now() } })
-      );
+    const w = window as any;
+
+    // Push to dataLayer (GTM/GHL style)
+    if (!w.dataLayer) w.dataLayer = [];
+    w.dataLayer.push({
+      event: `ghl_${event}`,
+      ...data,
+      timestamp: Date.now(),
+    });
+
+    // Try GHL native tracking
+    if (w.ghl?.track) {
+      w.ghl.track(event, data);
     }
+
+    // Also push to any GHL-specific tracking queues
+    if (!w.__ghlTrackQueue) w.__ghlTrackQueue = [];
+    w.__ghlTrackQueue.push({ event, data, timestamp: Date.now() });
+
+    // Update hash for SPA page tracking
+    if (event === 'page_view' && data?.page) {
+      history.replaceState(null, '', `#${data.page as string}`);
+    }
+
+    // Dispatch custom event
+    window.dispatchEvent(
+      new CustomEvent('ghl:event', { detail: { event, data, timestamp: Date.now() } })
+    );
   } catch {
     // Silently fail — tracking should never break the app
   }
+}
+
+/* Generic event tracker */
+export function trackEvent(event: string, data?: Record<string, unknown>) {
+  ghlTrack(event, data);
 }
 
 /* ── Page Visit Tracking ── */

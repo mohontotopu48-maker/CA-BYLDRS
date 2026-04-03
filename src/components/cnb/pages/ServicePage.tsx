@@ -13,6 +13,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Button } from '@/components/ui/button';
 import { ChevronRight, CheckCircle2, ArrowLeft, MapPin } from 'lucide-react';
 import type { PageKey } from '@/lib/router-store';
+import SharedMiniJourney from '@/components/cnb/SharedMiniJourney';
 
 interface ServicePageProps {
   slug: string;
@@ -89,6 +90,9 @@ export default function ServicePage({ slug }: ServicePageProps) {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Mini Journey */}
+      <SharedMiniJourney type="customer" />
 
       {/* Description Section */}
       <section className="py-12 sm:py-16 bg-white dark:bg-gray-950">

@@ -14,6 +14,7 @@ import {
   MapPin,
   ChevronRight,
 } from 'lucide-react';
+import SharedMiniJourney from '@/components/cnb/SharedMiniJourney';
 
 const differentiators = [
   {
@@ -82,6 +83,9 @@ export default function AboutPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Mini Journey */}
+      <SharedMiniJourney type="customer" />
 
       {/* Main Content */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20">

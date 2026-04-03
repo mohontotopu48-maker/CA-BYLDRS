@@ -26,6 +26,7 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { trackFormSubmit } from '@/lib/ghl-tracking';
+import SharedMiniJourney from '@/components/cnb/SharedMiniJourney';
 
 interface FormData {
   fullName: string;
@@ -149,6 +150,9 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Mini Journey */}
+      <SharedMiniJourney type="customer" />
+
       {/* Two-column layout */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
@@ -188,7 +192,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-foreground">Email</h3>
                       <p className="text-sm text-muted-foreground mt-0.5">
-                        hello@cabyldrs.com
+                        <a href="mailto:info.vsualdm@gmail.com" className="hover:text-orange-600 transition-colors">info.vsualdm@gmail.com</a>
                       </p>
                     </div>
                   </CardContent>

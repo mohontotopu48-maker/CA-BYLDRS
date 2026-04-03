@@ -4,6 +4,7 @@ import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/cnb
 import { useRouter } from '@/lib/router-store';
 import { services } from '@/lib/data';
 import { ChevronRight } from 'lucide-react';
+import SharedMiniJourney from '@/components/cnb/SharedMiniJourney';
 
 export default function ServicesOverviewPage() {
   const { navigate } = useRouter();
@@ -33,6 +34,9 @@ export default function ServicesOverviewPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Mini Journey */}
+      <SharedMiniJourney type="customer" />
 
       {/* Services List */}
       <section className="py-16 md:py-24">

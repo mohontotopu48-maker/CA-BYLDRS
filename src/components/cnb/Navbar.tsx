@@ -45,11 +45,11 @@ export function Navbar() {
             className="flex items-center gap-2 group"
           >
             <div className="relative">
-              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-orange-400 to-orange-600 opacity-0 group-hover:opacity-40 blur-sm transition-opacity duration-500" />
+              <div className="absolute -inset-1.5 rounded-xl bg-gradient-to-r from-orange-400 to-orange-600 opacity-50 group-hover:opacity-80 blur-md transition-opacity duration-500 animate-pulse-glow" />
               <img
                 src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
                 alt="CA BYLDRS Logo"
-                className="relative h-10 lg:h-11 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+                className="relative h-12 lg:h-14 w-auto object-contain rounded-lg transition-all duration-500 group-hover:scale-110 drop-shadow-lg"
               />
             </div>
           </button>

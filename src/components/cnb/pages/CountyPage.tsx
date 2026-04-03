@@ -11,6 +11,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, MapPin, ArrowLeft, Building2 } from 'lucide-react';
 import type { PageKey } from '@/lib/router-store';
+import SharedMiniJourney from '@/components/cnb/SharedMiniJourney';
 
 interface CountyPageProps {
   slug: string;
@@ -81,6 +82,9 @@ export default function CountyPage({ slug }: CountyPageProps) {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Mini Journey */}
+      <SharedMiniJourney type="customer" />
 
       {/* Cities Section */}
       <section className="py-12 sm:py-16 bg-white dark:bg-gray-950">

@@ -1,11 +1,14 @@
 'use client';
 
-import { CheckCircle2, XCircle, Shield, Users, MapPin, BadgeDollarSign, ShieldAlert, Megaphone } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { CheckCircle2, XCircle, Shield, Users, MapPin, BadgeDollarSign, ShieldAlert, Megaphone, Star, Zap, Award, ChevronRight } from 'lucide-react';
 import {
   AnimatedSection,
   StaggerContainer,
   StaggerItem,
 } from '@/components/cnb/AnimatedSection';
+import { useRouter } from '@/lib/router-store';
+import { Button } from '@/components/ui/button';
 
 interface ComparisonRow {
   feature: string;
@@ -55,7 +58,54 @@ const comparisons: ComparisonRow[] = [
 
 const competitorNames = ['Angi', 'Thumbtack', 'HomeAdvisor', 'Porch', 'Others'];
 
+const STATS = [
+  { value: 500, suffix: '+', label: 'Happy Customers', icon: Users },
+  { value: 200, suffix: '+', label: 'Verified Pros', icon: Award },
+  { value: 4.9, suffix: '★', label: 'Average Rating', icon: Star, isDecimal: true },
+  { value: 0, suffix: '', label: 'Spam Complaints', icon: Shield },
+];
+
+function AnimatedCounter({ value, suffix, isDecimal = false }: { value: number; suffix: string; isDecimal?: boolean }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          const duration = 2000;
+          const steps = 60;
+          const increment = value / steps;
+          let current = 0;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= value) {
+              setCount(value);
+              clearInterval(timer);
+            } else {
+              setCount(isDecimal ? parseFloat(current.toFixed(1)) : Math.floor(current));
+            }
+          }, duration / steps);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [value, isDecimal]);
+
+  return (
+    <div ref={ref} className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
+      {count}{suffix}
+    </div>
+  );
+}
+
 export default function WhyUsVsThem() {
+  const { navigate } = useRouter();
+
   return (
     <section className="relative py-20 md:py-28 bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900 overflow-hidden">
       {/* Background decorative elements */}
@@ -66,7 +116,7 @@ export default function WhyUsVsThem() {
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <AnimatedSection className="text-center mb-12 md:mb-16">
+        <AnimatedSection className="text-center mb-10 md:mb-14">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-5 rounded-full bg-orange-100 dark:bg-orange-900/30 border border-orange-200 dark:border-orange-800/40">
             <div className="relative flex h-2 w-2">
@@ -88,6 +138,27 @@ export default function WhyUsVsThem() {
             We&apos;re not just another lead marketplace. Here&apos;s how CA BYLDRS compares
             to the big national platforms.
           </p>
+        </AnimatedSection>
+
+        {/* Animated Stats Bar */}
+        <AnimatedSection delay={0.1} className="mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {STATS.map((stat) => {
+              const StatIcon = stat.icon;
+              return (
+                <div
+                  key={stat.label}
+                  className="text-center p-4 md:p-5 rounded-2xl bg-white dark:bg-stone-900/80 border border-stone-200/80 dark:border-stone-700/50 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mx-auto mb-2">
+                    <StatIcon className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+                  </div>
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} isDecimal={stat.isDecimal} />
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-1 font-medium">{stat.label}</p>
+                </div>
+              );
+            })}
+          </div>
         </AnimatedSection>
 
         {/* Competitor logos strip */}
@@ -150,20 +221,20 @@ export default function WhyUsVsThem() {
                           </span>
                         </div>
 
-                        {/* Other Platforms */}
-                        <div className="px-6 py-5 border-r border-stone-100 dark:border-stone-800/40">
+                        {/* Other Platforms - Red tinted */}
+                        <div className="px-6 py-5 border-r border-stone-100 dark:border-stone-800/40 bg-red-50/30 dark:bg-red-950/10">
                           <div className="flex items-center justify-center gap-2">
-                            <XCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
+                            <XCircle className="w-5 h-5 text-red-400 flex-shrink-0 animate-[bounce_2s_ease-in-out_infinite]" />
                             <span className="text-sm text-stone-500 dark:text-stone-400 text-center leading-snug">
                               {row.others}
                             </span>
                           </div>
                         </div>
 
-                        {/* CA BYLDRS */}
-                        <div className="px-6 py-5">
+                        {/* CA BYLDRS - Green tinted */}
+                        <div className="px-6 py-5 bg-emerald-50/30 dark:bg-emerald-950/10">
                           <div className="flex items-center justify-center gap-2">
-                            <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                            <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0 animate-[bounce_2s_ease-in-out_infinite_0.5s]" />
                             <span className="text-sm font-medium text-stone-800 dark:text-stone-200 text-center leading-snug">
                               {row.us}
                             </span>
@@ -208,9 +279,9 @@ export default function WhyUsVsThem() {
 
                     {/* Comparison Content */}
                     <div className="divide-y divide-stone-100 dark:divide-stone-800/40">
-                      {/* Others */}
-                      <div className="flex items-start gap-3 px-4 py-3">
-                        <XCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                      {/* Others - Red gradient background */}
+                      <div className="flex items-start gap-3 px-4 py-3 bg-gradient-to-r from-red-50/50 to-transparent dark:from-red-950/20">
+                        <XCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5 animate-[bounce_2s_ease-in-out_infinite]" />
                         <div>
                           <span className="text-[10px] font-semibold uppercase tracking-wider text-red-500/80 block mb-0.5">
                             Other Platforms
@@ -221,9 +292,9 @@ export default function WhyUsVsThem() {
                         </div>
                       </div>
 
-                      {/* CA BYLDRS */}
-                      <div className="flex items-start gap-3 px-4 py-3 bg-emerald-50/40 dark:bg-emerald-950/20">
-                        <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      {/* CA BYLDRS - Green gradient background */}
+                      <div className="flex items-start gap-3 px-4 py-3 bg-gradient-to-r from-emerald-50/50 to-transparent dark:from-emerald-950/20">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5 animate-[bounce_2s_ease-in-out_infinite_0.5s]" />
                         <div>
                           <span className="text-[10px] font-semibold uppercase tracking-wider text-orange-600 dark:text-orange-400 block mb-0.5">
                             CA BYLDRS
@@ -257,6 +328,34 @@ export default function WhyUsVsThem() {
             <div className="flex items-center gap-2 text-sm text-stone-600 dark:text-stone-400">
               <MapPin className="w-4 h-4 text-orange-500" />
               <span>100% local to OC &amp; LA</span>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Bottom CTA Strip */}
+        <AnimatedSection delay={0.5} className="mt-10">
+          <div className="relative rounded-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600" />
+            <div className="absolute -inset-2 bg-gradient-to-r from-orange-400 to-orange-600 rounded-3xl opacity-30 blur-xl animate-pulse-glow" />
+            <div className="relative flex flex-col sm:flex-row items-center justify-between gap-4 px-6 sm:px-8 py-6 sm:py-8">
+              <div className="text-center sm:text-left">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
+                  Ready to Experience the Difference?
+                </h3>
+                <p className="text-orange-100 text-sm sm:text-base">
+                  Join 500+ happy homeowners who switched to CA BYLDRS.
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <Button
+                  onClick={() => navigate('contact')}
+                  size="lg"
+                  className="bg-white text-orange-600 hover:bg-orange-50 font-bold px-6 sm:px-8 py-5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-auto"
+                >
+                  Get Started Free
+                  <ChevronRight className="size-4 ml-1" />
+                </Button>
+              </div>
             </div>
           </div>
         </AnimatedSection>

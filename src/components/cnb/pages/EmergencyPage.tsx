@@ -16,6 +16,7 @@ import {
   ChevronRight,
   PhoneCall,
 } from 'lucide-react';
+import SharedMiniJourney from '@/components/cnb/SharedMiniJourney';
 
 const emergencyTypes = [
   {
@@ -88,6 +89,9 @@ export default function EmergencyPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Mini Journey */}
+      <SharedMiniJourney type="emergency" />
 
       {/* Phone Number */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">

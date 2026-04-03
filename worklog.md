@@ -233,3 +233,52 @@ Stage Summary:
 - Document title dynamically updates to match current page
 - Logo redesigned with eye-catching glow effects across hero, navbar, mobile, and footer
 - Zero lint errors, server compiling clean
+
+---
+## Task ID: 1 - full-stack-updater
+### Work Task
+Make logo more eye-catching across all placements, improve booking calendar, enhance WhyUsVsThem comparison section, create SharedMiniJourney component for all inner pages, replace all emails with info.vsualdm@gmail.com, improve GHL tracking.
+
+### Work Summary
+- **Task 1 - Logo Enhancement**: Made logo dramatically bigger and more visible across 3 files:
+  - Navbar.tsx: Increased from h-10/h-11 to h-12/h-14, added pulsing glow ring with animate-pulse-glow, stronger drop-shadow-lg, scale-110 on hover
+  - HeroSection.tsx: Replaced simple glow layers with 3 animated layers (orange-400 gradient pulse, amber-400 float, white blur float), enlarged container with rounded-3xl, bigger padding (p-5 to p-8), much larger logo (h-28 to h-48), added animated dashed orbit ring spinning at 20s
+  - Footer.tsx: Increased logo from h-12 to h-16, enhanced glow from blur-sm/opacity-20 to blur-md/opacity-30, bigger inset (-inset-2)
+
+- **Task 2 - Booking Calendar Redesign**: Complete rewrite of BookingCalendar.tsx:
+  - Added 3-step visual indicators (Choose Date → Pick Time → Get Confirmed) with gradient icon circles and connecting arrows
+  - Added 4 trust badges row (Instant Booking, No Fees, Instant Confirmation, Verified Pros) in bordered cards
+  - Redesigned main calendar card with animated gradient border using pulse-glow animation
+  - Added contact sidebar with glowing CTA button, phone call option, email option (info.vsualdm@gmail.com), and quick info card
+  - Responsive grid layout (calendar + sidebar on desktop, stacked on mobile)
+
+- **Task 3 - WhyUsVsThem Enhancement**: Enhanced comparison section with:
+  - Animated counter stats bar (500+ Happy Customers, 200+ Verified Pros, 4.9★ Average Rating, 0 Spam Complaints) using IntersectionObserver-based counting animation
+  - Color-coded gradient backgrounds for rows (red tint for "Other Platforms", green tint for "CA BYLDRS")
+  - Animated bounce effect on check/cross icons (alternating 0s and 0.5s delays)
+  - Added bottom CTA strip with orange gradient background, pulsing glow, "Get Started Free" button linking to contact
+
+- **Task 4 - SharedMiniJourney Component**: Created new `/src/components/cnb/SharedMiniJourney.tsx`:
+  - Compact inline mind-map showing 3-4 key steps with icons and descriptions
+  - 3 journey types: customer (Discover→Submit→Match→Book), contractor (Apply→Verify→Leads→Grow), emergency (Call→Match→Respond→Solved)
+  - Desktop: horizontal flow with gradient connecting lines and arrow icons
+  - Mobile: vertical timeline with gradient connecting line and dot markers
+  - Orange gradient theme with responsive badge/label per type
+  - Added to 7 pages: ServicePage (customer), ContactPage (customer), PartnerPage (contractor), EmergencyPage (emergency), AboutPage (customer), CountyPage (customer), ServicesOverviewPage (customer)
+
+- **Task 5 - Email Replacement**: Replaced hello@cabyldrs.com with info.vsualdm@gmail.com:
+  - Footer.tsx: Changed to mailto link with hover color effect
+  - ContactPage.tsx: Changed to clickable mailto link with hover orange color
+  - BookingCalendar.tsx (new): Added as mailto link in contact sidebar
+  - Verified no other hello@cabyldrs.com occurrences remain (privacy/legal emails kept as-is)
+
+- **Task 6 - GHL Tracking Improvement**: Rewrote ghl-tracking.ts with robust multi-channel tracking:
+  - Pushes events to window.dataLayer (GTM/GHL style) with ghl_ prefix
+  - Tries GHL native tracking via window.ghl.track()
+  - Maintains __ghlTrackQueue array for backup
+  - Updates URL hash for SPA page tracking (history.replaceState)
+  - Dispatches CustomEvent('ghl:event') for any additional listeners
+  - Added generic trackEvent() export function
+  - All existing exports preserved (trackPageView, trackFormSubmit, etc.)
+
+- **Verification**: ESLint passes with zero errors, dev server serves HTTP 200

@@ -19,11 +19,11 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="relative inline-flex">
-              <div className="absolute -inset-1.5 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 opacity-20 blur-sm" />
+              <div className="absolute -inset-2 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 opacity-30 blur-md" />
               <img
                 src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
                 alt="CA BYLDRS Logo"
-                className="relative h-12 w-auto object-contain rounded-lg brightness-0 invert"
+                className="relative h-16 w-auto object-contain rounded-lg brightness-0 invert"
               />
             </div>
             <p className="text-sm text-neutral-400 mb-6 leading-relaxed">
@@ -44,7 +44,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2 text-sm text-neutral-400">
                 <Mail className="h-4 w-4 text-orange-400 shrink-0" />
-                <span>hello@cabyldrs.com</span>
+                <a href="mailto:info.vsualdm@gmail.com" className="hover:text-orange-400 transition-colors">info.vsualdm@gmail.com</a>
               </div>
             </div>
           </div>

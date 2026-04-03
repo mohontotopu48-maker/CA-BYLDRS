@@ -29,6 +29,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { trackFormSubmit } from '@/lib/ghl-tracking';
+import SharedMiniJourney from '@/components/cnb/SharedMiniJourney';
 
 const SERVICE_CATEGORIES = [
   'Plumbing',
@@ -248,6 +249,9 @@ export default function PartnerPage() {
           </StaggerContainer>
         </div>
       </section>
+
+      {/* Mini Journey */}
+      <SharedMiniJourney type="contractor" />
 
       {/* ── Contractor Signup Form ── */}
       <section className="py-20 md:py-28">

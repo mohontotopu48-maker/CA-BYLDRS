@@ -27,21 +27,24 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
         <div className="text-center">
-          {/* Logo with eye-catching glow */}
+          {/* Logo with dramatic eye-catching glow */}
           <AnimatedSection delay={0}>
             <div className="inline-flex items-center justify-center mb-8">
               <div className="relative">
                 <div aria-hidden="true">
-                  <div className="absolute -inset-4 rounded-full bg-white/20 blur-2xl animate-float" />
-                  <div className="absolute -inset-2 rounded-full bg-white/10 blur-lg animate-float-delayed" />
+                  <div className="absolute -inset-8 rounded-full bg-gradient-to-r from-orange-400 to-orange-600 opacity-20 blur-3xl animate-pulse-glow" />
+                  <div className="absolute -inset-6 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 opacity-15 blur-2xl animate-float" />
+                  <div className="absolute -inset-3 rounded-full bg-white/25 blur-xl animate-float-delayed" />
                 </div>
-                <div className="relative rounded-2xl p-3 sm:p-4 bg-white/10 backdrop-blur-md border border-white/20 shadow-lg shadow-orange-500/10">
+                <div className="relative rounded-3xl p-5 sm:p-6 md:p-8 bg-white/15 backdrop-blur-xl border-2 border-white/30 shadow-2xl shadow-orange-500/20 ring-1 ring-white/20">
                   <img
                     src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
                     alt="CA BYLDRS"
-                    className="h-20 sm:h-24 md:h-28 lg:h-32 w-auto object-contain drop-shadow-2xl"
+                    className="h-28 sm:h-32 md:h-40 lg:h-48 w-auto object-contain drop-shadow-2xl"
                   />
                 </div>
+                {/* Animated orbit ring */}
+                <div className="absolute -inset-10 rounded-full border-2 border-dashed border-orange-300/30 animate-[spin_20s_linear_infinite]" />
               </div>
             </div>
           </AnimatedSection>
