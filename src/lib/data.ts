@@ -328,6 +328,7 @@ export const counties: County[] = [
 export const navLinks = [
   { label: "Home", href: "home" },
   { label: "Services", href: "services" },
+  { label: "How It Works", href: "journey" },
   { label: "Book Now", href: "booking" },
   { label: "About", href: "about" },
   { label: "Contact", href: "contact" },

@@ -50,3 +50,41 @@ Stage Summary:
 - All shadcn/ui components used for consistency
 - Mobile responsive design throughout
 - Zero lint errors
+
+---
+Task ID: 2
+Agent: Main Agent
+Task: Rebrand to CA BYLDRS, add logo, WhatsApp, booking calendar, contact info, and service journey mind maps
+
+Work Log:
+- Rebranded from "California Next Builder" to "CA BYLDRS" across all files
+- Added custom logo image to Navbar (desktop + mobile), Hero, and Footer
+- Created WhatsAppButton floating component with pulse animation
+- Created BookingCalendar component with GHL iframe and impressive orange glow design
+- Updated phone to +1 (562) 944-0500 across Footer, ContactPage, EmergencyPage
+- Updated address to 3400 Twilight Dr. Fullerton, CA 92835 across Footer, ContactPage
+- Updated email to hello@cabyldrs.com
+- Added "Book Now" to navigation and booking route handler
+- Created ServiceJourney component with Customer & Contractor mind map visualizations:
+  - Interactive tab switcher with animated indicator (orange for customer, teal for contractor)
+  - 6-stage Customer Journey: Discover, Submit, Smart Matching, Review, Book, Complete
+  - 6-stage Contractor Journey: Apply, Verification, Profile, Leads, Deliver, Grow
+  - Desktop: alternating left/right card layout with center timeline and SVG animated connectors
+  - Mobile: vertical timeline with gradient connecting line and dot markers
+  - Each stage has icon, title, subtitle, description, stat badges, and mind-map branch tags
+  - Framer Motion animations: stagger entry, hover lift, spring-animated tab indicator
+  - Color-coded branch tags per journey type
+  - Dual CTA buttons at bottom (Customer + Contractor paths)
+- Added "How It Works" navigation link and journey page route
+- Replaced simple HowItWorks section with comprehensive ServiceJourney on homepage
+- ESLint passes with zero errors
+- Dev server starts and serves 200
+
+Stage Summary:
+- Complete rebrand to CA BYLDRS with custom logo throughout
+- Service Journey Mind Map with stunning visual design for both Customer and Contractor paths
+- Desktop radial mind map layout with SVG animated connections and center timeline
+- Mobile vertical timeline with gradient line and animated dots
+- Interactive tab switcher between Customer and Contractor journeys
+- All contact info verified consistent across all pages
+- Zero lint errors, clean compilation

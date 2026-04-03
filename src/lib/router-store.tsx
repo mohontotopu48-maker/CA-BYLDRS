@@ -13,6 +13,7 @@ type PageKey =
   | 'contact'
   | 'emergency'
   | 'partner'
+  | 'journey'
   | 'privacy'
   | 'terms';
 

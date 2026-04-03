@@ -9,7 +9,7 @@ import { Footer } from '@/components/cnb/Footer';
 import HeroSection from '@/components/cnb/homepage/HeroSection';
 import TrustBar from '@/components/cnb/homepage/TrustBar';
 import ServicesGrid from '@/components/cnb/homepage/ServicesGrid';
-import HowItWorks from '@/components/cnb/homepage/HowItWorks';
+import ServiceJourney from '@/components/cnb/homepage/ServiceJourney';
 import WhyChooseUs from '@/components/cnb/homepage/WhyChooseUs';
 import CountyCoverage from '@/components/cnb/homepage/CountyCoverage';
 import HighIntentCTA from '@/components/cnb/homepage/HighIntentCTA';
@@ -45,13 +45,31 @@ function BookingPage() {
   return <HomePage />;
 }
 
+function JourneyPage() {
+  const { navigate } = useRouter();
+
+  useEffect(() => {
+    navigate('home');
+    setTimeout(() => {
+      const el = document.getElementById('journey-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 300);
+  }, [navigate]);
+
+  return <HomePage />;
+}
+
 function HomePage() {
   return (
     <>
       <HeroSection />
       <TrustBar />
       <ServicesGrid />
-      <HowItWorks />
+      <div id="journey-section">
+        <ServiceJourney />
+      </div>
       <WhyChooseUs />
       <CountyCoverage />
       <div id="booking-section">
@@ -101,6 +119,8 @@ function PageRouter() {
           return <TermsPage />;
         case 'booking':
           return <BookingPage />;
+        case 'journey':
+          return <JourneyPage />;
         default:
           return <HomePage />;
       }
