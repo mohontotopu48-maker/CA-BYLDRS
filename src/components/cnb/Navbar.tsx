@@ -49,6 +49,7 @@ export function Navbar() {
               <img
                 src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
                 alt="CA BYLDRS Logo"
+                width={168} height={56}
                 className="relative h-12 lg:h-14 w-auto object-contain rounded-lg transition-all duration-500 group-hover:scale-110 drop-shadow-lg"
               />
             </div>
@@ -129,6 +130,7 @@ export function Navbar() {
                         <img
                           src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
                           alt="CA BYLDRS Logo"
+                          width={140} height={40}
                           className="relative h-10 w-auto object-contain rounded-lg"
                         />
                       </div>

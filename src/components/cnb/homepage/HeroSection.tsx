@@ -32,15 +32,16 @@ export default function HeroSection() {
             <div className="inline-flex items-center justify-center mb-8">
               <div className="relative">
                 <div aria-hidden="true">
-                  <div className="absolute -inset-8 rounded-full bg-gradient-to-r from-orange-400 to-orange-600 opacity-20 blur-3xl animate-pulse-glow" />
-                  <div className="absolute -inset-6 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 opacity-15 blur-2xl animate-float" />
-                  <div className="absolute -inset-3 rounded-full bg-white/25 blur-xl animate-float-delayed" />
+                  <div className="absolute -inset-6 sm:-inset-8 rounded-full bg-gradient-to-r from-orange-400 to-orange-600 opacity-20 blur-3xl animate-pulse-glow" />
+                  <div className="absolute -inset-4 sm:-inset-6 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 opacity-15 blur-2xl animate-float" />
+                  <div className="absolute -inset-2 sm:-inset-3 rounded-full bg-white/25 blur-xl animate-float-delayed" />
                 </div>
-                <div className="relative rounded-3xl p-5 sm:p-6 md:p-8 bg-white/15 backdrop-blur-xl border-2 border-white/30 shadow-2xl shadow-orange-500/20 ring-1 ring-white/20">
+                <div className="relative rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 bg-white/15 backdrop-blur-xl border-2 border-white/30 shadow-2xl shadow-orange-500/20 ring-1 ring-white/20">
                   <img
                     src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
-                    alt="CA BYLDRS"
-                    className="h-28 sm:h-32 md:h-40 lg:h-48 w-auto object-contain drop-shadow-2xl"
+                    alt="CA BYLDRS - Trusted Local Home Services"
+                    width={256} height={256}
+                    className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto object-contain drop-shadow-2xl"
                   />
                 </div>
                 {/* Animated orbit ring */}

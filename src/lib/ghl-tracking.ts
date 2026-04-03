@@ -39,9 +39,11 @@ function ghlTrack(event: string, data?: Record<string, unknown>) {
       w.ghl.track(event, data);
     }
 
-    // Also push to any GHL-specific tracking queues
+    // Also push to tracking queue (max 50 entries to prevent memory leak)
     if (!w.__ghlTrackQueue) w.__ghlTrackQueue = [];
-    w.__ghlTrackQueue.push({ event, data, timestamp: Date.now() });
+    if (w.__ghlTrackQueue.length < 50) {
+      w.__ghlTrackQueue.push({ event, data, timestamp: Date.now() });
+    }
 
     // Update hash for SPA page tracking
     if (event === 'page_view' && data?.page) {

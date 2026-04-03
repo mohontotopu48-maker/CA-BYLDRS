@@ -29,7 +29,9 @@ export default function BookingCalendar() {
     script.type = 'text/javascript';
     document.body.appendChild(script);
     return () => {
-      document.body.removeChild(script);
+      if (script.parentNode) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
 
@@ -138,8 +140,10 @@ export default function BookingCalendar() {
                       src="https://api.leadconnectorhq.com/widget/booking/4TnklQgWAtDSES0CaoDc"
                       style={{ width: '100%', minHeight: '620px', border: 'none', overflow: 'hidden' }}
                       scrolling="no"
+                      loading="lazy"
                       id="4TnklQgWAtDSES0CaoDc_1775250579603"
                       title="CA BYLDRS Booking Calendar"
+                      allow="clipboard-write"
                     />
                   </div>
 

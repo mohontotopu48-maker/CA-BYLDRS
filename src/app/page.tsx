@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import { RouterProvider, useRouter, parsePageKey } from '@/lib/router-store';
 import { Navbar } from '@/components/cnb/Navbar';
 import { Footer } from '@/components/cnb/Footer';
@@ -138,7 +137,7 @@ export default function Home() {
     <RouterProvider>
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-1">
+        <main id="main-content" className="flex-1" role="main">
           <PageRouter />
         </main>
         <Footer />

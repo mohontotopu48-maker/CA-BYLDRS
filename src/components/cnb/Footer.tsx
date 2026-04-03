@@ -23,6 +23,7 @@ export function Footer() {
               <img
                 src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
                 alt="CA BYLDRS Logo"
+                width={192} height={64}
                 className="relative h-16 w-auto object-contain rounded-lg brightness-0 invert"
               />
             </div>
