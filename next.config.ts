@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   },
   reactStrictMode: false,
   allowedDevOrigins: ["*"],
+  // Vercel optimization: skip static page optimization for SPA
+  skipTrailingSlashRedirect: true,
 };
 
 export default nextConfig;
