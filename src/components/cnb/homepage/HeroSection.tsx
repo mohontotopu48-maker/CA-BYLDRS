@@ -27,25 +27,22 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
         <div className="text-center">
-          {/* Logo with dramatic eye-catching glow */}
+          {/* Logo */}
           <AnimatedSection delay={0}>
             <div className="inline-flex items-center justify-center mb-8">
               <div className="relative">
                 <div aria-hidden="true">
-                  <div className="absolute -inset-6 sm:-inset-8 rounded-full bg-gradient-to-r from-[#FF6B00] to-[#FF9F1C] opacity-20 blur-3xl animate-pulse-glow" />
-                  <div className="absolute -inset-4 sm:-inset-6 rounded-full bg-gradient-to-r from-[#FF9F1C] to-[#FF6B00] opacity-15 blur-2xl animate-float" />
-                  <div className="absolute -inset-2 sm:-inset-3 rounded-full bg-white/5 blur-xl animate-float-delayed" />
+                  <div className="absolute -inset-6 sm:-inset-8 rounded-full bg-blue-500/20 blur-3xl animate-pulse-glow" />
+                  <div className="absolute -inset-4 sm:-inset-6 rounded-full bg-blue-400/15 blur-2xl animate-float" />
                 </div>
-                <div className="relative rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 bg-white/[0.03] backdrop-blur-xl border-2 border-white/[0.06] shadow-2xl shadow-[#FF6B00]/20 ring-1 ring-white/[0.06]">
-                  <img
-                    src="/logo.png"
-                    alt="CA BYLDRS - Trusted Local Home Services"
-                    width={256} height={256}
-                    className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto object-contain drop-shadow-2xl"
-                  />
-                </div>
+                <img
+                  src="/logo.png"
+                  alt="CA BYLDRS - Trusted Local Home Services"
+                  width={256} height={256}
+                  className="relative h-28 sm:h-36 md:h-44 lg:h-52 w-auto object-contain drop-shadow-2xl"
+                />
                 {/* Animated orbit ring */}
-                <div className="absolute -inset-10 rounded-full border-2 border-dashed border-[#FF6B00]/20 animate-[spin_20s_linear_infinite]" />
+                <div className="absolute -inset-10 rounded-full border-2 border-dashed border-blue-400/20 animate-[spin_20s_linear_infinite]" />
               </div>
             </div>
           </AnimatedSection>

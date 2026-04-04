@@ -19,12 +19,11 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="relative inline-flex">
-              <div className="absolute -inset-2 rounded-xl bg-gradient-to-r from-[#FF6B00] to-[#FF9F1C] opacity-30 blur-md" />
               <img
                 src="/logo.png"
                 alt="CA BYLDRS Logo"
-                width={192} height={64}
-                className="relative h-16 w-auto object-contain rounded-lg brightness-0 invert"
+                width={64} height={64}
+                className="relative h-14 w-auto object-contain drop-shadow-lg"
               />
             </div>
             <p className="text-sm text-[#9ba1a6] mb-6 leading-relaxed">

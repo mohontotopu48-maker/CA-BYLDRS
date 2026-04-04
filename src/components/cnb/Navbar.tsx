@@ -42,20 +42,14 @@ export function Navbar() {
           {/* Logo */}
           <button
             onClick={() => handleNav('home')}
-            className="flex items-center gap-2 group"
+            className="flex items-center group"
           >
-            <div className="relative">
-              <div className="absolute -inset-1.5 rounded-xl bg-gradient-to-r from-[#FF6B00] to-[#FF9F1C] opacity-50 group-hover:opacity-80 blur-md transition-opacity duration-500 animate-pulse-glow" />
-              <img
-                src="/logo.png"
-                alt="CA BYLDRS Logo"
-                width={168} height={56}
-                className="relative h-10 lg:h-12 w-auto object-contain rounded-lg transition-all duration-500 group-hover:scale-105 drop-shadow-lg"
-              />
-            </div>
-            <span className="hidden sm:block text-lg font-bold text-white tracking-tight">
-              CA BYLDRS
-            </span>
+            <img
+              src="/logo.png"
+              alt="CA BYLDRS Logo"
+              width={48} height={48}
+              className="h-10 lg:h-11 w-auto object-contain transition-all duration-300 group-hover:scale-105 drop-shadow-lg"
+            />
           </button>
 
           {/* Desktop Navigation */}
@@ -127,16 +121,13 @@ export function Navbar() {
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <div className="flex flex-col h-full">
                   <div className="p-6 border-b border-white/[0.06]">
-                    <div className="flex items-center gap-2">
-                      <div className="relative">
-                        <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#FF6B00] to-[#FF9F1C] opacity-30 blur-sm" />
-                        <img
-                          src="/logo.png"
-                          alt="CA BYLDRS Logo"
-                          width={140} height={40}
-                          className="relative h-10 w-auto object-contain rounded-lg"
-                        />
-                      </div>
+                    <div className="flex items-center gap-3">
+                      <img
+                        src="/logo.png"
+                        alt="CA BYLDRS Logo"
+                        width={48} height={48}
+                        className="h-12 w-auto object-contain drop-shadow-lg"
+                      />
                       <div>
                         <p className="font-bold text-sm text-white">CA BYLDRS</p>
                         <p className="text-xs text-[#9ba1a6]">Trusted Local Home Services</p>
