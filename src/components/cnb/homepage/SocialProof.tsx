@@ -42,10 +42,10 @@ const homeownerTestimonials: Testimonial[] = [
     location: 'Anaheim, CA',
     stars: 5,
     quote:
-      "After getting flooded with 8 calls from Angi contractors within minutes, I switched to CA BYLDRS. They matched me with ONE verified plumber who showed up same day. No spam, no pressure. This is how it should work.",
+      "After getting flooded with 8 calls from Angi contractors within minutes, I switched to CA BYLDRS. They matched me with ONE verified plumber who showed up same day. No spam, no pressure.",
     serviceBadge: 'Plumbing',
     initials: 'MG',
-    gradient: 'from-orange-400 to-amber-500',
+    gradient: 'from-[#FF6B00] to-[#FF9F1C]',
   },
   {
     id: 2,
@@ -53,10 +53,10 @@ const homeownerTestimonials: Testimonial[] = [
     location: 'Irvine, CA',
     stars: 5,
     quote:
-      "I was skeptical after bad experiences with other platforms. CA BYLDRS connected me with an HVAC tech who was actually licensed and knew the Irvine building codes. Saved me $400 compared to other quotes.",
+      "I was skeptical after bad experiences with other platforms. CA BYLDRS connected me with an HVAC tech who was actually licensed and knew the Irvine building codes. Saved me $400.",
     serviceBadge: 'HVAC',
     initials: 'DL',
-    gradient: 'from-orange-500 to-red-500',
+    gradient: 'from-[#FF9F1C] to-[#ef4444]',
   },
   {
     id: 3,
@@ -67,7 +67,7 @@ const homeownerTestimonials: Testimonial[] = [
       "The difference is night and day. With other sites, contractors would show up unannounced. CA BYLDRS let me choose who to talk to, on my schedule. Professional from start to finish.",
     serviceBadge: 'Roofing',
     initials: 'SK',
-    gradient: 'from-amber-500 to-orange-600',
+    gradient: 'from-[#FF6B00] to-[#FF9F1C]',
   },
 ];
 
@@ -78,7 +78,7 @@ const contractorTestimonials: Testimonial[] = [
     location: 'Licensed Plumber, Fullerton',
     stars: 5,
     quote:
-      "I was paying $180 per lead on HomeAdvisor and getting garbage. CA BYLDRS sends me actual qualified leads from homeowners who want MY service. Quality over quantity — my close rate went from 15% to 60%.",
+      "I was paying $180 per lead on HomeAdvisor and getting garbage. CA BYLDRS sends me actual qualified leads from homeowners who want MY service. My close rate went from 15% to 60%.",
     serviceBadge: 'Licensed Plumber',
     initials: 'MR',
     gradient: 'from-teal-400 to-cyan-500',
@@ -120,7 +120,7 @@ function StarRating({ count }: { count: number }) {
           className={`w-4 h-4 ${
             i < count
               ? 'fill-amber-400 text-amber-400'
-              : 'fill-muted text-muted'
+              : 'fill-[#2a1f14] text-[#2a1f14]'
           }`}
         />
       ))}
@@ -144,14 +144,14 @@ function TestimonialCard({
       <motion.div
         whileHover={{ y: -6 }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        className="relative h-full bg-white dark:bg-neutral-900 rounded-2xl border border-orange-100 dark:border-orange-900/30 shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+        className="relative h-full bg-[#1a120b] rounded-2xl border border-white/[0.06] shadow-sm hover:shadow-xl hover:shadow-[#FF6B00]/5 hover:border-[#FF6B00]/20 transition-all duration-300 overflow-hidden"
       >
         {/* Top accent gradient bar */}
         <div
           className={`h-1 bg-gradient-to-r ${
             isContractor
               ? 'from-teal-400 to-cyan-500'
-              : 'from-orange-400 to-amber-500'
+              : 'from-[#FF6B00] to-[#FF9F1C]'
           }`}
         />
 
@@ -161,8 +161,8 @@ function TestimonialCard({
             <Quote
               className={`w-8 h-8 ${
                 isContractor
-                  ? 'text-teal-300 dark:text-teal-700'
-                  : 'text-orange-300 dark:text-orange-700'
+                  ? 'text-teal-500/30'
+                  : 'text-[#FF6B00]/30'
               }`}
             />
           </div>
@@ -171,12 +171,12 @@ function TestimonialCard({
           <StarRating count={testimonial.stars} />
 
           {/* Quote Text */}
-          <p className="mt-4 text-sm sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed flex-1">
+          <p className="mt-4 text-sm sm:text-base text-[#9ba1a6] leading-relaxed flex-1">
             &ldquo;{testimonial.quote}&rdquo;
           </p>
 
           {/* Bottom: Avatar + Info */}
-          <div className="mt-6 pt-5 border-t border-neutral-100 dark:border-neutral-800 flex items-center gap-3">
+          <div className="mt-6 pt-5 border-t border-white/[0.06] flex items-center gap-3">
             {/* Avatar with initials */}
             <div
               className={`w-11 h-11 rounded-full bg-gradient-to-br ${testimonial.gradient} flex items-center justify-center shrink-0 shadow-md`}
@@ -187,10 +187,10 @@ function TestimonialCard({
             </div>
 
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold text-neutral-900 dark:text-white truncate">
+              <p className="text-sm font-semibold text-[#f0f2f5] truncate">
                 {testimonial.name}
               </p>
-              <p className="text-xs text-neutral-500 dark:text-neutral-400 truncate">
+              <p className="text-xs text-[#9ba1a6] truncate">
                 {testimonial.location}
               </p>
             </div>
@@ -201,8 +201,8 @@ function TestimonialCard({
             <span
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold ${
                 isContractor
-                  ? 'bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 border border-teal-200/50 dark:border-teal-800/30'
-                  : 'bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 border border-orange-200/50 dark:border-orange-800/30'
+                  ? 'bg-teal-500/10 text-teal-400 border border-teal-500/20'
+                  : 'bg-[#FF6B00]/10 text-[#FF6B00] border border-[#FF6B00]/20'
               }`}
             >
               {isContractor ? (
@@ -214,15 +214,6 @@ function TestimonialCard({
             </span>
           </div>
         </div>
-
-        {/* Hover glow */}
-        <div
-          className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${
-            isContractor
-              ? 'shadow-[inset_0_0_30px_rgba(20,184,166,0.08)]'
-              : 'shadow-[inset_0_0_30px_rgba(249,115,22,0.08)]'
-          }`}
-        />
       </motion.div>
     </div>
   );
@@ -245,28 +236,21 @@ export default function SocialProof() {
   return (
     <section className="relative py-20 md:py-28 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-orange-50/30 to-background" />
-      <div className="absolute top-1/3 left-0 w-80 h-80 rounded-full bg-orange-100/25 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/3 right-0 w-80 h-80 rounded-full bg-amber-100/20 blur-3xl pointer-events-none" />
-
-      {/* Decorative floating dots */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div className="absolute top-16 right-20 w-2.5 h-2.5 rounded-full bg-orange-300/40 animate-float" />
-        <div className="absolute top-32 left-16 w-3 h-3 rounded-full bg-amber-200/30 animate-float-delayed" />
-        <div className="absolute bottom-24 right-1/4 w-2 h-2 rounded-full bg-orange-300/30 animate-float-slow" />
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0d0906] via-[#1a120b]/50 to-[#0d0906]" />
+      <div className="absolute top-1/3 left-0 w-80 h-80 rounded-full bg-[#FF6B00]/5 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/3 right-0 w-80 h-80 rounded-full bg-[#FF9F1C]/3 blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <AnimatedSection className="text-center mb-10 md:mb-14">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-sm font-semibold mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF6B00]/10 text-[#FF6B00] text-sm font-semibold mb-6">
             <Star className="h-4 w-4 fill-current" />
             <span>Testimonials</span>
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#f0f2f5] mb-4 tracking-tight">
             Trusted by OC &amp; LA Homeowners
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-[#9ba1a6] max-w-2xl mx-auto leading-relaxed">
             Real stories from real people who found the right professional —
             and contractors who found the right clients — through CA BYLDRS.
           </p>
@@ -274,21 +258,21 @@ export default function SocialProof() {
 
         {/* Tab Switcher */}
         <AnimatedSection delay={0.15} className="flex justify-center mb-12">
-          <div className="inline-flex items-center p-1.5 rounded-2xl bg-muted/80 border border-border backdrop-blur-sm">
+          <div className="inline-flex items-center p-1.5 rounded-2xl bg-[#1a120b] border border-white/[0.06]">
             <button
               onClick={() => setActiveTab('homeowners')}
               className={`relative px-5 sm:px-8 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
                 !isContractor
                   ? 'text-white'
-                  : 'text-muted-foreground hover:text-foreground'
+                  : 'text-[#9ba1a6] hover:text-[#f0f2f5]'
               }`}
             >
               {!isContractor && (
                 <motion.div
                   layoutId="testimonial-tab"
-                  className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl shadow-lg"
+                  className="absolute inset-0 bg-gradient-to-r from-[#FF6B00] to-[#FF9F1C] rounded-xl shadow-lg"
                   style={{
-                    boxShadow: '0 4px 15px rgba(249, 115, 22, 0.3)',
+                    boxShadow: '0 4px 15px rgba(255, 107, 0, 0.3)',
                   }}
                   transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 />
@@ -303,7 +287,7 @@ export default function SocialProof() {
               className={`relative px-5 sm:px-8 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
                 isContractor
                   ? 'text-white'
-                  : 'text-muted-foreground hover:text-foreground'
+                  : 'text-[#9ba1a6] hover:text-[#f0f2f5]'
               }`}
             >
               {isContractor && (
@@ -335,7 +319,7 @@ export default function SocialProof() {
           >
             {/* Mobile: Horizontal Scroll */}
             <div className="lg:hidden">
-              <div className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-orange-300 scrollbar-track-transparent">
+              <div className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory">
                 {testimonials.map((testimonial) => (
                   <TestimonialCard
                     key={testimonial.id}
@@ -367,24 +351,24 @@ export default function SocialProof() {
 
         {/* Bottom Trust Indicator */}
         <AnimatedSection delay={0.3} className="text-center mt-14">
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/60 dark:bg-neutral-900/60 backdrop-blur-sm border border-orange-100 dark:border-orange-900/20 shadow-sm">
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-[#1a120b] border border-white/[0.06] shadow-sm">
             <div className="flex -space-x-2">
               {homeownerTestimonials.map((t) => (
                 <div
                   key={t.id}
-                  className={`w-8 h-8 rounded-full bg-gradient-to-br ${t.gradient} flex items-center justify-center border-2 border-white dark:border-neutral-900`}
+                  className={`w-8 h-8 rounded-full bg-gradient-to-br ${t.gradient} flex items-center justify-center border-2 border-[#1a120b]`}
                 >
                   <span className="text-white text-[10px] font-bold">
                     {t.initials}
                   </span>
                 </div>
               ))}
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-300 to-orange-500 flex items-center justify-center border-2 border-white dark:border-neutral-900">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#FF9F1C] flex items-center justify-center border-2 border-[#1a120b]">
                 <span className="text-white text-[10px] font-bold">+</span>
               </div>
             </div>
             <div className="text-left">
-              <p className="text-sm font-semibold text-neutral-900 dark:text-white">
+              <p className="text-sm font-semibold text-[#f0f2f5]">
                 500+ Happy Customers
               </p>
               <div className="flex items-center gap-1">
@@ -396,7 +380,7 @@ export default function SocialProof() {
                     />
                   ))}
                 </div>
-                <span className="text-xs text-neutral-500 dark:text-neutral-400 ml-1">
+                <span className="text-xs text-[#9ba1a6] ml-1">
                   4.9 average rating
                 </span>
               </div>

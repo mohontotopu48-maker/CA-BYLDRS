@@ -392,3 +392,56 @@ Create sitemap.ts, robots.ts, fix layout.tsx SEO (remove fake aggregateRating, a
 **7. GHL tracking verified** - No changes needed, already properly pushes to dataLayer with page URL.
 
 ESLint passes with zero errors.
+
+---
+## Task ID: 1 - dark-brown-theme-rebuild
+### Work Task
+Rebuild the CA BYLDRS website with dark brown/black gradient theme matching the uploaded reference navbar design. Convert from dark gray (#0a0c10) to warm dark brown (#0d0906) with orange (#FF6B00) accents.
+
+### Work Summary
+Modified 12 files to apply the dark brown/orange theme across the entire website:
+
+**1. `/src/app/globals.css`** — Color scheme overhaul:
+- `--background`: `#0a0c10` → `#0d0906`, `--card`: `#0f1117` → `#1a120b`, `--secondary/muted/accent`: `#1a1d25` → `#2a1f14`
+- `--primary`: `#FF7B00` → `#FF6B00`, all glow/scrollbar effects updated
+
+**2. `/src/components/cnb/Navbar.tsx`** — Matches reference image:
+- Solid dark brown gradient background `from-[#1a120b] to-[#2a1f14]`
+- Active nav: orange bg `bg-[#FF6B00]` with white text
+- "How It Works": permanent red border `border-2 border-red-500 text-red-400`
+- Logo + "CA BYLDRS" text label, mobile Sheet with dark brown bg
+
+**3. `/src/components/cnb/homepage/HeroSection.tsx`** — Contractor-focused hero:
+- "California's Most Trusted Contractor Network" headline with gradient text
+- CTAs: "Get Free Quotes" (orange), "How It Works" (red border), "Join Our Network" (glass)
+- Trust badges: 1-3 Matched Pros, Zero Lead Sharing, Licensed & Insured
+
+**4. `/src/components/cnb/homepage/TrustBar.tsx`** — Dark brown bar:
+- `bg-[#1a120b]` background, orange gradient for highlighted items, `bg-[#2a1f14]` for others
+
+**5. `/src/components/cnb/homepage/ServicesGrid.tsx`** — Cards with descriptions:
+- `bg-[#1a120b]` cards, added service short descriptions, hover orange border glow
+
+**6. `/src/components/cnb/homepage/ServiceJourney.tsx`** — Simplified 3-step:
+- Tell Us What You Need → Get Matched → Get It Done (replaced complex 6-stage mind map)
+
+**7. `/src/components/cnb/homepage/WhyChooseUs.tsx`** — 2-column layout:
+- Left: title + description + stat card, Right: 4 feature cards with orange icons
+
+**8. `/src/components/cnb/homepage/CountyCoverage.tsx`** — Clickable county cards:
+- Full-card buttons, `bg-[#1a120b]`, `bg-[#2a1f14]` city pills
+
+**9. `/src/components/cnb/homepage/BookingCalendar.tsx`** — Clean single-card:
+- Simplified from sidebar layout, GHL iframe, contact options row below
+
+**10. `/src/components/cnb/homepage/HighIntentCTA.tsx`** — Orange gradient CTA:
+- "Ready to Get Started?" with dark "Request Service" button + "Call Now" button
+
+**11. `/src/components/cnb/Footer.tsx`** — Dark brown footer:
+- `bg-[#0d0906]`, added social links placeholder, copyright "© 2024 CA BYLDRS"
+
+**12. `/src/app/layout.tsx`** — themeColor: `#0a0c10` → `#0d0906`
+
+**Files NOT modified**: router-store, data, ghl-tracking, ghl-api, all API routes, all inner pages, WhatsAppButton, SharedMiniJourney, page.tsx
+
+ESLint passes with zero errors, dev server serves HTTP 200.

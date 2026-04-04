@@ -25,7 +25,7 @@ export default function TrustBar() {
     },
     {
       icon: Users,
-      label: '500+ Happy Customers',
+      label: '500+ Customers',
       description: '4.9★ average rating',
       highlight: false,
     },
@@ -33,18 +33,18 @@ export default function TrustBar() {
       icon: Zap,
       label: 'Match in < 5 Min',
       description: 'Average response time',
-      highlight: false,
+      highlight: true,
     },
     {
       icon: Star,
-      label: 'Always Free for You',
+      label: 'Always Free',
       description: 'No fees, no credit card',
-      highlight: true,
+      highlight: false,
     },
   ];
 
   return (
-    <section className="relative bg-orange-50/50 dark:bg-orange-900/10 border-y border-orange-200/50 dark:border-orange-800/20">
+    <section className="relative bg-[#1a120b] border-y border-white/[0.06]">
       <AnimatedSection delay={0.1}>
         <StaggerContainer
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6"
@@ -57,16 +57,16 @@ export default function TrustBar() {
                 <div className="flex items-center gap-3 group">
                   <div className={`flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center transition-colors duration-300 ${
                     point.highlight
-                      ? 'bg-gradient-to-br from-orange-500 to-orange-600 shadow-md shadow-orange-500/20'
-                      : 'bg-orange-100 dark:bg-orange-900/30 group-hover:bg-orange-200 dark:group-hover:bg-orange-900/50'
+                      ? 'bg-gradient-to-br from-[#FF6B00] to-[#FF9F1C] shadow-md shadow-[#FF6B00]/20'
+                      : 'bg-[#2a1f14] group-hover:bg-[#2a1f14]/80 border border-white/[0.06]'
                   }`}>
-                    <Icon className={`size-5 ${point.highlight ? 'text-white' : 'text-orange-600 dark:text-orange-400'}`} />
+                    <Icon className={`size-5 ${point.highlight ? 'text-white' : 'text-[#FF6B00]'}`} />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs sm:text-sm font-semibold text-foreground truncate">
+                    <p className="text-xs sm:text-sm font-semibold text-[#f0f2f5] truncate">
                       {point.label}
                     </p>
-                    <p className="text-[10px] sm:text-xs text-muted-foreground truncate">
+                    <p className="text-[10px] sm:text-xs text-[#9ba1a6] truncate">
                       {point.description}
                     </p>
                   </div>

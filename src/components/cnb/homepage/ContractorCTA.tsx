@@ -43,22 +43,22 @@ export default function ContractorCTA() {
   const { navigate } = useRouter();
 
   return (
-    <section className="w-full bg-neutral-50 dark:bg-neutral-900/50">
+    <section className="w-full bg-[#0d0906]">
       <div className="mx-auto max-w-6xl px-6 py-20 md:px-8">
         <div className="flex flex-col gap-12 md:flex-row md:gap-16 md:items-start">
           {/* ── Left: Copy & CTA ── */}
           <div className="flex-1 space-y-8">
             <StaggerContainer>
               <StaggerItem>
-                <span className="inline-block text-xs font-semibold uppercase tracking-wider text-orange-500">
+                <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#FF6B00]">
                   Built by Contractors, for Contractors
                 </span>
               </StaggerItem>
 
               <StaggerItem>
-                <h2 className="mt-2 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+                <h2 className="mt-2 text-2xl font-bold tracking-tight text-[#f0f2f5] md:text-3xl">
                   Other Platforms Are Rigged Against You.
-                  <span className="block mt-1 text-orange-600">We&apos;re Different.</span>
+                  <span className="block mt-1 text-[#FF6B00]">We&apos;re Different.</span>
                 </h2>
               </StaggerItem>
 
@@ -67,13 +67,13 @@ export default function ContractorCTA() {
                 const PpIcon = pp.icon;
                 return (
                   <StaggerItem key={pp.title}>
-                    <div className="flex items-start gap-4 p-5 rounded-xl bg-white dark:bg-neutral-800 border border-border shadow-sm">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
-                        <PpIcon className="h-5 w-5 text-orange-600 dark:text-orange-400" />
+                    <div className="flex items-start gap-4 p-5 rounded-xl bg-[#1a120b] border border-white/[0.06] shadow-sm hover:border-[#FF6B00]/20 transition-all">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#FF6B00]/10 flex items-center justify-center">
+                        <PpIcon className="h-5 w-5 text-[#FF6B00]" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground mb-1">{pp.title}</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{pp.description}</p>
+                        <h3 className="font-semibold text-[#f0f2f5] mb-1">{pp.title}</h3>
+                        <p className="text-sm text-[#9ba1a6] leading-relaxed">{pp.description}</p>
                       </div>
                     </div>
                   </StaggerItem>
@@ -85,8 +85,8 @@ export default function ContractorCTA() {
                 <ul className="space-y-3">
                   {benefits.map((benefit) => (
                     <li key={benefit} className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 shrink-0 text-orange-500" />
-                      <span className="text-sm text-foreground">{benefit}</span>
+                      <CheckCircle2 className="h-5 w-5 shrink-0 text-[#FF6B00]" />
+                      <span className="text-sm text-[#f0f2f5]">{benefit}</span>
                     </li>
                   ))}
                 </ul>
@@ -96,7 +96,7 @@ export default function ContractorCTA() {
               <StaggerItem>
                 <button
                   onClick={() => navigate('partner')}
-                  className="group cta-glow mt-4 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 px-7 py-3.5 font-semibold text-white transition-all duration-200 hover:from-orange-600 hover:to-orange-700"
+                  className="group cta-glow mt-4 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#FF6B00] to-[#FF9F1C] px-7 py-3.5 font-semibold text-white transition-all duration-200 hover:from-[#FF9F1C] hover:to-[#FF6B00]"
                 >
                   Apply to Join — Free
                   <ChevronRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
@@ -109,14 +109,14 @@ export default function ContractorCTA() {
           <div className="flex w-full shrink-0 flex-col gap-4 md:w-80">
             <AnimatedSection delay={0.2} direction="right">
               {/* Contractor testimonial card */}
-              <div className="bg-white dark:bg-neutral-800 rounded-2xl p-6 border border-border shadow-sm">
+              <div className="bg-[#1a120b] rounded-2xl p-6 border border-white/[0.06] shadow-sm">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center text-white font-bold text-sm">
                     MR
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground text-sm">Mike R.</p>
-                    <p className="text-xs text-muted-foreground">Licensed Plumber, Fullerton</p>
+                    <p className="font-semibold text-[#f0f2f5] text-sm">Mike R.</p>
+                    <p className="text-xs text-[#9ba1a6]">Licensed Plumber, Fullerton</p>
                   </div>
                 </div>
                 <div className="flex gap-0.5 mb-2">
@@ -126,7 +126,7 @@ export default function ContractorCTA() {
                     </svg>
                   ))}
                 </div>
-                <p className="text-sm text-muted-foreground italic leading-relaxed">
+                <p className="text-sm text-[#9ba1a6] italic leading-relaxed">
                   &ldquo;My close rate went from 15% to 60% after switching. CA BYLDRS sends real leads from homeowners who actually want my service.&rdquo;
                 </p>
               </div>
@@ -134,21 +134,21 @@ export default function ContractorCTA() {
 
             <AnimatedSection delay={0.35} direction="right">
               {/* WhatsApp community card */}
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl p-6 border border-green-200/50 dark:border-green-800/30">
+              <div className="bg-green-500/5 rounded-2xl p-6 border border-green-500/20">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-xl bg-green-500 flex items-center justify-center">
                     <MessageCircle className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground text-sm">Join Our WhatsApp Community</p>
-                    <p className="text-xs text-muted-foreground">500+ local professionals</p>
+                    <p className="font-semibold text-[#f0f2f5] text-sm">Join Our WhatsApp Community</p>
+                    <p className="text-xs text-[#9ba1a6]">500+ local professionals</p>
                   </div>
                 </div>
                 <a
                   href="https://chat.whatsapp.com/Hn4Ox86GwWz0Wp1oDQ6aA0"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-green-700 dark:text-green-400 hover:text-green-800 transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-green-400 hover:text-green-300 transition-colors"
                 >
                   Join Now
                   <ChevronRight className="h-4 w-4" />
@@ -162,13 +162,13 @@ export default function ContractorCTA() {
                 {statCards.map((stat) => (
                   <div
                     key={stat.label}
-                    className="glass-dark rounded-2xl p-4 text-center"
+                    className="bg-[#1a120b] rounded-2xl p-4 text-center border border-white/[0.06]"
                   >
-                    <stat.icon className="mx-auto mb-2 h-5 w-5 text-orange-500" />
-                    <p className="text-xl font-bold text-foreground">
+                    <stat.icon className="mx-auto mb-2 h-5 w-5 text-[#FF6B00]" />
+                    <p className="text-xl font-bold text-[#f0f2f5]">
                       {stat.value}
                     </p>
-                    <p className="text-[10px] text-muted-foreground">{stat.label}</p>
+                    <p className="text-[10px] text-[#9ba1a6]">{stat.label}</p>
                   </div>
                 ))}
               </div>

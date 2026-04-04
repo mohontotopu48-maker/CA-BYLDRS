@@ -9,19 +9,19 @@ export default function HeroSection() {
   const { navigate } = useRouter();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient bg-[#0a0c10]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient bg-[#0d0906]">
       {/* Floating decorative elements */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-[#FF7B00]/5 blur-2xl animate-float" />
-        <div className="absolute -top-10 right-10 w-56 h-56 rounded-full bg-[#FF7B00]/8 blur-xl animate-float-delayed" />
+        <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-[#FF6B00]/5 blur-2xl animate-float" />
+        <div className="absolute -top-10 right-10 w-56 h-56 rounded-full bg-[#2a1f14] blur-xl animate-float-delayed" />
         <div className="absolute bottom-32 -left-10 w-40 h-40 rounded-full glass animate-float-slow" />
-        <div className="absolute -bottom-16 right-20 w-64 h-64 rounded-full bg-[#FF7B00]/5 blur-2xl animate-float" />
+        <div className="absolute -bottom-16 right-20 w-64 h-64 rounded-full bg-[#FF6B00]/5 blur-2xl animate-float" />
         <div className="absolute top-1/3 right-0 w-32 h-32 rounded-full glass animate-float-delayed opacity-60" />
         <div className="absolute top-20 left-1/4 w-3 h-3 rounded-full bg-white/20 animate-float" />
         <div className="absolute top-40 right-1/3 w-2 h-2 rounded-full bg-white/15 animate-float-delayed" />
         <div className="absolute bottom-40 left-1/3 w-4 h-4 rounded-full bg-white/10 animate-float-slow" />
-        <div className="absolute top-1/2 left-10 w-2 h-2 rounded-full bg-[#FF7B00]/20 animate-float-delayed" />
-        <div className="absolute bottom-1/4 right-12 w-3 h-3 rounded-full bg-[#FF7B00]/15 animate-float" />
+        <div className="absolute top-1/2 left-10 w-2 h-2 rounded-full bg-[#FF6B00]/20 animate-float-delayed" />
+        <div className="absolute bottom-1/4 right-12 w-3 h-3 rounded-full bg-[#FF6B00]/15 animate-float" />
       </div>
 
       {/* Content */}
@@ -32,11 +32,11 @@ export default function HeroSection() {
             <div className="inline-flex items-center justify-center mb-8">
               <div className="relative">
                 <div aria-hidden="true">
-                  <div className="absolute -inset-6 sm:-inset-8 rounded-full bg-gradient-to-r from-[#FF7B00] to-[#FF9F1C] opacity-20 blur-3xl animate-pulse-glow" />
-                  <div className="absolute -inset-4 sm:-inset-6 rounded-full bg-gradient-to-r from-[#FF9F1C] to-[#FF7B00] opacity-15 blur-2xl animate-float" />
+                  <div className="absolute -inset-6 sm:-inset-8 rounded-full bg-gradient-to-r from-[#FF6B00] to-[#FF9F1C] opacity-20 blur-3xl animate-pulse-glow" />
+                  <div className="absolute -inset-4 sm:-inset-6 rounded-full bg-gradient-to-r from-[#FF9F1C] to-[#FF6B00] opacity-15 blur-2xl animate-float" />
                   <div className="absolute -inset-2 sm:-inset-3 rounded-full bg-white/5 blur-xl animate-float-delayed" />
                 </div>
-                <div className="relative rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 bg-white/[0.03] backdrop-blur-xl border-2 border-white/[0.06] shadow-2xl shadow-[#FF7B00]/20 ring-1 ring-white/[0.06]">
+                <div className="relative rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 bg-white/[0.03] backdrop-blur-xl border-2 border-white/[0.06] shadow-2xl shadow-[#FF6B00]/20 ring-1 ring-white/[0.06]">
                   <img
                     src="/logo.png"
                     alt="CA BYLDRS - Trusted Local Home Services"
@@ -45,7 +45,7 @@ export default function HeroSection() {
                   />
                 </div>
                 {/* Animated orbit ring */}
-                <div className="absolute -inset-10 rounded-full border-2 border-dashed border-[#FF7B00]/20 animate-[spin_20s_linear_infinite]" />
+                <div className="absolute -inset-10 rounded-full border-2 border-dashed border-[#FF6B00]/20 animate-[spin_20s_linear_infinite]" />
               </div>
             </div>
           </AnimatedSection>
@@ -53,9 +53,9 @@ export default function HeroSection() {
           {/* Headline */}
           <AnimatedSection delay={0.1}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-lg">
-              Trust Your Local Pro
-              <span className="block mt-2 sm:mt-3">
-                Not a Lead Farm
+              California&apos;s Most Trusted
+              <span className="block mt-2 sm:mt-3 text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] to-[#FF9F1C]">
+                Contractor Network
               </span>
             </h1>
           </AnimatedSection>
@@ -63,7 +63,7 @@ export default function HeroSection() {
           {/* Subheadline */}
           <AnimatedSection delay={0.25}>
             <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-[#9ba1a6] max-w-3xl mx-auto leading-relaxed">
-              Unlike Angi or HomeAdvisor, we never sell your info to 5+ contractors. Your request goes to only 1-3 community-trusted, licensed professionals in Orange County &amp; Los Angeles County. No spam. No shared leads. Just real local experts who show up.
+              Connect with verified, licensed professionals for your home projects. No lead farms. No spam. Just real local contractors who show up and deliver quality work.
             </p>
           </AnimatedSection>
 
@@ -72,21 +72,20 @@ export default function HeroSection() {
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               <Button
                 size="lg"
-                className="cta-glow bg-gradient-to-r from-[#FF7B00] to-[#FF9F1C] text-white hover:from-[#FF9F1C] hover:to-[#FF7B00] font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-auto"
+                className="cta-glow bg-gradient-to-r from-[#FF6B00] to-[#FF9F1C] text-white hover:from-[#FF9F1C] hover:to-[#FF6B00] font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-auto"
                 onClick={() => navigate('contact')}
               >
-                Request Service
+                Get Free Quotes
                 <ChevronRight className="size-5 ml-1" />
               </Button>
 
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white/[0.06] text-white bg-white/[0.03] hover:bg-white/[0.06] hover:border-white/10 font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-xl backdrop-blur-sm transition-all duration-300 cursor-pointer h-auto"
-                onClick={() => navigate('emergency')}
+                className="border-2 border-red-500 text-red-400 bg-transparent hover:bg-red-500/10 hover:border-red-400 hover:text-red-300 font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-xl backdrop-blur-sm transition-all duration-300 cursor-pointer h-auto"
+                onClick={() => navigate('journey')}
               >
-                <Phone className="size-5 mr-2" />
-                Emergency Help
+                How It Works
               </Button>
 
               <Button
@@ -96,7 +95,7 @@ export default function HeroSection() {
                 onClick={() => navigate('partner')}
               >
                 <Users className="size-5 mr-2" />
-                Become a Partner
+                Join Our Network
               </Button>
             </div>
           </AnimatedSection>
@@ -109,36 +108,36 @@ export default function HeroSection() {
             >
               <StaggerItem>
                 <div className="glass-card rounded-xl px-4 py-4 sm:px-6 sm:py-5 flex items-center justify-center gap-3 hover:bg-white/[0.06] transition-all duration-300 group">
-                  <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#FF7B00]/10 flex items-center justify-center group-hover:bg-[#FF7B00]/20 transition-colors">
-                    <Shield className="size-5 text-[#FF7B00]" />
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#FF6B00]/10 flex items-center justify-center group-hover:bg-[#FF6B00]/20 transition-colors">
+                    <Shield className="size-5 text-[#FF6B00]" />
                   </div>
                   <div className="text-left">
-                    <p className="text-sm sm:text-base font-semibold text-[#f0f2f5]">Never Shared Leads</p>
-                    <p className="text-xs text-[#9ba1a6] hidden sm:block">Your request goes to 1-3 pros, not 5+</p>
+                    <p className="text-sm sm:text-base font-semibold text-[#f0f2f5]">1-3 Matched Pros</p>
+                    <p className="text-xs text-[#9ba1a6] hidden sm:block">Never shared with 5+ companies</p>
                   </div>
                 </div>
               </StaggerItem>
 
               <StaggerItem>
                 <div className="glass-card rounded-xl px-4 py-4 sm:px-6 sm:py-5 flex items-center justify-center gap-3 hover:bg-white/[0.06] transition-all duration-300 group">
-                  <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#FF7B00]/10 flex items-center justify-center group-hover:bg-[#FF7B00]/20 transition-colors">
-                    <Shield className="size-5 text-[#FF7B00]" />
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#FF6B00]/10 flex items-center justify-center group-hover:bg-[#FF6B00]/20 transition-colors">
+                    <Shield className="size-5 text-[#FF6B00]" />
                   </div>
                   <div className="text-left">
-                    <p className="text-sm sm:text-base font-semibold text-[#f0f2f5]">Zero Spam Guarantee</p>
-                    <p className="text-xs text-[#9ba1a6] hidden sm:block">No unwanted calls or emails</p>
+                    <p className="text-sm sm:text-base font-semibold text-[#f0f2f5]">Zero Lead Sharing</p>
+                    <p className="text-xs text-[#9ba1a6] hidden sm:block">Your info stays private</p>
                   </div>
                 </div>
               </StaggerItem>
 
               <StaggerItem>
                 <div className="glass-card rounded-xl px-4 py-4 sm:px-6 sm:py-5 flex items-center justify-center gap-3 hover:bg-white/[0.06] transition-all duration-300 group">
-                  <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#FF7B00]/10 flex items-center justify-center group-hover:bg-[#FF7B00]/20 transition-colors">
-                    <MapPin className="size-5 text-[#FF7B00]" />
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#FF6B00]/10 flex items-center justify-center group-hover:bg-[#FF6B00]/20 transition-colors">
+                    <MapPin className="size-5 text-[#FF6B00]" />
                   </div>
                   <div className="text-left">
-                    <p className="text-sm sm:text-base font-semibold text-[#f0f2f5]">100% Local &amp; Verified</p>
-                    <p className="text-xs text-[#9ba1a6] hidden sm:block">Licensed pros in OC &amp; LA only</p>
+                    <p className="text-sm sm:text-base font-semibold text-[#f0f2f5]">Licensed & Insured</p>
+                    <p className="text-xs text-[#9ba1a6] hidden sm:block">Verified pros in OC & LA only</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -148,7 +147,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0c10] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0d0906] to-transparent pointer-events-none" />
     </section>
   );
 }
