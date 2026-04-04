@@ -138,12 +138,12 @@
 /* Hero gradient - dark with orange radial glow */
 .hero-gradient {
   background: #0a0c10;
-  background-image: radial-gradient(ellipse 80% 50% at 50% 20%, rgba(255, 123, 0, 0.15) 0%, transparent 60%);
+  background-image: radial-gradient(circle at 50% 20%, rgba(255, 123, 0, 0.15) 0%, transparent 60%);
 }
 
 .dark .hero-gradient {
   background: #0a0c10;
-  background-image: radial-gradient(ellipse 80% 50% at 50% 20%, rgba(255, 123, 0, 0.15) 0%, transparent 60%);
+  background-image: radial-gradient(circle at 50% 20%, rgba(255, 123, 0, 0.15) 0%, transparent 60%);
 }
 
 /* Glassmorphism - dark glass style */
