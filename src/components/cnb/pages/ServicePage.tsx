@@ -25,13 +25,13 @@ export default function ServicePage({ slug }: ServicePageProps) {
 
   if (!service) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center px-4 py-20">
+      <div className="min-h-screen bg-[#0d0906] flex flex-col items-center justify-center px-4 py-20">
         <AnimatedSection direction="up">
           <div className="text-center max-w-md">
-            <div className="w-20 h-20 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 rounded-full bg-[#FF6B00]/10 border border-[#FF6B00]/20 flex items-center justify-center mx-auto mb-6">
               <span className="text-3xl">🔍</span>
             </div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+            <h1 className="text-3xl font-bold text-foreground mb-3">
               Service Not Found
             </h1>
             <p className="text-muted-foreground mb-6">
@@ -50,21 +50,21 @@ export default function ServicePage({ slug }: ServicePageProps) {
   const ServiceIcon = service.icon;
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#0d0906]">
       {/* Breadcrumb */}
-      <div className="bg-white dark:bg-gray-950 border-b">
+      <div className="bg-[#1a120b] border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <nav className="flex items-center gap-1.5 text-sm">
             <button
               onClick={() => navigate('home')}
-              className="text-muted-foreground hover:text-orange-500 transition-colors"
+              className="text-muted-foreground hover:text-[#FF6B00] transition-colors"
             >
               Home
             </button>
             <ChevronRight className="size-3.5 text-muted-foreground" />
             <button
               onClick={() => navigate('services')}
-              className="text-muted-foreground hover:text-orange-500 transition-colors"
+              className="text-muted-foreground hover:text-[#FF6B00] transition-colors"
             >
               Services
             </button>
@@ -78,13 +78,13 @@ export default function ServicePage({ slug }: ServicePageProps) {
       <section className="hero-gradient py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center max-w-3xl mx-auto">
-            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center mx-auto mb-6">
-              <ServiceIcon className="w-10 h-10 sm:w-12 sm:h-12 text-orange-500" />
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#1a120b] border border-[#FF6B00]/20 shadow-lg flex items-center justify-center mx-auto mb-6">
+              <ServiceIcon className="w-10 h-10 sm:w-12 sm:h-12 text-[#FF6B00]" />
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               {service.name}
             </h1>
-            <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
               {service.shortDescription}
             </p>
           </AnimatedSection>
@@ -95,20 +95,20 @@ export default function ServicePage({ slug }: ServicePageProps) {
       <SharedMiniJourney type="customer" />
 
       {/* Description Section */}
-      <section className="py-12 sm:py-16 bg-white dark:bg-gray-950">
+      <section className="py-12 sm:py-16 bg-[#0d0906]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <Card className="max-w-4xl mx-auto shadow-md border-orange-100 dark:border-orange-900/30">
+            <Card className="max-w-4xl mx-auto bg-[#1a120b] border border-[#FF6B00]/15">
               <CardContent className="pt-2 pb-2">
                 <div className="flex items-start gap-4">
-                  <div className="hidden sm:flex w-12 h-12 rounded-xl bg-orange-100 dark:bg-orange-900/30 items-center justify-center shrink-0 mt-1">
-                    <ServiceIcon className="w-6 h-6 text-orange-500" />
+                  <div className="hidden sm:flex w-12 h-12 rounded-xl bg-[#FF6B00]/10 border border-[#FF6B00]/20 items-center justify-center shrink-0 mt-1">
+                    <ServiceIcon className="w-6 h-6 text-[#FF6B00]" />
                   </div>
                   <div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                    <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-3">
                       About Our {service.name} Services
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed">
                       {service.description}
                     </p>
                   </div>
@@ -120,11 +120,11 @@ export default function ServicePage({ slug }: ServicePageProps) {
       </section>
 
       {/* Features Section */}
-      <section className="py-12 sm:py-16 bg-gray-50 dark:bg-gray-900">
+      <section className="py-12 sm:py-16 bg-[#2a1f14]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-10">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
                 What&apos;s Included
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
@@ -138,10 +138,10 @@ export default function ServicePage({ slug }: ServicePageProps) {
                 {service.features.map((feature, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-3 p-4 rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700"
+                    className="flex items-start gap-3 p-4 rounded-xl bg-[#1a120b] border border-border"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
-                    <span className="text-gray-700 dark:text-gray-200 text-sm sm:text-base">
+                    <CheckCircle2 className="w-5 h-5 text-[#FF6B00] shrink-0 mt-0.5" />
+                    <span className="text-foreground/90 text-sm sm:text-base">
                       {feature}
                     </span>
                   </div>
@@ -153,11 +153,11 @@ export default function ServicePage({ slug }: ServicePageProps) {
       </section>
 
       {/* FAQs Section */}
-      <section className="py-12 sm:py-16 bg-white dark:bg-gray-950">
+      <section className="py-12 sm:py-16 bg-[#0d0906]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-10">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
                 Frequently Asked Questions
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
@@ -171,12 +171,12 @@ export default function ServicePage({ slug }: ServicePageProps) {
                 <AccordionItem
                   key={index}
                   value={`faq-${index}`}
-                  className="border-gray-200 dark:border-gray-700"
+                  className="border-border"
                 >
-                  <AccordionTrigger className="text-left text-gray-900 dark:text-white hover:no-underline sm:text-base font-medium">
+                  <AccordionTrigger className="text-left text-foreground hover:no-underline sm:text-base font-medium">
                     {faq.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-600 dark:text-gray-300 leading-relaxed sm:text-base">
+                  <AccordionContent className="text-muted-foreground leading-relaxed sm:text-base">
                     {faq.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -187,11 +187,11 @@ export default function ServicePage({ slug }: ServicePageProps) {
       </section>
 
       {/* County Service Links */}
-      <section className="py-12 sm:py-16 bg-gray-50 dark:bg-gray-900">
+      <section className="py-12 sm:py-16 bg-[#2a1f14]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-10">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
                 Available in Your Area
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
@@ -202,16 +202,16 @@ export default function ServicePage({ slug }: ServicePageProps) {
           <div className="max-w-4xl mx-auto space-y-6">
             {counties.map((county, index) => (
               <AnimatedSection key={county.slug} delay={0.1 * (index + 1)}>
-                <Card className="shadow-sm hover:shadow-md transition-shadow border-gray-200 dark:border-gray-700">
+                <Card className="bg-[#1a120b] border border-border hover:border-[#FF6B00]/30 transition-shadow">
                   <CardHeader>
                     <div className="flex items-start justify-between flex-col sm:flex-row sm:items-center gap-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
-                          <MapPin className="w-5 h-5 text-orange-500" />
+                        <div className="w-10 h-10 rounded-full bg-[#FF6B00]/10 border border-[#FF6B00]/20 flex items-center justify-center">
+                          <MapPin className="w-5 h-5 text-[#FF6B00]" />
                         </div>
                         <div>
-                          <CardTitle className="text-lg">{county.name}</CardTitle>
-                          <CardDescription>
+                          <CardTitle className="text-lg text-foreground">{county.name}</CardTitle>
+                          <CardDescription className="text-muted-foreground">
                             {county.cities.length} cities served
                           </CardDescription>
                         </div>
@@ -230,7 +230,7 @@ export default function ServicePage({ slug }: ServicePageProps) {
                       {county.cities.map((city) => (
                         <span
                           key={city}
-                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-800/40"
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-[#FF6B00]/10 text-[#FF6B00] border border-[#FF6B00]/20"
                         >
                           <MapPin className="size-3" />
                           {city}
@@ -246,11 +246,11 @@ export default function ServicePage({ slug }: ServicePageProps) {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-12 sm:py-16 bg-white dark:bg-gray-950">
+      <section className="py-12 sm:py-16 bg-[#0d0906]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
                 Need {service.name}?
               </h2>
               <p className="text-muted-foreground mb-6">

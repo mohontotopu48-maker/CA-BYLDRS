@@ -58,11 +58,11 @@ export default function SharedMiniJourney({ type = 'customer' }: SharedMiniJourn
 
   return (
     <section className="relative py-10 sm:py-14 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-orange-50/60 to-transparent dark:from-orange-950/20 dark:to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#FF6B00]/5 to-transparent pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs font-semibold mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FF6B00]/10 text-[#FF6B00] text-xs font-semibold mb-3">
             {type === 'emergency' ? (
               <Zap className="h-3.5 w-3.5" />
             ) : (
@@ -83,16 +83,16 @@ export default function SharedMiniJourney({ type = 'customer' }: SharedMiniJourn
               return (
                 <div key={step.title} className="flex items-center">
                   <div className="flex flex-col items-center text-center w-40">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/20 mb-3 group-hover:scale-110 transition-transform">
-                      <StepIcon className="h-6 w-6 text-white" />
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FF6B00] to-[#FF9F1C] flex items-center justify-center shadow-lg shadow-[#FF6B00]/20 mb-3 group-hover:scale-110 transition-transform">
+                      <StepIcon className="h-6 w-6 text-foreground" />
                     </div>
                     <p className="text-sm font-bold text-foreground">{step.title}</p>
                     <p className="text-xs text-muted-foreground mt-0.5">{step.subtitle}</p>
                   </div>
                   {idx < steps.length - 1 && (
                     <div className="flex items-center mx-3 mb-5">
-                      <div className="w-12 h-0.5 bg-gradient-to-r from-orange-300 to-orange-400 rounded-full" />
-                      <ArrowRight className="h-4 w-4 text-orange-400 -ml-1.5 -mr-1" />
+                      <div className="w-12 h-0.5 bg-gradient-to-r from-[#FF6B00]/60 to-[#FF6B00] rounded-full" />
+                      <ArrowRight className="h-4 w-4 text-[#FF6B00] -ml-1.5 -mr-1" />
                     </div>
                   )}
                 </div>
@@ -103,7 +103,7 @@ export default function SharedMiniJourney({ type = 'customer' }: SharedMiniJourn
           {/* Vertical Steps - Mobile */}
           <div className="sm:hidden flex flex-col items-center gap-0 relative">
             {/* Vertical connecting line */}
-            <div className="absolute left-7 top-7 bottom-7 w-0.5 bg-gradient-to-b from-orange-300 via-orange-400 to-orange-500 rounded-full" />
+            <div className="absolute left-7 top-7 bottom-7 w-0.5 bg-gradient-to-b from-[#FF6B00]/40 via-[#FF6B00] to-[#FF6B00]/80 rounded-full" />
 
             {steps.map((step, idx) => {
               const StepIcon = step.icon;
@@ -111,12 +111,12 @@ export default function SharedMiniJourney({ type = 'customer' }: SharedMiniJourn
               return (
                 <div key={step.title} className="flex items-start gap-4 w-full relative">
                   <div className="relative z-10 flex-shrink-0">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
-                      <StepIcon className="h-6 w-6 text-white" />
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FF6B00] to-[#FF9F1C] flex items-center justify-center shadow-lg shadow-[#FF6B00]/20">
+                      <StepIcon className="h-6 w-6 text-foreground" />
                     </div>
                     {/* Connector dot */}
                     {!isLast && (
-                      <div className="absolute top-16 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-orange-300" />
+                      <div className="absolute top-16 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#FF6B00]/60" />
                     )}
                   </div>
                   <div className="flex-1 pt-2 pb-6">

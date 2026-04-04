@@ -45,14 +45,14 @@ export default function EmergencyPage() {
   const { navigate } = useRouter();
 
   return (
-    <div className="min-h-screen bg-orange-50/50 dark:bg-orange-950/20">
+    <div className="min-h-screen bg-background">
       {/* Breadcrumb */}
-      <div className="bg-white dark:bg-card border-b dark:border-border">
+      <div className="bg-card border-b border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
             <button
               onClick={() => navigate('home')}
-              className="hover:text-orange-600 transition-colors cursor-pointer"
+              className="hover:text-[#FF6B00] transition-colors cursor-pointer"
             >
               Home
             </button>
@@ -62,8 +62,8 @@ export default function EmergencyPage() {
         </div>
       </div>
 
-      {/* Alert Banner */}
-      <section className="bg-gradient-to-r from-red-600 to-orange-600 py-6 sm:py-8 relative overflow-hidden">
+      {/* Alert Banner — KEEP RED for emergency urgency */}
+      <section className="bg-gradient-to-r from-red-600 to-red-700 py-6 sm:py-8 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-white/10 blur-2xl" />
           <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-red-400/20 blur-xl" />
@@ -96,17 +96,17 @@ export default function EmergencyPage() {
       {/* Phone Number */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
         <AnimatedSection>
-          <Card className="shadow-xl border-0 shadow-red-900/10 bg-gradient-to-br from-red-50 dark:from-red-950/30 to-orange-50 dark:to-orange-950/30">
+          <Card className="shadow-xl border border-border bg-card">
             <CardContent className="p-6 sm:p-8 text-center">
-              <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-4">
-                <PhoneCall className="size-8 text-red-600 dark:text-red-400" />
+              <div className="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center mx-auto mb-4">
+                <PhoneCall className="size-8 text-red-500" />
               </div>
               <h2 className="text-lg font-semibold text-foreground mb-2">
                 Call Now for Immediate Help
               </h2>
               <a
                 href="tel:+15629440500"
-                className="text-3xl sm:text-4xl md:text-5xl font-bold text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors inline-block"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-red-500 hover:text-red-400 transition-colors inline-block"
               >
                 +1 (562) 944-0500
               </a>
@@ -131,7 +131,7 @@ export default function EmergencyPage() {
           </div>
         </AnimatedSection>
         <AnimatedSection delay={0.1}>
-          <Card className="shadow-md border-0">
+          <Card className="glass-card">
             <CardContent className="p-6 sm:p-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
@@ -143,8 +143,8 @@ export default function EmergencyPage() {
                   { icon: Droplets, label: 'Active flooding or water damage' },
                 ].map((item) => (
                   <div key={item.label} className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-900/30 flex items-center justify-center flex-shrink-0">
-                      <item.icon className="size-4 text-red-600 dark:text-red-400" />
+                    <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0">
+                      <item.icon className="size-4 text-red-500" />
                     </div>
                     <span className="text-sm text-foreground">{item.label}</span>
                   </div>
@@ -167,10 +167,10 @@ export default function EmergencyPage() {
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {emergencyTypes.map((service) => (
             <StaggerItem key={service.title}>
-              <Card className="h-full shadow-md border-0 hover:shadow-lg transition-all duration-300 group border-l-4 border-l-red-500 dark:border-l-red-600">
+              <Card className="h-full bg-card border border-border hover:border-red-500/30 transition-all duration-300 group border-l-4 border-l-red-500">
                 <CardContent className="p-6">
-                  <div className="w-12 h-12 rounded-xl bg-red-50 dark:bg-red-900/30 flex items-center justify-center mb-4 group-hover:bg-red-100 transition-colors">
-                    <service.icon className="size-6 text-red-600 dark:text-red-400" />
+                  <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-4 group-hover:bg-red-500/20 transition-colors">
+                    <service.icon className="size-6 text-red-500" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">
                     {service.title}
@@ -181,7 +181,7 @@ export default function EmergencyPage() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="w-full border-red-200 dark:border-red-800/40 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 hover:text-red-700 dark:hover:text-red-300 cursor-pointer"
+                    className="w-full border-red-500/20 text-red-500 hover:bg-red-500/10 hover:text-red-400 cursor-pointer"
                     onClick={() => navigate('contact')}
                   >
                     <Phone className="size-3.5 mr-1.5" />
@@ -194,10 +194,10 @@ export default function EmergencyPage() {
         </StaggerContainer>
       </section>
 
-      {/* Big CTA */}
+      {/* Big CTA — KEEP RED gradient for emergency urgency */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 sm:mt-16 mb-8">
         <AnimatedSection>
-          <Card className="shadow-xl border-0 bg-gradient-to-br from-red-600 to-orange-600 overflow-hidden">
+          <Card className="shadow-xl border-0 bg-gradient-to-br from-red-600 to-red-700 overflow-hidden">
             <CardContent className="p-8 sm:p-10 text-center relative z-10">
               <div className="flex items-center justify-center gap-2 mb-4">
                 <Clock className="size-6 text-white/80" />
@@ -237,17 +237,17 @@ export default function EmergencyPage() {
       {/* 911 Notice */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <AnimatedSection>
-          <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/40 rounded-xl p-4 sm:p-6 flex items-start gap-4">
-            <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <AlertTriangle className="size-5 text-amber-600 dark:text-amber-400" />
+          <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 sm:p-6 flex items-start gap-4">
+            <div className="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <AlertTriangle className="size-5 text-amber-400" />
             </div>
             <div>
-              <h3 className="font-semibold text-amber-900 dark:text-amber-100 mb-1">
+              <h3 className="font-semibold text-amber-300 mb-1">
                 For Life-Threatening Emergencies
               </h3>
-              <p className="text-sm text-amber-800 dark:text-amber-200 leading-relaxed">
+              <p className="text-sm text-amber-200/80 leading-relaxed">
                 If you or anyone is in immediate danger, experiencing a medical emergency, or if there is an active fire, gas explosion, or electrical fire, please call{' '}
-                <span className="font-bold text-amber-900 dark:text-amber-100">911</span> immediately. CA BYLDRS connects homeowners with service professionals for property-related emergencies — we are not a substitute for emergency services.
+                <span className="font-bold text-amber-300">911</span> immediately. CA BYLDRS connects homeowners with service professionals for property-related emergencies — we are not a substitute for emergency services.
               </p>
             </div>
           </div>

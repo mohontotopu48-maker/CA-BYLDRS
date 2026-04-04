@@ -280,7 +280,7 @@ export default function PartnerPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="companyName" className="flex items-center gap-2">
-                    <Building2 className="size-4 text-orange-500" />
+                    <Building2 className="size-4 text-[#FF6B00]" />
                     Company Name <span className="text-red-500">*</span>
                   </Label>
                   <Input
@@ -293,7 +293,7 @@ export default function PartnerPage() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="contactName" className="flex items-center gap-2">
-                    <Users className="size-4 text-orange-500" />
+                    <Users className="size-4 text-[#FF6B00]" />
                     Contact Name <span className="text-red-500">*</span>
                   </Label>
                   <Input
@@ -310,7 +310,7 @@ export default function PartnerPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="email" className="flex items-center gap-2">
-                    <Briefcase className="size-4 text-orange-500" />
+                    <Briefcase className="size-4 text-[#FF6B00]" />
                     Email <span className="text-red-500">*</span>
                   </Label>
                   <Input
@@ -324,7 +324,7 @@ export default function PartnerPage() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone" className="flex items-center gap-2">
-                    <Briefcase className="size-4 text-orange-500" />
+                    <Briefcase className="size-4 text-[#FF6B00]" />
                     Phone <span className="text-red-500">*</span>
                   </Label>
                   <Input
@@ -341,7 +341,7 @@ export default function PartnerPage() {
               {/* ── Service Categories ── */}
               <div className="space-y-3">
                 <Label className="flex items-center gap-2 text-base">
-                  <CheckCircle2 className="size-4 text-orange-500" />
+                  <CheckCircle2 className="size-4 text-[#FF6B00]" />
                   Service Categories
                 </Label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -368,7 +368,7 @@ export default function PartnerPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="licenseNumber" className="flex items-center gap-2">
-                    <Award className="size-4 text-orange-500" />
+                    <Award className="size-4 text-[#FF6B00]" />
                     License Number
                   </Label>
                   <Input
@@ -380,7 +380,7 @@ export default function PartnerPage() {
                 </div>
                 <div className="space-y-2">
                   <Label className="flex items-center gap-2">
-                    <Briefcase className="size-4 text-orange-500" />
+                    <Briefcase className="size-4 text-[#FF6B00]" />
                     Years in Business
                   </Label>
                   <Select
@@ -404,7 +404,7 @@ export default function PartnerPage() {
               {/* ── Service Areas ── */}
               <div className="space-y-3">
                 <Label className="flex items-center gap-2 text-base">
-                  <MapPin className="size-4 text-orange-500" />
+                  <MapPin className="size-4 text-[#FF6B00]" />
                   Service Areas
                 </Label>
                 <div className="flex flex-wrap gap-4">

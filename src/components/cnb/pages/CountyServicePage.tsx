@@ -18,11 +18,11 @@ export default function CountyServicePage({ countySlug, serviceSlug }: CountySer
 
   if (!county || !service) {
     return (
-      <div className="min-h-screen pt-24 pb-20 flex items-center justify-center">
+      <div className="min-h-screen pt-24 pb-20 flex items-center justify-center bg-[#0d0906]">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-2">Page Not Found</h1>
-          <p className="text-muted-foreground mb-6">The service or county you're looking for doesn't exist.</p>
-          <Button onClick={() => navigate('home')}>Back to Home</Button>
+          <h1 className="text-2xl font-bold mb-2 text-foreground">Page Not Found</h1>
+          <p className="text-muted-foreground mb-6">The service or county you&apos;re looking for doesn&apos;t exist.</p>
+          <Button onClick={() => navigate('home')} className="bg-gradient-to-r from-[#FF6B00] to-[#FF9F1C] text-white hover:opacity-90">Back to Home</Button>
         </div>
       </div>
     );
@@ -63,23 +63,23 @@ export default function CountyServicePage({ countySlug, serviceSlug }: CountySer
       </section>
 
       {/* Content */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-[#0d0906]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-12">
               <AnimatedSection>
-                <div className="bg-card rounded-2xl border p-6 md:p-8">
-                  <h2 className="text-2xl font-bold mb-4">
+                <div className="bg-card rounded-2xl border border-border p-6 md:p-8">
+                  <h2 className="text-2xl font-bold mb-4 text-foreground">
                     Professional {service.name} in {county.name}
                   </h2>
                   <p className="text-muted-foreground leading-relaxed">
                     {service.description}
                   </p>
-                  <div className="mt-4 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
+                  <div className="mt-4 p-4 bg-[#FF6B00]/10 rounded-xl border border-[#FF6B00]/15">
                     <div className="flex items-start gap-3">
-                      <MapPin className="h-5 w-5 text-orange-500 shrink-0 mt-0.5" />
-                      <p className="text-sm text-orange-700 dark:text-orange-300">
+                      <MapPin className="h-5 w-5 text-[#FF6B00] shrink-0 mt-0.5" />
+                      <p className="text-sm text-[#FF9F1C]">
                         Our verified {service.name.toLowerCase()} professionals serve all areas of {county.name}, including{' '}
                         {county.cities.join(', ')}.
                       </p>
@@ -89,13 +89,13 @@ export default function CountyServicePage({ countySlug, serviceSlug }: CountySer
               </AnimatedSection>
 
               <AnimatedSection delay={0.1}>
-                <h2 className="text-2xl font-bold mb-6">What&apos;s Included</h2>
+                <h2 className="text-2xl font-bold mb-6 text-foreground">What&apos;s Included</h2>
                 <StaggerContainer className="grid sm:grid-cols-2 gap-4">
                   {service.features.map((feature) => (
                     <StaggerItem key={feature}>
-                      <div className="flex items-start gap-3 bg-card rounded-xl border p-4">
-                        <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">{feature}</span>
+                      <div className="flex items-start gap-3 bg-card rounded-xl border border-border p-4">
+                        <CheckCircle2 className="h-5 w-5 text-[#FF6B00] shrink-0 mt-0.5" />
+                        <span className="text-sm text-foreground/90">{feature}</span>
                       </div>
                     </StaggerItem>
                   ))}
@@ -103,11 +103,11 @@ export default function CountyServicePage({ countySlug, serviceSlug }: CountySer
               </AnimatedSection>
 
               <AnimatedSection delay={0.2}>
-                <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+                <h2 className="text-2xl font-bold mb-6 text-foreground">Frequently Asked Questions</h2>
                 <div className="space-y-4">
                   {service.faqs.map((faq) => (
-                    <div key={faq.q} className="bg-card rounded-xl border p-6">
-                      <h3 className="font-semibold mb-2">{faq.q}</h3>
+                    <div key={faq.q} className="bg-card rounded-xl border border-border p-6">
+                      <h3 className="font-semibold mb-2 text-foreground">{faq.q}</h3>
                       <p className="text-sm text-muted-foreground">{faq.a}</p>
                     </div>
                   ))}
@@ -118,16 +118,16 @@ export default function CountyServicePage({ countySlug, serviceSlug }: CountySer
             {/* Sidebar */}
             <div className="space-y-6">
               <AnimatedSection direction="right">
-                <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-6 text-white sticky top-24">
+                <div className="bg-gradient-to-br from-[#FF6B00] to-[#FF9F1C] rounded-2xl p-6 text-white sticky top-24">
                   <h3 className="text-xl font-bold mb-2">
                     Need {service.name} in {county.name}?
                   </h3>
-                  <p className="text-orange-100 text-sm mb-6">
+                  <p className="text-white/80 text-sm mb-6">
                     Get connected with a verified {service.name.toLowerCase()} professional in {county.name} today.
                   </p>
                   <Button
                     onClick={() => navigate('contact')}
-                    className="w-full bg-white text-orange-600 hover:bg-orange-50 font-semibold"
+                    className="w-full bg-[#1a120b] text-white hover:bg-[#2a1f14] font-semibold"
                     size="lg"
                   >
                     Request Service
@@ -145,13 +145,13 @@ export default function CountyServicePage({ countySlug, serviceSlug }: CountySer
               </AnimatedSection>
 
               <AnimatedSection direction="right" delay={0.1}>
-                <div className="bg-card rounded-2xl border p-6">
-                  <h4 className="font-semibold mb-4">Areas We Serve in {county.name}</h4>
+                <div className="bg-card rounded-2xl border border-border p-6">
+                  <h4 className="font-semibold mb-4 text-foreground">Areas We Serve in {county.name}</h4>
                   <div className="flex flex-wrap gap-2">
                     {county.cities.map((city) => (
                       <span
                         key={city}
-                        className="px-3 py-1.5 bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 rounded-lg text-xs font-medium"
+                        className="px-3 py-1.5 bg-[#FF6B00]/10 text-[#FF6B00] rounded-lg text-xs font-medium"
                       >
                         {city}
                       </span>
@@ -161,8 +161,8 @@ export default function CountyServicePage({ countySlug, serviceSlug }: CountySer
               </AnimatedSection>
 
               <AnimatedSection direction="right" delay={0.2}>
-                <div className="bg-card rounded-2xl border p-6">
-                  <h4 className="font-semibold mb-4">Other Services in {county.name}</h4>
+                <div className="bg-card rounded-2xl border border-border p-6">
+                  <h4 className="font-semibold mb-4 text-foreground">Other Services in {county.name}</h4>
                   <div className="space-y-2">
                     {services
                       .filter((s) => s.slug !== serviceSlug)
@@ -170,10 +170,10 @@ export default function CountyServicePage({ countySlug, serviceSlug }: CountySer
                         <button
                           key={s.slug}
                           onClick={() => navigate(`county/${countySlug}/service/${s.slug}`)}
-                          className="w-full text-left flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-colors group"
+                          className="w-full text-left flex items-center gap-3 p-2 rounded-lg hover:bg-[#FF6B00]/20 transition-colors group"
                         >
-                          <s.icon className="h-4 w-4 text-orange-500" />
-                          <span className="text-sm flex-1">{s.name}</span>
+                          <s.icon className="h-4 w-4 text-[#FF6B00]" />
+                          <span className="text-sm flex-1 text-foreground">{s.name}</span>
                           <ChevronRight className="h-3 w-3 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                         </button>
                       ))}
@@ -186,19 +186,19 @@ export default function CountyServicePage({ countySlug, serviceSlug }: CountySer
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-gradient-to-r from-orange-500 to-orange-600 py-16 md:py-20">
+      <section className="bg-gradient-to-r from-[#FF6B00] to-[#FF9F1C] py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-orange-100 text-lg mb-8">
+            <p className="text-white/80 text-lg mb-8">
               Request {service.name} service in {county.name} and get connected with a verified professional today.
             </p>
             <Button
               onClick={() => navigate('contact')}
               size="lg"
-              className="bg-white text-orange-600 hover:bg-orange-50 font-semibold px-8 shadow-lg"
+              className="bg-[#1a120b] text-white hover:bg-[#2a1f14] font-semibold px-8 shadow-lg"
             >
               Request Service Now
               <ChevronRight className="h-4 w-4 ml-1" />

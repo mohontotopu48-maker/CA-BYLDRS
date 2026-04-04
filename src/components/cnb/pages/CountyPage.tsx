@@ -26,10 +26,10 @@ export default function CountyPage({ slug }: CountyPageProps) {
       <div className="min-h-screen flex flex-col items-center justify-center px-4 py-20">
         <AnimatedSection direction="up">
           <div className="text-center max-w-md">
-            <div className="w-20 h-20 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 rounded-full bg-[#FF6B00]/10 flex items-center justify-center mx-auto mb-6">
               <span className="text-3xl">🗺️</span>
             </div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+            <h1 className="text-3xl font-bold text-foreground mb-3">
               County Not Found
             </h1>
             <p className="text-muted-foreground mb-6">
@@ -48,12 +48,12 @@ export default function CountyPage({ slug }: CountyPageProps) {
   return (
     <div className="min-h-screen">
       {/* Breadcrumb */}
-      <div className="bg-white dark:bg-gray-950 border-b">
+      <div className="bg-[#1a120b] border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <nav className="flex items-center gap-1.5 text-sm">
             <button
               onClick={() => navigate('home')}
-              className="text-muted-foreground hover:text-orange-500 transition-colors"
+              className="text-muted-foreground hover:text-[#FF6B00] transition-colors"
             >
               Home
             </button>
@@ -67,16 +67,16 @@ export default function CountyPage({ slug }: CountyPageProps) {
       <section className="hero-gradient py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center max-w-3xl mx-auto">
-            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center mx-auto mb-6">
-              <Building2 className="w-10 h-10 sm:w-12 sm:h-12 text-orange-500" />
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#1a120b] shadow-lg flex items-center justify-center mx-auto mb-6">
+              <Building2 className="w-10 h-10 sm:w-12 sm:h-12 text-[#FF6B00]" />
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               {county.name}
             </h1>
-            <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 font-medium mb-4">
+            <p className="text-lg sm:text-xl text-foreground/80 font-medium mb-4">
               {county.tagline}
             </p>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               {county.description}
             </p>
           </AnimatedSection>
@@ -87,11 +87,11 @@ export default function CountyPage({ slug }: CountyPageProps) {
       <SharedMiniJourney type="customer" />
 
       {/* Cities Section */}
-      <section className="py-12 sm:py-16 bg-white dark:bg-gray-950">
+      <section className="py-12 sm:py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-8">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
                 Areas We Serve in {county.name}
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
@@ -104,7 +104,7 @@ export default function CountyPage({ slug }: CountyPageProps) {
               {county.cities.map((city) => (
                 <div
                   key={city}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-800/40 hover:bg-orange-100 dark:hover:bg-orange-900/30 transition-colors text-sm font-medium"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#FF6B00]/10 text-[#FF6B00] border border-[#FF6B00]/20 hover:bg-[#FF6B00]/20 transition-colors text-sm font-medium"
                 >
                   <MapPin className="size-3.5" />
                   {city}
@@ -116,11 +116,11 @@ export default function CountyPage({ slug }: CountyPageProps) {
       </section>
 
       {/* Services Grid */}
-      <section className="py-12 sm:py-16 bg-gray-50 dark:bg-gray-900">
+      <section className="py-12 sm:py-16 bg-[#0d0906]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-10">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
                 Services Available in {county.name}
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
@@ -140,14 +140,14 @@ export default function CountyPage({ slug }: CountyPageProps) {
 
               return (
                 <StaggerItem key={cs.slug}>
-                  <Card className="h-full shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 border-gray-200 dark:border-gray-700">
+                  <Card className="h-full shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 border-border">
                     <CardContent className="pt-2 pb-2 flex flex-col h-full">
                       <div className="flex items-start gap-4 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center shrink-0">
-                          <ServiceIcon className="w-6 h-6 text-orange-500" />
+                        <div className="w-12 h-12 rounded-xl bg-[#FF6B00]/10 flex items-center justify-center shrink-0">
+                          <ServiceIcon className="w-6 h-6 text-[#FF6B00]" />
                         </div>
                         <div className="min-w-0">
-                          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                          <h3 className="text-lg font-semibold text-foreground mb-1">
                             {cs.service}
                           </h3>
                           {(
@@ -179,11 +179,11 @@ export default function CountyPage({ slug }: CountyPageProps) {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-12 sm:py-16 bg-white dark:bg-gray-950">
+      <section className="py-12 sm:py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
                 Need Service in {county.name}?
               </h2>
               <p className="text-muted-foreground mb-6">

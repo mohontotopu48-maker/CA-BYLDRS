@@ -47,14 +47,14 @@ export default function AboutPage() {
   const { navigate } = useRouter();
 
   return (
-    <div className="min-h-screen bg-orange-50/50 dark:bg-orange-950/20">
+    <div className="min-h-screen bg-background">
       {/* Breadcrumb */}
-      <div className="bg-white dark:bg-card border-b dark:border-border">
+      <div className="bg-card border-b border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
             <button
               onClick={() => navigate('home')}
-              className="hover:text-orange-600 transition-colors cursor-pointer"
+              className="hover:text-[#FF6B00] transition-colors cursor-pointer"
             >
               Home
             </button>
@@ -65,10 +65,10 @@ export default function AboutPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-orange-500 to-orange-700 py-20 sm:py-28">
+      <section className="relative overflow-hidden hero-gradient py-20 sm:py-28">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-white/10 blur-2xl" />
-          <div className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-orange-300/15 blur-xl" />
+          <div className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-[#FF9F1C]/15 blur-xl" />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
@@ -90,11 +90,11 @@ export default function AboutPage() {
       {/* Main Content */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20">
         <AnimatedSection>
-          <Card className="shadow-lg border-0 shadow-orange-900/5 dark:shadow-orange-900/20">
+          <Card className="glass-card shadow-lg border-0 shadow-[#FF6B00]/5">
             <CardContent className="p-6 sm:p-8 lg:p-10">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
-                  <Building2 className="size-5 text-orange-600 dark:text-orange-400" />
+                <div className="w-10 h-10 rounded-full bg-[#FF6B00]/10 flex items-center justify-center">
+                  <Building2 className="size-5 text-[#FF6B00]" />
                 </div>
                 <h2 className="text-2xl font-bold text-foreground">Who We Are</h2>
               </div>
@@ -118,7 +118,7 @@ export default function AboutPage() {
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-20">
         <AnimatedSection>
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 text-sm font-medium mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FF6B00]/10 text-[#FF6B00] text-sm font-medium mb-4 border border-[#FF6B00]/20">
               <Heart className="size-4" />
               Our Mission
             </div>
@@ -128,12 +128,12 @@ export default function AboutPage() {
           </div>
         </AnimatedSection>
         <AnimatedSection delay={0.1}>
-          <Card className="shadow-lg border-0 shadow-orange-900/5 dark:shadow-orange-900/20 bg-gradient-to-br from-orange-50 dark:from-orange-950/30 to-white dark:to-card">
+          <Card className="glass-card shadow-lg border border-[#FF6B00]/20 bg-gradient-to-br from-[#1a120b] to-[#2a1f14]">
             <CardContent className="p-6 sm:p-8 text-center">
               <blockquote className="text-xl sm:text-2xl font-medium text-foreground leading-relaxed italic">
                 &ldquo;To make finding reliable home services simple, fast, and trustworthy for every homeowner in Southern California.&rdquo;
               </blockquote>
-              <div className="mt-6 h-1 w-16 mx-auto rounded-full bg-orange-500" />
+              <div className="mt-6 h-1 w-16 mx-auto rounded-full bg-gradient-to-r from-[#FF6B00] to-[#FF9F1C]" />
             </CardContent>
           </Card>
         </AnimatedSection>
@@ -154,10 +154,10 @@ export default function AboutPage() {
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {differentiators.map((item) => (
             <StaggerItem key={item.title}>
-              <Card className="h-full shadow-md border-0 hover:shadow-lg dark:hover:shadow-orange-900/10 transition-shadow duration-300 group">
+              <Card className="h-full glass-card shadow-md border border-[#FF6B00]/20 hover:border-[#FF6B00]/30 hover:shadow-lg hover:shadow-[#FF6B00]/5 transition-all duration-300 group">
                 <CardContent className="p-6 text-center">
-                  <div className="w-14 h-14 rounded-2xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-200 dark:group-hover:bg-orange-800/50 transition-colors">
-                    <item.icon className="size-7 text-orange-600 dark:text-orange-400" />
+                  <div className="w-14 h-14 rounded-2xl bg-[#FF6B00]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#FF6B00]/20 transition-colors">
+                    <item.icon className="size-7 text-[#FF6B00]" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">
                     {item.title}
@@ -187,11 +187,11 @@ export default function AboutPage() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {counties.map((county) => (
             <StaggerItem key={county.slug}>
-              <Card className="h-full shadow-md border-0 hover:shadow-lg dark:hover:shadow-orange-900/10 transition-shadow duration-300">
+              <Card className="h-full glass-card shadow-md border border-[#FF6B00]/20 hover:border-[#FF6B00]/30 hover:shadow-lg hover:shadow-[#FF6B00]/5 transition-all duration-300">
                 <CardContent className="p-6 sm:p-8">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
-                      <MapPin className="size-5 text-orange-600 dark:text-orange-400" />
+                    <div className="w-10 h-10 rounded-full bg-[#FF6B00]/10 flex items-center justify-center">
+                      <MapPin className="size-5 text-[#FF6B00]" />
                     </div>
                     <h3 className="text-xl font-semibold text-foreground">
                       {county.name}
@@ -208,7 +208,7 @@ export default function AboutPage() {
                       {county.cities.map((city) => (
                         <span
                           key={city}
-                          className="px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400 text-xs font-medium border border-orange-200 dark:border-orange-800/40"
+                          className="px-3 py-1 rounded-full bg-[#FF6B00]/10 text-[#FF6B00] text-xs font-medium border border-[#FF6B00]/20"
                         >
                           {city}
                         </span>
@@ -223,7 +223,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-orange-500 to-orange-600 mt-8">
+      <section className="bg-gradient-to-r from-[#FF6B00] to-[#FF9F1C] mt-8">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 text-center">
           <AnimatedSection>
             <h2 className="text-2xl sm:text-3xl font-bold text-white">
@@ -235,7 +235,7 @@ export default function AboutPage() {
             <div className="mt-8">
               <Button
                 size="lg"
-                className="bg-white text-orange-700 hover:bg-orange-50 font-semibold px-8 py-5 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-auto"
+                className="bg-[#0d0906] text-[#FF6B00] hover:bg-[#1a120b] font-semibold px-8 py-5 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-auto"
                 onClick={() => navigate('contact')}
               >
                 Contact Us Today

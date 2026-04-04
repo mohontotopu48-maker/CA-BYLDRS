@@ -14,7 +14,7 @@ export default function TermsPage() {
         <nav className="flex items-center gap-2 text-sm text-muted-foreground">
           <button
             onClick={() => navigate('home')}
-            className="hover:text-orange-600 transition-colors cursor-pointer flex items-center gap-1"
+            className="hover:text-[#FF6B00] transition-colors cursor-pointer flex items-center gap-1"
           >
             <Home className="size-3.5" />
             Home
