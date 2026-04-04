@@ -1,81 +1,157 @@
 import { NextResponse } from 'next/server';
 
-const GHL_PIT = process.env.GHL_PIT_TOKEN || 'pit-45f047eb-5a56-4231-abb9-b09b5de10c3c';
+const GHL_PIT = process.env.GHL_PIT_TOKEN || '';
 const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID || 'UieaWEUbKDNaOwxSd9gQ';
+const GHL_COMPANY_ID = process.env.GHL_COMPANY_ID || 'd8zUt0YHNNBNhakhzJxS';
 
-const GHL_HEADERS = {
-  'Authorization': `Bearer ${GHL_PIT}`,
-  'Accept': 'application/json',
-  'Version': '2021-07-28',
+const GHL_HEADERS: Record<string, string> = {
+  Accept: 'application/json',
+  Version: '2021-07-28',
 };
 
-// GET /api/ghl - Check GHL connection and location info
-export async function GET() {
+function authHeaders(): Record<string, string> {
+  if (!GHL_PIT) return GHL_HEADERS;
+  return { ...GHL_HEADERS, Authorization: `Bearer ${GHL_PIT}` };
+}
+
+// ─── Helper: Quick scope test ───────────────────────────────────────────────
+
+async function testScope(endpoint: string): Promise<'available' | 'unauthorized' | 'error'> {
   try {
     const res = await fetch(
-      `https://services.leadconnectorhq.com/locations/${GHL_LOCATION_ID}`,
-      { headers: GHL_HEADERS }
+      `https://services.leadconnectorhq.com${endpoint}`,
+      { headers: authHeaders() }
     );
+    const data = await res.json().catch(() => null);
+    if (res.ok) return 'available';
+    if (data?.message?.includes('not authorized') || res.status === 401) return 'unauthorized';
+    if (data?.message?.includes('LocationId')) return 'available'; // needs LocationId but endpoint works
+    if (res.status === 404) return 'available'; // exists, maybe empty
+    return 'error';
+  } catch {
+    return 'error';
+  }
+}
 
-    const data = await res.json();
-    const location = data.location || data;
+// ─── GET /api/ghl - Full GHL status check ───────────────────────────────────
+
+export async function GET() {
+  try {
+    if (!GHL_PIT) {
+      return NextResponse.json({
+        status: 'not_configured',
+        message: 'GHL_PIT_TOKEN environment variable is not set',
+        actionNeeded: 'Add GHL_PIT_TOKEN to your .env.local file',
+      });
+    }
+
+    // 1. Get location info
+    let location: Record<string, unknown> | null = null;
+    try {
+      const res = await fetch(
+        `https://services.leadconnectorhq.com/locations/${GHL_LOCATION_ID}`,
+        { headers: authHeaders() }
+      );
+      const data = await res.json();
+      if (res.ok && data.location) {
+        const loc = data.location;
+        location = {
+          id: loc.id,
+          name: loc.name,
+          email: loc.email,
+          phone: loc.phone,
+          website: loc.website,
+          domain: loc.domain || '(not set)',
+          city: loc.city,
+          state: loc.state,
+          postalCode: loc.postalCode,
+          address: loc.address,
+          logoUrl: loc.logoUrl,
+        };
+      }
+    } catch {
+      // location check failed
+    }
+
+    // 2. Test API scopes in parallel
+    const [contacts, calendars, pipelines, tags, workflows] = await Promise.all([
+      testScope('/contacts/'),
+      testScope('/calendars/services/'),
+      testScope('/pipelines/'),
+      testScope('/tags/'),
+      testScope('/workflows/'),
+    ]);
+
+    // 3. Build recommendations
+    const unavailableScopes: string[] = [];
+    const scopeMap: Record<string, { key: string; name: string; status: string }> = {
+      contacts: { key: 'contacts', name: 'Contacts (Lead Capture)', status: contacts },
+      calendars: { key: 'calendars', name: 'Calendars (Booking)', status: calendars },
+      pipelines: { key: 'pipelines', name: 'Pipelines (CRM)', status: pipelines },
+      tags: { key: 'tags', name: 'Tags', status: tags },
+      workflows: { key: 'workflows', name: 'Workflows (Automations)', status: workflows },
+    };
+
+    const recommendations: string[] = [];
+    for (const [, info] of Object.entries(scopeMap)) {
+      if (info.status === 'unauthorized') {
+        unavailableScopes.push(info.name);
+      }
+    }
+
+    if (unavailableScopes.length > 0) {
+      recommendations.push(
+        'To enable all features, regenerate your PIT token in GHL Settings → Private Integrations with these scopes: contacts.readwrite, calendars.readonly, pipelines.readonly, tags.readonly, workflows.readonly'
+      );
+    }
+
+    if (!location?.domain || location.domain === '(not set)') {
+      recommendations.push(
+        'Custom domain not set. Go to GHL Settings → Domains to connect hello.nxlbyldr.com (CNAME to sites.ludicrous.cloud, proxy OFF)'
+      );
+    }
 
     return NextResponse.json({
-      status: 'connected',
-      location: {
-        id: location.id,
-        name: location.name,
-        website: location.website,
-        domain: location.domain,
-        email: location.email,
-        phone: location.phone,
-        address: location.address,
-        city: location.city,
-        state: location.state,
-        postalCode: location.postalCode,
-        country: location.country,
-        logoUrl: location.logoUrl,
+      status: location ? 'connected' : 'error',
+      pitConfigured: true,
+      location,
+      scopes: Object.fromEntries(
+        Object.entries(scopeMap).map(([key, val]) => [key, val.status])
+      ),
+      unavailableFeatures: unavailableScopes.length > 0 ? unavailableScopes : undefined,
+      recommendations: recommendations.length > 0 ? recommendations : undefined,
+      config: {
+        companyId: GHL_COMPANY_ID,
+        locationId: GHL_LOCATION_ID,
+        websiteUrl: 'https://cabyldrs.com',
+        trackingId: 'tk_10e022fb5c9f4ebea7a518b61fa81171',
+        bookingId: '4TnklQgWAtDSES0CaoDc',
       },
     });
   } catch (error) {
     return NextResponse.json(
-      { status: 'error', message: error instanceof Error ? error.message : 'Unknown error' },
+      {
+        status: 'error',
+        message: error instanceof Error ? error.message : 'Unknown error',
+      },
       { status: 500 }
     );
   }
 }
 
-// POST /api/ghl - Set custom domain or update location info
+// ─── POST /api/ghl - Update GHL location info ───────────────────────────────
+
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const { domain, action } = body;
-
-    if (action === 'set-domain' && domain) {
-      const res = await fetch(
-        `https://services.leadconnectorhq.com/locations/${GHL_LOCATION_ID}`,
-        {
-          method: 'PUT',
-          headers: { ...GHL_HEADERS, 'Content-Type': 'application/json' },
-          body: JSON.stringify({ domain }),
-        }
+    if (!GHL_PIT) {
+      return NextResponse.json(
+        { status: 'error', message: 'GHL_PIT_TOKEN not configured' },
+        { status: 401 }
       );
-      const data = await res.json();
-
-      if (res.ok) {
-        return NextResponse.json({
-          status: 'success',
-          message: `Domain ${domain} set successfully`,
-          location: data.location,
-        });
-      } else {
-        return NextResponse.json({
-          status: 'error',
-          message: data.message || data.response?.message || 'Failed to set domain',
-          statusCode: res.status,
-        });
-      }
     }
+
+    const body = await request.json();
+    const { action } = body;
 
     if (action === 'update-info') {
       const { name, website, address, city, state, postalCode, country, phone, email } = body;
@@ -90,11 +166,18 @@ export async function POST(request: Request) {
       if (phone) updateData.phone = phone;
       if (email) updateData.email = email;
 
+      if (Object.keys(updateData).length === 0) {
+        return NextResponse.json(
+          { status: 'error', message: 'No fields to update' },
+          { status: 400 }
+        );
+      }
+
       const res = await fetch(
         `https://services.leadconnectorhq.com/locations/${GHL_LOCATION_ID}`,
         {
           method: 'PUT',
-          headers: { ...GHL_HEADERS, 'Content-Type': 'application/json' },
+          headers: { ...authHeaders(), 'Content-Type': 'application/json' },
           body: JSON.stringify(updateData),
         }
       );
@@ -103,19 +186,22 @@ export async function POST(request: Request) {
       if (res.ok) {
         return NextResponse.json({
           status: 'success',
-          message: 'Location info updated',
+          message: 'Location updated successfully',
           location: data.location,
         });
-      } else {
-        return NextResponse.json({
-          status: 'error',
-          message: data.message || 'Failed to update',
-        });
       }
+      return NextResponse.json({
+        status: 'error',
+        message: data.message || 'Failed to update',
+        statusCode: res.status,
+      });
     }
 
     return NextResponse.json(
-      { status: 'error', message: 'Invalid action. Use "set-domain" or "update-info".' },
+      {
+        status: 'error',
+        message: 'Invalid action. Supported: "update-info". Note: Custom domain must be set via GHL UI (Settings → Domains).',
+      },
       { status: 400 }
     );
   } catch (error) {

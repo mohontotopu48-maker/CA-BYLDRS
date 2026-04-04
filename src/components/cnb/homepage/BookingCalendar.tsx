@@ -5,6 +5,7 @@ import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/cnb
 import { useRouter } from '@/lib/router-store';
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
+import { trackBookingView } from '@/lib/ghl-tracking';
 
 const STEPS = [
   { num: 1, label: 'Choose Date', icon: Calendar, desc: 'Pick your preferred day' },
@@ -22,6 +23,11 @@ const TRUST_BADGES = [
 export default function BookingCalendar() {
   const { navigate } = useRouter();
   const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  // Track booking view in GHL
+  useEffect(() => {
+    trackBookingView('homepage_booking_section');
+  }, []);
 
   useEffect(() => {
     const script = document.createElement('script');
