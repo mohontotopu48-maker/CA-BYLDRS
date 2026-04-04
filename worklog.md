@@ -375,3 +375,20 @@ Modified 6 files to convert the CA BYLDRS site from a light/dark toggle to a per
 - All animations preserved (float, pulse-glow, stagger entries, orbit ring spin)
 - No content, functionality, routing, or API logic changed
 - ESLint passes with zero errors, dev server serves 200
+
+---
+## Task ID: 6 - SEO & Dark Theme Fixes
+### Work Task
+Create sitemap.ts, robots.ts, fix layout.tsx SEO (remove fake aggregateRating, add geo tags, title template, verification, fix alternates), fix ContactPage dark theme, fix PartnerPage dark theme, verify GHL tracking.
+
+### Work Summary
+
+**1. Created `/src/app/sitemap.ts`** (NEW) - Dynamic sitemap with 37 URLs covering static pages, services, counties, and county+service combos.
+**2. Created `/src/app/robots.ts`** (NEW) - Dynamic robots.txt with allow /, disallow /api/, sitemap reference.
+**3. Deleted `/public/robots.txt`** - Removed old static file.
+**4. Fixed `/src/app/layout.tsx`** - Removed fake aggregateRating, added sameAs, geo meta tags, title template, verification placeholder, fixed alternates hosts.
+**5. Fixed ContactPage dark theme** - Converted all light colors (bg-white, bg-orange-50, text-orange-600) to dark theme (bg-background, bg-card, glass-card, text-[#FF7B00]).
+**6. Fixed PartnerPage dark theme** - Converted benefits section, form, checkboxes from light to dark theme classes.
+**7. GHL tracking verified** - No changes needed, already properly pushes to dataLayer with page URL.
+
+ESLint passes with zero errors.

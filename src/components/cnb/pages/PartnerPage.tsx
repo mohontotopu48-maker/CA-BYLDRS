@@ -182,7 +182,7 @@ export default function PartnerPage() {
         <nav className="flex items-center gap-2 text-sm text-muted-foreground">
           <button
             onClick={() => navigate('home')}
-            className="hover:text-orange-600 transition-colors cursor-pointer flex items-center gap-1"
+            className="hover:text-[#FF7B00] transition-colors cursor-pointer flex items-center gap-1"
           >
             <Home className="size-3.5" />
             Home
@@ -215,14 +215,14 @@ export default function PartnerPage() {
       </section>
 
       {/* ── Why Partner With Us ── */}
-      <section className="py-20 md:py-28 bg-stone-50">
+      <section className="py-20 md:py-28 bg-[#050608]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-14">
-              <span className="inline-block text-sm font-semibold tracking-widest uppercase text-orange-600 mb-3">
+              <span className="inline-block text-sm font-semibold tracking-widest uppercase text-[#FF7B00] mb-3">
                 Benefits
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-stone-900 leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight">
                 Why Partner With Us?
               </h2>
             </div>
@@ -234,14 +234,14 @@ export default function PartnerPage() {
           >
             {benefits.map((b) => (
               <StaggerItem key={b.title}>
-                <div className="bg-white rounded-2xl border border-stone-200/70 p-6 h-full hover:shadow-lg hover:border-stone-300/80 transition-all duration-300">
+                <div className="glass-card p-6 h-full">
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
-                      <b.icon className="w-6 h-6 text-orange-600" />
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#FF7B00]/10 flex items-center justify-center">
+                      <b.icon className="w-6 h-6 text-[#FF7B00]" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-stone-900 mb-1">{b.title}</h3>
-                      <p className="text-stone-500 leading-relaxed text-sm">{b.description}</p>
+                      <h3 className="text-lg font-semibold text-foreground mb-1">{b.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
                     </div>
                   </div>
                 </div>
@@ -259,10 +259,10 @@ export default function PartnerPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-12">
-              <span className="inline-block text-sm font-semibold tracking-widest uppercase text-orange-600 mb-3">
+              <span className="inline-block text-sm font-semibold tracking-widest uppercase text-[#FF7B00] mb-3">
                 Apply Now
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-stone-900 leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight">
                 Contractor Application
               </h2>
               <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
@@ -274,7 +274,7 @@ export default function PartnerPage() {
           <AnimatedSection delay={0.15}>
             <form
               onSubmit={handleSubmit}
-              className="bg-white rounded-2xl border border-stone-200/70 p-6 sm:p-8 md:p-10 space-y-8"
+              className="glass-card p-6 sm:p-8 md:p-10 space-y-8"
             >
               {/* ── Company Info Row ── */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -350,8 +350,8 @@ export default function PartnerPage() {
                       key={cat}
                       className={`flex items-center gap-2 px-3 py-2.5 rounded-lg border cursor-pointer transition-all duration-200 text-sm ${
                         selectedCategories.includes(cat)
-                          ? 'bg-orange-50 border-orange-300 text-orange-700 font-medium'
-                          : 'bg-white border-stone-200 hover:border-stone-300 text-stone-600'
+                          ? 'bg-[#FF7B00]/10 border-[#FF7B00]/40 text-[#FF7B00] font-medium'
+                          : 'bg-card border-border hover:border-[#FF7B00]/30 text-muted-foreground'
                       }`}
                     >
                       <Checkbox
@@ -417,7 +417,7 @@ export default function PartnerPage() {
                         checked={selectedAreas.includes(area)}
                         onCheckedChange={() => toggleArea(area)}
                       />
-                      <span className="text-stone-700">{area}</span>
+                      <span className="text-foreground">{area}</span>
                     </label>
                   ))}
                 </div>

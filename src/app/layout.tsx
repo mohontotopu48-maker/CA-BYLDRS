@@ -23,7 +23,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "CA BYLDRS — Trusted Local Home Services in Orange County & Los Angeles County",
+  title: {
+    default: "CA BYLDRS — Trusted Local Home Services in Orange County & Los Angeles County",
+    template: "%s | CA BYLDRS",
+  },
   description:
     "Get connected with verified local professionals for plumbing, roofing, cleaning, pest control, HVAC, electrical, handyman, and painting services. Serving Orange County and Los Angeles County.",
   keywords: [
@@ -64,7 +67,19 @@ export const metadata: Metadata = {
     description: "Connecting homeowners with verified local professionals in OC & LA County. No spam, no shared leads.",
     images: ["https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"],
   },
-  alternates: { canonical: "https://cabyldrs.com", domains: ["cabyldrs.com", "nxlbyldr.com"] },
+  alternates: {
+    canonical: "https://cabyldrs.com",
+    hosts: ["https://cabyldrs.com", "https://nxlbyldr.com"],
+  },
+  other: {
+    'geo.region': 'US-CA',
+    'geo.placename': 'Fullerton, California',
+    'geo.position': '33.8704;-117.9242',
+    'ICBM': '33.8704, -117.9242',
+  },
+  verification: {
+    google: 'GOOGLE_SITE_VERIFICATION_CODE_HERE',
+  },
 };
 
 export default function RootLayout({
@@ -99,7 +114,7 @@ export default function RootLayout({
             openingHours: ['Mo-Fr 08:00-18:00', 'Sa 09:00-15:00'],
             priceRange: 'Free',
             image: 'https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png',
-            aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '500' },
+            sameAs: ['https://cabyldrs.com', 'https://nxlbyldr.com'],
           }),
         }}
       />

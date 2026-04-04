@@ -117,14 +117,14 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-orange-50/50">
+    <div className="min-h-screen bg-background">
       {/* Breadcrumb */}
-      <div className="bg-white border-b">
+      <div className="bg-card border-b border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
             <button
               onClick={() => navigate('home')}
-              className="hover:text-orange-600 transition-colors cursor-pointer"
+              className="hover:text-[#FF7B00] transition-colors cursor-pointer"
             >
               Home
             </button>
@@ -135,7 +135,7 @@ export default function ContactPage() {
       </div>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-orange-500 to-orange-700 py-16 sm:py-20">
+      <section className="hero-gradient py-16 sm:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
@@ -170,38 +170,38 @@ export default function ContactPage() {
 
               {/* Contact Info Cards */}
               <div className="space-y-4">
-                <Card className="border-0 shadow-sm bg-white">
+                <Card className="glass-card">
                   <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0">
-                      <Phone className="size-5 text-orange-600" />
+                    <div className="w-10 h-10 rounded-xl bg-[#FF7B00]/10 flex items-center justify-center flex-shrink-0">
+                      <Phone className="size-5 text-[#FF7B00]" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">Phone</h3>
                       <p className="text-sm text-muted-foreground mt-0.5">
-                        <a href="tel:+15629440500" className="hover:text-orange-600 transition-colors">+1 (562) 944-0500</a>
+                        <a href="tel:+15629440500" className="hover:text-[#FF7B00] transition-colors">+1 (562) 944-0500</a>
                       </p>
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card className="border-0 shadow-sm bg-white">
+                <Card className="glass-card">
                   <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0">
-                      <Mail className="size-5 text-orange-600" />
+                    <div className="w-10 h-10 rounded-xl bg-[#FF7B00]/10 flex items-center justify-center flex-shrink-0">
+                      <Mail className="size-5 text-[#FF7B00]" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">Email</h3>
                       <p className="text-sm text-muted-foreground mt-0.5">
-                        <a href="mailto:hello@nxlbyldr.com" className="hover:text-orange-600 transition-colors">hello@nxlbyldr.com</a>
+                        <a href="mailto:hello@nxlbyldr.com" className="hover:text-[#FF7B00] transition-colors">hello@nxlbyldr.com</a>
                       </p>
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card className="border-0 shadow-sm bg-white">
+                <Card className="glass-card">
                   <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0">
-                      <MapPin className="size-5 text-orange-600" />
+                    <div className="w-10 h-10 rounded-xl bg-[#FF7B00]/10 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="size-5 text-[#FF7B00]" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">Address</h3>
@@ -212,10 +212,10 @@ export default function ContactPage() {
                   </CardContent>
                 </Card>
 
-                <Card className="border-0 shadow-sm bg-white">
+                <Card className="glass-card">
                   <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0">
-                      <Clock className="size-5 text-orange-600" />
+                    <div className="w-10 h-10 rounded-xl bg-[#FF7B00]/10 flex items-center justify-center flex-shrink-0">
+                      <Clock className="size-5 text-[#FF7B00]" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">Business Hours</h3>
@@ -232,11 +232,11 @@ export default function ContactPage() {
 
           {/* Right Side - Form */}
           <AnimatedSection direction="right" className="lg:col-span-3">
-            <Card className="shadow-lg border-0 shadow-orange-900/5">
+            <Card className="glass-card">
               <CardContent className="p-6 sm:p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
-                    <Send className="size-5 text-orange-600" />
+                  <div className="w-10 h-10 rounded-full bg-[#FF7B00]/10 flex items-center justify-center">
+                    <Send className="size-5 text-[#FF7B00]" />
                   </div>
                   <h2 className="text-xl font-bold text-foreground">
                     Service Request Form
