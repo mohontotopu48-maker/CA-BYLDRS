@@ -10,7 +10,6 @@ import {
   MapPin,
   ShieldCheck,
   MessageCircle,
-  type LucideIcon,
 } from 'lucide-react';
 
 const painPoints = [

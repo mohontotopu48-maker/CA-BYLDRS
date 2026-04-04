@@ -1,27 +1,26 @@
 import { NextResponse } from 'next/server';
 
-const GHL_PIT_CONTACTS = process.env.GHL_PIT_TOKEN_CONTACTS || 'pit-dc7e42ee-4561-4dba-a692-b3da619ee6bb';
-const GHL_PIT_LOCATIONS = process.env.GHL_PIT_TOKEN_LOCATIONS || 'pit-45f047eb-5a56-4231-abb9-b09b5de10c3c';
-const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID || 'UieaWEUbKDNaOwxSd9gQ';
-const GHL_COMPANY_ID = process.env.GHL_COMPANY_ID || 'd8zUt0YHNNBNhakhzJxS';
+const GHL_PIT = process.env.GHL_API_KEY;
+const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID;
+const GHL_COMPANY_ID = process.env.GHL_COMPANY_ID;
 
 const GHL_HEADERS: Record<string, string> = {
   Accept: 'application/json',
   Version: '2021-07-28',
 };
 
-function authHeaders(token: string = GHL_PIT_CONTACTS): Record<string, string> {
+function authHeaders(token: string = GHL_PIT): Record<string, string> {
   if (!token) return GHL_HEADERS;
   return { ...GHL_HEADERS, Authorization: `Bearer ${token}` };
 }
 
 // ─── Helper: Quick scope test ───────────────────────────────────────────────
 
-async function testScope(endpoint: string, useLocationsToken = false): Promise<'available' | 'unauthorized' | 'error'> {
+async function testScope(endpoint: string): Promise<'available' | 'unauthorized' | 'error'> {
   try {
     const res = await fetch(
       `https://services.leadconnectorhq.com${endpoint}`,
-      { headers: authHeaders(useLocationsToken ? GHL_PIT_LOCATIONS : GHL_PIT_CONTACTS) }
+      { headers: authHeaders() }
     );
     const data = await res.json().catch(() => null);
     if (res.ok) return 'available';
@@ -38,11 +37,11 @@ async function testScope(endpoint: string, useLocationsToken = false): Promise<'
 
 export async function GET() {
   try {
-    if (!GHL_PIT_CONTACTS && !GHL_PIT_LOCATIONS) {
+    if (!GHL_PIT) {
       return NextResponse.json({
         status: 'not_configured',
-        message: 'GHL PIT tokens are not set',
-        actionNeeded: 'Add GHL_PIT_TOKEN_CONTACTS and GHL_PIT_TOKEN_LOCATIONS to your .env.local',
+        message: 'GHL API key is not set',
+        actionNeeded: 'Add GHL_API_KEY to your .env.local',
       });
     }
 
@@ -51,7 +50,7 @@ export async function GET() {
     try {
       const res = await fetch(
         `https://services.leadconnectorhq.com/locations/${GHL_LOCATION_ID}`,
-        { headers: authHeaders(GHL_PIT_LOCATIONS) }
+        { headers: authHeaders() }
       );
       const data = await res.json();
       if (res.ok && data.location) {
@@ -81,7 +80,7 @@ export async function GET() {
       testScope(`/pipelines/?locationId=${GHL_LOCATION_ID}`),
       testScope(`/tags/?locationId=${GHL_LOCATION_ID}`),
       testScope(`/workflows/?locationId=${GHL_LOCATION_ID}`),
-      testScope(`/locations/${GHL_LOCATION_ID}`, true),
+      testScope(`/locations/${GHL_LOCATION_ID}`),
     ]);
 
     // 3. Build recommendations
@@ -146,9 +145,9 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    if (!GHL_PIT_CONTACTS && !GHL_PIT_LOCATIONS) {
+    if (!GHL_PIT) {
       return NextResponse.json(
-        { status: 'error', message: 'GHL PIT tokens not configured' },
+        { status: 'error', message: 'GHL API key not configured' },
         { status: 401 }
       );
     }
@@ -180,7 +179,7 @@ export async function POST(request: Request) {
         `https://services.leadconnectorhq.com/locations/${GHL_LOCATION_ID}`,
         {
           method: 'PUT',
-          headers: { ...authHeaders(GHL_PIT_LOCATIONS), 'Content-Type': 'application/json' },
+          headers: { ...authHeaders(), 'Content-Type': 'application/json' },
           body: JSON.stringify(updateData),
         }
       );

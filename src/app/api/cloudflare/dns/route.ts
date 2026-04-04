@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const CF_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
+const ADMIN_API_KEY = process.env.ADMIN_API_KEY;
 const DOMAIN = "nxlbyldr.com";
 
 interface CloudflareZone {
@@ -101,6 +102,9 @@ export async function GET(req: NextRequest) {
 // POST - Create or update CNAME record
 export async function POST(req: NextRequest) {
   try {
+    if (!ADMIN_API_KEY || req.headers.get('x-admin-key') !== ADMIN_API_KEY) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
     if (!CF_TOKEN) {
       return NextResponse.json({ error: "Cloudflare API token not configured" }, { status: 500 });
     }
@@ -199,6 +203,9 @@ export async function POST(req: NextRequest) {
 // DELETE - Remove a CNAME record
 export async function DELETE(req: NextRequest) {
   try {
+    if (!ADMIN_API_KEY || req.headers.get('x-admin-key') !== ADMIN_API_KEY) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
     if (!CF_TOKEN) {
       return NextResponse.json({ error: "Cloudflare API token not configured" }, { status: 500 });
     }

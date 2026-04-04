@@ -150,7 +150,7 @@ export default function CountyPage({ slug }: CountyPageProps) {
                           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
                             {cs.service}
                           </h3>
-                          {serviceData && (
+                          {(
                             <p className="text-sm text-muted-foreground leading-relaxed">
                               {serviceData.shortDescription}
                             </p>

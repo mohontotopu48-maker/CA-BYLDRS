@@ -8,11 +8,13 @@ const TARGET = "brand.ludicrous.cloud";
 
 // Returns the exact curl commands the user needs to run from their local terminal
 export async function GET() {
+  const maskedToken = CF_TOKEN ? `${CF_TOKEN.slice(0, 8)}...${CF_TOKEN.slice(-4)}` : 'YOUR_CF_API_TOKEN';
+
   // Step 1: Get zone ID
   const step1 = [
     `# Step 1: Get your Cloudflare Zone ID for ${DOMAIN}`,
     `curl -s "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}" \\`,
-    `  -H "Authorization: Bearer ${CF_TOKEN || "YOUR_CF_API_TOKEN"}" \\`,
+    `  -H "Authorization: Bearer ${maskedToken}" \\`,
     `  -H "Content-Type: application/json"`,
     ``,
     `# Look for "id" in the response - that's your ZONE_ID`,
@@ -24,7 +26,7 @@ export async function GET() {
     `# Step 2: Check if a CNAME record already exists for ${FQDN}`,
     `# Replace ZONE_ID with the ID from Step 1`,
     `curl -s "https://api.cloudflare.com/client/v4/zones/ZONE_ID/dns_records?type=CNAME&name=${FQDN}" \\`,
-    `  -H "Authorization: Bearer ${CF_TOKEN || "YOUR_CF_API_TOKEN"}" \\`,
+    `  -H "Authorization: Bearer ${maskedToken}" \\`,
     `  -H "Content-Type: application/json"`,
   ].join("\n");
 
@@ -34,7 +36,7 @@ export async function GET() {
     `# Step 3: Create the CNAME record (if it doesn't exist)`,
     `# CRITICAL: "proxied": false means DNS only (grey cloud) - this is REQUIRED for GHL`,
     `curl -X POST "https://api.cloudflare.com/client/v4/zones/ZONE_ID/dns_records" \\`,
-    `  -H "Authorization: Bearer ${CF_TOKEN || "YOUR_CF_API_TOKEN"}" \\`,
+    `  -H "Authorization: Bearer ${maskedToken}" \\`,
     `  -H "Content-Type: application/json" \\`,
     `  --data '{"type":"CNAME","name":"${FQDN}","content":"${TARGET}","proxied":false,"ttl":1}'`,
   ].join("\n");
@@ -45,7 +47,7 @@ export async function GET() {
     `# Step 4: If record exists but points to wrong target, update it`,
     `# Replace RECORD_ID with the ID from Step 2`,
     `curl -X PUT "https://api.cloudflare.com/client/v4/zones/ZONE_ID/dns_records/RECORD_ID" \\`,
-    `  -H "Authorization: Bearer ${CF_TOKEN || "YOUR_CF_API_TOKEN"}" \\`,
+    `  -H "Authorization: Bearer ${maskedToken}" \\`,
     `  -H "Content-Type: application/json" \\`,
     `  --data '{"type":"CNAME","name":"${FQDN}","content":"${TARGET}","proxied":false,"ttl":1}'`,
   ].join("\n");
@@ -57,7 +59,7 @@ export async function GET() {
     `# ALL-IN-ONE: Copy and run this entire block in your terminal`,
     `# ══════════════════════════════════════════════════════════════`,
     ``,
-    `CF_TOKEN="${CF_TOKEN || "YOUR_CF_API_TOKEN"}"`,
+    `CF_TOKEN="${maskedToken}"`,
     `DOMAIN="${DOMAIN}"`,
     `SUBDOMAIN="${SUBDOMAIN}"`,
     `TARGET="${TARGET}"`,

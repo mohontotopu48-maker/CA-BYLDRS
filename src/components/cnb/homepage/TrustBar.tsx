@@ -31,7 +31,7 @@ export default function TrustBar() {
     },
     {
       icon: Zap,
-      label: 'Match in &lt; 5 Min',
+      label: 'Match in < 5 Min',
       description: 'Average response time',
       highlight: false,
     },

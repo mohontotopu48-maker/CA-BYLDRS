@@ -15,11 +15,11 @@
 const GHL_CONFIG = {
   baseUrl: 'https://services.leadconnectorhq.com',
   // Token for contacts, calendars, workflows, tags (scopes: contacts.readwrite, calendars, workflows)
-  pitContactsToken: process.env.GHL_PIT_TOKEN_CONTACTS || 'pit-dc7e42ee-4561-4dba-a692-b3da619ee6bb',
+  pitContactsToken: process.env.GHL_API_KEY,
   // Token for location/sub-account management (scope: locations.readwrite)
-  pitLocationsToken: process.env.GHL_PIT_TOKEN_LOCATIONS || 'pit-45f047eb-5a56-4231-abb9-b09b5de10c3c',
-  companyId: process.env.GHL_COMPANY_ID || 'd8zUt0YHNNBNhakhzJxS',
-  locationId: process.env.GHL_LOCATION_ID || 'UieaWEUbKDNaOwxSd9gQ',
+  pitLocationsToken: process.env.GHL_API_KEY,
+  companyId: process.env.GHL_COMPANY_ID || '',
+  locationId: process.env.GHL_LOCATION_ID || '',
   version: '2021-07-28',
 };
 
