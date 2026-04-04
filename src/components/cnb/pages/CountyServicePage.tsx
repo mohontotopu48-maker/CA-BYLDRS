@@ -3,7 +3,7 @@
 import { ArrowLeft, ChevronRight, CheckCircle2, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/cnb/AnimatedSection';
-import { useRouter } from '@/lib/router-store';
+import { useRouter, type PageKey } from '@/lib/router-store';
 import { services, counties } from '@/lib/data';
 
 interface CountyServicePageProps {
@@ -40,7 +40,7 @@ export default function CountyServicePage({ countySlug, serviceSlug }: CountySer
             <nav className="flex items-center gap-2 text-sm text-white/70 mb-8">
               <button onClick={() => navigate('home')} className="hover:text-white transition-colors">Home</button>
               <ChevronRight className="h-3 w-3" />
-              <button onClick={() => navigate(countySlug)} className="hover:text-white transition-colors">{county.name}</button>
+              <button onClick={() => navigate(countySlug as PageKey)} className="hover:text-white transition-colors">{county.name}</button>
               <ChevronRight className="h-3 w-3" />
               <span className="text-white">{service.name}</span>
             </nav>

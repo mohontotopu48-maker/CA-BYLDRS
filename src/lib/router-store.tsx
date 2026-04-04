@@ -3,7 +3,7 @@
 import { createContext, useContext, useState, useCallback, useEffect } from 'react';
 import { trackPageView } from '@/lib/ghl-tracking';
 
-type PageKey =
+export type PageKey =
   | 'home'
   | 'services'
   | `service/${string}`

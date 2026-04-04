@@ -69,7 +69,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://cabyldrs.com",
-    hosts: ["https://cabyldrs.com", "https://nxlbyldr.com"],
   },
   other: {
     'geo.region': 'US-CA',

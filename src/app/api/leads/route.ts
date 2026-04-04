@@ -92,7 +92,7 @@ export async function POST(request: Request) {
     }
 
     // ─── Response ─────────────────────────────────────────────────────
-    const methods = [];
+    const methods: string[] = [];
     if (ghlContactCreated) methods.push('GHL Contact API');
     if (dbSaved) methods.push('Local DB');
     if (methods.length === 0) methods.push('GHL Client Tracking (form fires trackFormSubmit)');
