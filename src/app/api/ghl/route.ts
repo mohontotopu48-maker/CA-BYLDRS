@@ -9,9 +9,10 @@ const GHL_HEADERS: Record<string, string> = {
   Version: '2021-07-28',
 };
 
-function authHeaders(token: string = GHL_PIT): Record<string, string> {
-  if (!token) return GHL_HEADERS;
-  return { ...GHL_HEADERS, Authorization: `Bearer ${token}` };
+function authHeaders(token?: string): Record<string, string> {
+  const t = token ?? GHL_PIT;
+  if (!t) return GHL_HEADERS;
+  return { ...GHL_HEADERS, Authorization: `Bearer ${t}` };
 }
 
 // ─── Helper: Quick scope test ───────────────────────────────────────────────
