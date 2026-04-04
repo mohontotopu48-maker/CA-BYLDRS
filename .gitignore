@@ -56,3 +56,7 @@ server.log
 # Secrets
 .tokens
 /scripts/
+
+# Logo backups
+public/logo_backup_old.png
+public/logo_blue_backup.png
