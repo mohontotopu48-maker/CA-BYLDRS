@@ -1,26 +1,23 @@
 /**
  * GoHighLevel (GHL) API Helper
  * =============================
- * Server-side GHL API wrapper using Private Integration Token (PIT).
+ * Server-side GHL API wrapper using Private Integration Tokens (PIT).
  *
- * IMPORTANT: The current PIT token has LIMITED scopes (locations only).
- * To enable contact creation, pipelines, tags, etc., regenerate the PIT
- * in GHL Settings → Private Integrations with these scopes:
- *   - contacts.readwrite
- *   - calendars.readonly
- *   - pipelines.readonly
- *   - tags.readonly
- *   - workflows.readonly
+ * Two tokens are used to cover all required scopes:
+ *   GHL_PIT_TOKEN_CONTACTS  — contacts.readwrite, calendars, workflows, tags
+ *   GHL_PIT_TOKEN_LOCATIONS — locations.readwrite (business profile management)
  *
  * Usage (backend only):
  *   import { ghlApi } from '@/lib/ghl-api';
- *   const location = await ghlApi.getLocation();
  *   const contact = await ghlApi.createContact({ firstName: 'John', email: 'john@test.com' });
  */
 
 const GHL_CONFIG = {
   baseUrl: 'https://services.leadconnectorhq.com',
-  pitToken: process.env.GHL_PIT_TOKEN || '',
+  // Token for contacts, calendars, workflows, tags (scopes: contacts.readwrite, calendars, workflows)
+  pitContactsToken: process.env.GHL_PIT_TOKEN_CONTACTS || 'pit-dc7e42ee-4561-4dba-a692-b3da619ee6bb',
+  // Token for location/sub-account management (scope: locations.readwrite)
+  pitLocationsToken: process.env.GHL_PIT_TOKEN_LOCATIONS || 'pit-45f047eb-5a56-4231-abb9-b09b5de10c3c',
   companyId: process.env.GHL_COMPANY_ID || 'd8zUt0YHNNBNhakhzJxS',
   locationId: process.env.GHL_LOCATION_ID || 'UieaWEUbKDNaOwxSd9gQ',
   version: '2021-07-28',
@@ -122,6 +119,8 @@ interface GHLRequestOptions {
   body?: Record<string, unknown>;
   headers?: Record<string, string>;
   params?: Record<string, string>;
+  /** Which PIT token to use: 'contacts' (default) or 'locations' */
+  token?: 'contacts' | 'locations';
 }
 
 interface GHLResponse<T> {
@@ -143,10 +142,12 @@ async function ghlRequest<T>(
   endpoint: string,
   options: GHLRequestOptions = {}
 ): Promise<{ data: T | null; error: string | null; status: number }> {
-  const { method = 'GET', body, headers: extraHeaders, params } = options;
+  const { method = 'GET', body, headers: extraHeaders, params, token = 'contacts' } = options;
 
-  if (!GHL_CONFIG.pitToken) {
-    return { data: null, error: 'GHL_PIT_TOKEN not configured', status: 401 };
+  const pitToken = token === 'locations' ? GHL_CONFIG.pitLocationsToken : GHL_CONFIG.pitContactsToken;
+
+  if (!pitToken) {
+    return { data: null, error: `GHL PIT token (${token}) not configured`, status: 401 };
   }
 
   const url = new URL(`${GHL_CONFIG.baseUrl}${endpoint}`);
@@ -155,7 +156,7 @@ async function ghlRequest<T>(
   }
 
   const headers: Record<string, string> = {
-    Authorization: `Bearer ${GHL_CONFIG.pitToken}`,
+    Authorization: `Bearer ${pitToken}`,
     Accept: 'application/json',
     Version: GHL_CONFIG.version,
     ...extraHeaders,
@@ -226,29 +227,22 @@ async function checkScopes(): Promise<GHLScopeReport> {
   };
 
   // Test each scope with lightweight requests
-  const checks: Array<{ key: keyof GHLScopeReport; endpoint: string; method?: string }> = [
-    { key: 'locations', endpoint: `/locations/${GHL_CONFIG.locationId}` },
-    { key: 'contacts', endpoint: '/contacts/', method: 'POST' },
-    { key: 'calendars', endpoint: '/calendars/services/' },
-    { key: 'pipelines', endpoint: '/pipelines/' },
-    { key: 'tags', endpoint: '/tags/' },
-    { key: 'workflows', endpoint: '/workflows/' },
+  const checks: Array<{ key: keyof GHLScopeReport; endpoint: string; token?: 'contacts' | 'locations' }> = [
+    { key: 'locations', endpoint: `/locations/${GHL_CONFIG.locationId}`, token: 'locations' },
+    { key: 'contacts', endpoint: '/contacts/?limit=1&locationId=' + GHL_CONFIG.locationId, token: 'contacts' },
+    { key: 'calendars', endpoint: '/calendars/services/?locationId=' + GHL_CONFIG.locationId, token: 'contacts' },
+    { key: 'workflows', endpoint: '/workflows/?locationId=' + GHL_CONFIG.locationId, token: 'contacts' },
+    { key: 'tags', endpoint: '/tags/?locationId=' + GHL_CONFIG.locationId, token: 'contacts' },
+    { key: 'pipelines', endpoint: '/pipelines/?locationId=' + GHL_CONFIG.locationId, token: 'contacts' },
   ];
 
   const results = await Promise.allSettled(
-    checks.map(async ({ key, endpoint, method }) => {
-      if (method === 'POST') {
-        // For POST endpoints, we just want to check auth, not create data
-        // Use GET with a unique path to trigger a scope check
-        const res = await ghlRequest(endpoint, { method: 'GET' });
-        if (res.error?.includes('not authorized')) return 'unauthorized';
-        if (res.status === 404 || res.status === 200) return 'available';
-        return 'unknown';
-      }
-      const res = await ghlRequest(endpoint);
-      if (res.error?.includes('not authorized')) return 'unauthorized';
+    checks.map(async ({ key, endpoint, token }) => {
+      const res = await ghlRequest(endpoint, { token });
+      if (res.error?.includes('not authorized') || res.error?.includes('does not have access')) return 'unauthorized';
       if (res.data) return 'available';
-      if (res.status === 404) return 'available'; // endpoint exists but maybe empty
+      if (res.status === 200) return 'available';
+      if (res.status === 404) return 'available';
       return 'unknown';
     })
   );
@@ -269,14 +263,14 @@ async function checkScopes(): Promise<GHLScopeReport> {
 export const ghlApi = {
   // ─── Location / Sub-Account ────────────────────────────────────────────
 
-  /** Get the configured sub-account info */
+  /** Get the configured sub-account info (uses locations token) */
   async getLocation(locationId?: string) {
     const id = locationId || GHL_CONFIG.locationId;
-    const res = await ghlRequest<{ location: GHLLocation }>(`/locations/${id}`);
+    const res = await ghlRequest<{ location: GHLLocation }>(`/locations/${id}`, { token: 'locations' });
     return res.data?.location || null;
   },
 
-  /** Update sub-account info */
+  /** Update sub-account info (uses locations token) */
   async updateLocation(
     data: {
       name?: string;
@@ -295,6 +289,7 @@ export const ghlApi = {
     const res = await ghlRequest<GHLLocation>(`/locations/${id}`, {
       method: 'PUT',
       body: data,
+      token: 'locations',
     });
     return res.data || null;
   },
@@ -485,7 +480,11 @@ export const ghlApi = {
           }
         : null,
       scopes,
-      pitConfigured: !!GHL_CONFIG.pitToken,
+      pitConfigured: !!(GHL_CONFIG.pitContactsToken || GHL_CONFIG.pitLocationsToken),
+      tokens: {
+        contactsConfigured: !!GHL_CONFIG.pitContactsToken,
+        locationsConfigured: !!GHL_CONFIG.pitLocationsToken,
+      },
     };
   },
 
@@ -504,7 +503,8 @@ export const ghlApi = {
       companyId: GHL_CONFIG.companyId,
       locationId: GHL_CONFIG.locationId,
       version: GHL_CONFIG.version,
-      pitConfigured: !!GHL_CONFIG.pitToken,
+      contactsTokenConfigured: !!GHL_CONFIG.pitContactsToken,
+      locationsTokenConfigured: !!GHL_CONFIG.pitLocationsToken,
     };
   },
 };

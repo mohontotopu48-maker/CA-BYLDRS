@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 
-const GHL_PIT = process.env.GHL_PIT_TOKEN || '';
+const GHL_PIT_CONTACTS = process.env.GHL_PIT_TOKEN_CONTACTS || 'pit-dc7e42ee-4561-4dba-a692-b3da619ee6bb';
+const GHL_PIT_LOCATIONS = process.env.GHL_PIT_TOKEN_LOCATIONS || 'pit-45f047eb-5a56-4231-abb9-b09b5de10c3c';
 const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID || 'UieaWEUbKDNaOwxSd9gQ';
 const GHL_COMPANY_ID = process.env.GHL_COMPANY_ID || 'd8zUt0YHNNBNhakhzJxS';
 
@@ -9,18 +10,18 @@ const GHL_HEADERS: Record<string, string> = {
   Version: '2021-07-28',
 };
 
-function authHeaders(): Record<string, string> {
-  if (!GHL_PIT) return GHL_HEADERS;
-  return { ...GHL_HEADERS, Authorization: `Bearer ${GHL_PIT}` };
+function authHeaders(token: string = GHL_PIT_CONTACTS): Record<string, string> {
+  if (!token) return GHL_HEADERS;
+  return { ...GHL_HEADERS, Authorization: `Bearer ${token}` };
 }
 
 // ─── Helper: Quick scope test ───────────────────────────────────────────────
 
-async function testScope(endpoint: string): Promise<'available' | 'unauthorized' | 'error'> {
+async function testScope(endpoint: string, useLocationsToken = false): Promise<'available' | 'unauthorized' | 'error'> {
   try {
     const res = await fetch(
       `https://services.leadconnectorhq.com${endpoint}`,
-      { headers: authHeaders() }
+      { headers: authHeaders(useLocationsToken ? GHL_PIT_LOCATIONS : GHL_PIT_CONTACTS) }
     );
     const data = await res.json().catch(() => null);
     if (res.ok) return 'available';
@@ -37,11 +38,11 @@ async function testScope(endpoint: string): Promise<'available' | 'unauthorized'
 
 export async function GET() {
   try {
-    if (!GHL_PIT) {
+    if (!GHL_PIT_CONTACTS && !GHL_PIT_LOCATIONS) {
       return NextResponse.json({
         status: 'not_configured',
-        message: 'GHL_PIT_TOKEN environment variable is not set',
-        actionNeeded: 'Add GHL_PIT_TOKEN to your .env.local file',
+        message: 'GHL PIT tokens are not set',
+        actionNeeded: 'Add GHL_PIT_TOKEN_CONTACTS and GHL_PIT_TOKEN_LOCATIONS to your .env.local',
       });
     }
 
@@ -50,7 +51,7 @@ export async function GET() {
     try {
       const res = await fetch(
         `https://services.leadconnectorhq.com/locations/${GHL_LOCATION_ID}`,
-        { headers: authHeaders() }
+        { headers: authHeaders(GHL_PIT_LOCATIONS) }
       );
       const data = await res.json();
       if (res.ok && data.location) {
@@ -74,12 +75,13 @@ export async function GET() {
     }
 
     // 2. Test API scopes in parallel
-    const [contacts, calendars, pipelines, tags, workflows] = await Promise.all([
-      testScope('/contacts/'),
-      testScope('/calendars/services/'),
-      testScope('/pipelines/'),
-      testScope('/tags/'),
-      testScope('/workflows/'),
+    const [contacts, calendars, pipelines, tags, workflows, locationsScope] = await Promise.all([
+      testScope(`/contacts/?limit=1&locationId=${GHL_LOCATION_ID}`),
+      testScope(`/calendars/services/?locationId=${GHL_LOCATION_ID}`),
+      testScope(`/pipelines/?locationId=${GHL_LOCATION_ID}`),
+      testScope(`/tags/?locationId=${GHL_LOCATION_ID}`),
+      testScope(`/workflows/?locationId=${GHL_LOCATION_ID}`),
+      testScope(`/locations/${GHL_LOCATION_ID}`, true),
     ]);
 
     // 3. Build recommendations
@@ -90,6 +92,7 @@ export async function GET() {
       pipelines: { key: 'pipelines', name: 'Pipelines (CRM)', status: pipelines },
       tags: { key: 'tags', name: 'Tags', status: tags },
       workflows: { key: 'workflows', name: 'Workflows (Automations)', status: workflows },
+      locations: { key: 'locations', name: 'Locations (Profile)', status: locationsScope },
     };
 
     const recommendations: string[] = [];
@@ -107,7 +110,7 @@ export async function GET() {
 
     if (!location?.domain || location.domain === '(not set)') {
       recommendations.push(
-        'Custom domain not set. Go to GHL Settings → Domains to connect hello.nxlbyldr.com (CNAME to sites.ludicrous.cloud, proxy OFF)'
+        'Custom domain not set. Go to GHL Settings → Domains to connect hello.nxlbyldr.com (CNAME to brand.ludicrous.cloud, proxy OFF)'
       );
     }
 
@@ -143,9 +146,9 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    if (!GHL_PIT) {
+    if (!GHL_PIT_CONTACTS && !GHL_PIT_LOCATIONS) {
       return NextResponse.json(
-        { status: 'error', message: 'GHL_PIT_TOKEN not configured' },
+        { status: 'error', message: 'GHL PIT tokens not configured' },
         { status: 401 }
       );
     }
@@ -177,7 +180,7 @@ export async function POST(request: Request) {
         `https://services.leadconnectorhq.com/locations/${GHL_LOCATION_ID}`,
         {
           method: 'PUT',
-          headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+          headers: { ...authHeaders(GHL_PIT_LOCATIONS), 'Content-Type': 'application/json' },
           body: JSON.stringify(updateData),
         }
       );

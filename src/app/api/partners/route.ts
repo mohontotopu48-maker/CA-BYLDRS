@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const GHL_PIT = process.env.GHL_PIT_TOKEN || '';
+const GHL_PIT = process.env.GHL_PIT_TOKEN_CONTACTS || 'pit-dc7e42ee-4561-4dba-a692-b3da619ee6bb';
 const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID || 'UieaWEUbKDNaOwxSd9gQ';
 
 /**
