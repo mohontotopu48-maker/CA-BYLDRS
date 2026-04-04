@@ -445,3 +445,29 @@ Modified 12 files to apply the dark brown/orange theme across the entire website
 **Files NOT modified**: router-store, data, ghl-tracking, ghl-api, all API routes, all inner pages, WhatsAppButton, SharedMiniJourney, page.tsx
 
 ESLint passes with zero errors, dev server serves HTTP 200.
+
+---
+## Task ID: 7 - Theme Consistency Recheck
+### Work Task
+Full recheck of all components for theme consistency, color accuracy, and lint errors after the dark brown theme rebuild.
+
+### Work Summary
+
+**Issues Found and Fixed:**
+
+**1. HeroSection.tsx** — Blue glow colors replaced with orange:
+- `bg-blue-500/20` → `bg-[#FF6B00]/20`
+- `bg-blue-400/15` → `bg-[#FF6B00]/15`
+- `border-blue-400/20` → `border-[#FF6B00]/20`
+
+**2. HowItWorks.tsx** — Old light theme completely rebuilt:
+- All light theme classes replaced with dark brown theme palette
+- Background, cards, text, borders all updated to match consistent theme
+
+**3. ContactPage.tsx** — Standardized orange color and button gradient:
+- All `#FF7B00` → `#FF6B00`, submit button gradient updated to `from-[#FF6B00] to-[#FF9F1C]`
+
+**4. PartnerPage.tsx** — Standardized orange color, background, and button:
+- All `#FF7B00` → `#FF6B00`, section bg `#050608` → `#0d0906`, submit button gradient updated
+
+**Verified Clean:** All other components (TrustBar, ServicesGrid, ServiceJourney, WhyChooseUs, WhyUsVsThem, SocialProof, CountyCoverage, BookingCalendar, HighIntentCTA, ContractorCTA) using consistent dark brown/orange palette. Zero ESLint errors. Dev server HTTP 200.

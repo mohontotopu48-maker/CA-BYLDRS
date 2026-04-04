@@ -32,8 +32,8 @@ export default function HeroSection() {
             <div className="inline-flex items-center justify-center mb-8">
               <div className="relative">
                 <div aria-hidden="true">
-                  <div className="absolute -inset-6 sm:-inset-8 rounded-full bg-blue-500/20 blur-3xl animate-pulse-glow" />
-                  <div className="absolute -inset-4 sm:-inset-6 rounded-full bg-blue-400/15 blur-2xl animate-float" />
+                  <div className="absolute -inset-6 sm:-inset-8 rounded-full bg-[#FF6B00]/20 blur-3xl animate-pulse-glow" />
+                  <div className="absolute -inset-4 sm:-inset-6 rounded-full bg-[#FF6B00]/15 blur-2xl animate-float" />
                 </div>
                 <img
                   src="/logo.png"
@@ -42,7 +42,7 @@ export default function HeroSection() {
                   className="relative h-28 sm:h-36 md:h-44 lg:h-52 w-auto object-contain drop-shadow-2xl"
                 />
                 {/* Animated orbit ring */}
-                <div className="absolute -inset-10 rounded-full border-2 border-dashed border-blue-400/20 animate-[spin_20s_linear_infinite]" />
+                <div className="absolute -inset-10 rounded-full border-2 border-dashed border-[#FF6B00]/20 animate-[spin_20s_linear_infinite]" />
               </div>
             </div>
           </AnimatedSection>

@@ -124,7 +124,7 @@ export default function ContactPage() {
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
             <button
               onClick={() => navigate('home')}
-              className="hover:text-[#FF7B00] transition-colors cursor-pointer"
+              className="hover:text-[#FF6B00] transition-colors cursor-pointer"
             >
               Home
             </button>
@@ -172,13 +172,13 @@ export default function ContactPage() {
               <div className="space-y-4">
                 <Card className="glass-card">
                   <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#FF7B00]/10 flex items-center justify-center flex-shrink-0">
-                      <Phone className="size-5 text-[#FF7B00]" />
+                    <div className="w-10 h-10 rounded-xl bg-[#FF6B00]/10 flex items-center justify-center flex-shrink-0">
+                      <Phone className="size-5 text-[#FF6B00]" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">Phone</h3>
                       <p className="text-sm text-muted-foreground mt-0.5">
-                        <a href="tel:+15629440500" className="hover:text-[#FF7B00] transition-colors">+1 (562) 944-0500</a>
+                        <a href="tel:+15629440500" className="hover:text-[#FF6B00] transition-colors">+1 (562) 944-0500</a>
                       </p>
                     </div>
                   </CardContent>
@@ -186,13 +186,13 @@ export default function ContactPage() {
 
                 <Card className="glass-card">
                   <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#FF7B00]/10 flex items-center justify-center flex-shrink-0">
-                      <Mail className="size-5 text-[#FF7B00]" />
+                    <div className="w-10 h-10 rounded-xl bg-[#FF6B00]/10 flex items-center justify-center flex-shrink-0">
+                      <Mail className="size-5 text-[#FF6B00]" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">Email</h3>
                       <p className="text-sm text-muted-foreground mt-0.5">
-                        <a href="mailto:hello@nxlbyldr.com" className="hover:text-[#FF7B00] transition-colors">hello@nxlbyldr.com</a>
+                        <a href="mailto:hello@nxlbyldr.com" className="hover:text-[#FF6B00] transition-colors">hello@nxlbyldr.com</a>
                       </p>
                     </div>
                   </CardContent>
@@ -200,8 +200,8 @@ export default function ContactPage() {
 
                 <Card className="glass-card">
                   <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#FF7B00]/10 flex items-center justify-center flex-shrink-0">
-                      <MapPin className="size-5 text-[#FF7B00]" />
+                    <div className="w-10 h-10 rounded-xl bg-[#FF6B00]/10 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="size-5 text-[#FF6B00]" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">Address</h3>
@@ -214,8 +214,8 @@ export default function ContactPage() {
 
                 <Card className="glass-card">
                   <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#FF7B00]/10 flex items-center justify-center flex-shrink-0">
-                      <Clock className="size-5 text-[#FF7B00]" />
+                    <div className="w-10 h-10 rounded-xl bg-[#FF6B00]/10 flex items-center justify-center flex-shrink-0">
+                      <Clock className="size-5 text-[#FF6B00]" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">Business Hours</h3>
@@ -235,8 +235,8 @@ export default function ContactPage() {
             <Card className="glass-card">
               <CardContent className="p-6 sm:p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-full bg-[#FF7B00]/10 flex items-center justify-center">
-                    <Send className="size-5 text-[#FF7B00]" />
+                  <div className="w-10 h-10 rounded-full bg-[#FF6B00]/10 flex items-center justify-center">
+                    <Send className="size-5 text-[#FF6B00]" />
                   </div>
                   <h2 className="text-xl font-bold text-foreground">
                     Service Request Form
@@ -379,7 +379,7 @@ export default function ContactPage() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-5 text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer h-auto mt-2"
+                    className="w-full bg-gradient-to-r from-[#FF6B00] to-[#FF9F1C] hover:from-[#FF9F1C] hover:to-[#FF6B00] text-white font-semibold py-5 text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer h-auto mt-2"
                   >
                     {isSubmitting ? (
                       <>

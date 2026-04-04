@@ -182,7 +182,7 @@ export default function PartnerPage() {
         <nav className="flex items-center gap-2 text-sm text-muted-foreground">
           <button
             onClick={() => navigate('home')}
-            className="hover:text-[#FF7B00] transition-colors cursor-pointer flex items-center gap-1"
+            className="hover:text-[#FF6B00] transition-colors cursor-pointer flex items-center gap-1"
           >
             <Home className="size-3.5" />
             Home
@@ -215,11 +215,11 @@ export default function PartnerPage() {
       </section>
 
       {/* ── Why Partner With Us ── */}
-      <section className="py-20 md:py-28 bg-[#050608]">
+      <section className="py-20 md:py-28 bg-[#0d0906]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-14">
-              <span className="inline-block text-sm font-semibold tracking-widest uppercase text-[#FF7B00] mb-3">
+              <span className="inline-block text-sm font-semibold tracking-widest uppercase text-[#FF6B00] mb-3">
                 Benefits
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight">
@@ -236,8 +236,8 @@ export default function PartnerPage() {
               <StaggerItem key={b.title}>
                 <div className="glass-card p-6 h-full">
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#FF7B00]/10 flex items-center justify-center">
-                      <b.icon className="w-6 h-6 text-[#FF7B00]" />
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#FF6B00]/10 flex items-center justify-center">
+                      <b.icon className="w-6 h-6 text-[#FF6B00]" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-foreground mb-1">{b.title}</h3>
@@ -259,7 +259,7 @@ export default function PartnerPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-12">
-              <span className="inline-block text-sm font-semibold tracking-widest uppercase text-[#FF7B00] mb-3">
+              <span className="inline-block text-sm font-semibold tracking-widest uppercase text-[#FF6B00] mb-3">
                 Apply Now
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight">
@@ -350,8 +350,8 @@ export default function PartnerPage() {
                       key={cat}
                       className={`flex items-center gap-2 px-3 py-2.5 rounded-lg border cursor-pointer transition-all duration-200 text-sm ${
                         selectedCategories.includes(cat)
-                          ? 'bg-[#FF7B00]/10 border-[#FF7B00]/40 text-[#FF7B00] font-medium'
-                          : 'bg-card border-border hover:border-[#FF7B00]/30 text-muted-foreground'
+                          ? 'bg-[#FF6B00]/10 border-[#FF6B00]/40 text-[#FF6B00] font-medium'
+                          : 'bg-card border-border hover:border-[#FF6B00]/30 text-muted-foreground'
                       }`}
                     >
                       <Checkbox
@@ -441,7 +441,7 @@ export default function PartnerPage() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto cta-glow bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold px-8 py-6 rounded-xl text-base transition-all duration-300 h-auto cursor-pointer"
+                  className="w-full sm:w-auto cta-glow bg-gradient-to-r from-[#FF6B00] to-[#FF9F1C] hover:from-[#FF9F1C] hover:to-[#FF6B00] text-white font-semibold px-8 py-6 rounded-xl text-base transition-all duration-300 h-auto cursor-pointer"
                 >
                   {isSubmitting ? (
                     <>
