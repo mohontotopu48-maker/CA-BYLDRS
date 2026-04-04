@@ -122,16 +122,16 @@ export default function RootLayout({
           async
         />
         {/* Preload critical logo image */}
-        <link rel="preload" as="image" href="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png" type="image/png" />
+        <link rel="preload" as="image" href="/logo.png" type="image/png" />
         <link rel="icon" href="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png" type="image/png" />
       </head>
       <body
         className={`${outfit.variable} ${inter.variable} antialiased bg-background text-foreground`}
       >
-        {children}
-        <Toaster />
         {/* Skip Navigation */}
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-orange-500 focus:text-white focus:rounded-lg">Skip to main content</a>
+        {children}
+        <Toaster />
       </body>
     </html>
   );

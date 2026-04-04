@@ -55,17 +55,17 @@ const differentiators = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 md:py-28 bg-stone-50">
+    <section className="py-20 md:py-28 bg-stone-50 dark:bg-neutral-900/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <AnimatedSection className="text-center mb-14 md:mb-16">
-          <span className="inline-block text-sm font-semibold tracking-widest uppercase text-orange-600 mb-3">
+          <span className="inline-block text-sm font-semibold tracking-widest uppercase text-orange-600 dark:text-orange-400 mb-3">
             Why Choose Us
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-stone-900 max-w-2xl mx-auto leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-stone-900 dark:text-foreground max-w-2xl mx-auto leading-tight">
             Why Homeowners Choose CA BYLDRS
           </h2>
-          <p className="mt-4 text-stone-500 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-4 text-stone-500 dark:text-muted-foreground max-w-xl mx-auto leading-relaxed">
             We built CA BYLDRS on trust and transparency — a platform where
             homeowners stay in control and every professional is held to the
             highest standard.
@@ -76,19 +76,19 @@ export default function WhyChooseUs() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {differentiators.map((item) => (
             <StaggerItem key={item.title}>
-              <div className="bg-white rounded-2xl border border-stone-200/70 p-6 h-full hover:shadow-lg hover:border-orange-200/80 transition-all duration-300 group">
+              <div className="bg-white dark:bg-card rounded-2xl border border-stone-200/70 dark:border-border p-6 h-full hover:shadow-lg dark:hover:shadow-orange-900/10 hover:border-orange-200/80 dark:hover:border-orange-800/40 transition-all duration-300 group">
                 {/* Icon */}
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center mb-4 shadow-sm">
                   <item.icon className="w-6 h-6 text-white" />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-semibold text-stone-900 mb-2">
+                <h3 className="text-lg font-semibold text-stone-900 dark:text-foreground mb-2">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-stone-500 leading-relaxed text-sm">
+                <p className="text-stone-500 dark:text-muted-foreground leading-relaxed text-sm">
                   {item.description}
                 </p>
               </div>

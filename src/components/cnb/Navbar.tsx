@@ -22,7 +22,7 @@ export function Navbar() {
   }, []);
 
   const handleNav = (href: string) => {
-    navigate(href as any);
+    navigate(href as import('@/lib/router-store').PageKey);
     setMobileOpen(false);
   };
 
@@ -47,7 +47,7 @@ export function Navbar() {
             <div className="relative">
               <div className="absolute -inset-1.5 rounded-xl bg-gradient-to-r from-orange-400 to-orange-600 opacity-50 group-hover:opacity-80 blur-md transition-opacity duration-500 animate-pulse-glow" />
               <img
-                src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
+                src="/logo.png"
                 alt="CA BYLDRS Logo"
                 width={168} height={56}
                 className="relative h-12 lg:h-14 w-auto object-contain rounded-lg transition-all duration-500 group-hover:scale-110 drop-shadow-lg"
@@ -128,7 +128,7 @@ export function Navbar() {
                       <div className="relative">
                         <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-orange-400 to-orange-600 opacity-30 blur-sm" />
                         <img
-                          src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
+                          src="/logo.png"
                           alt="CA BYLDRS Logo"
                           width={140} height={40}
                           className="relative h-10 w-auto object-contain rounded-lg"

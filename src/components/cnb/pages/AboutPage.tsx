@@ -47,9 +47,9 @@ export default function AboutPage() {
   const { navigate } = useRouter();
 
   return (
-    <div className="min-h-screen bg-orange-50/50">
+    <div className="min-h-screen bg-orange-50/50 dark:bg-orange-950/20">
       {/* Breadcrumb */}
-      <div className="bg-white border-b">
+      <div className="bg-white dark:bg-card border-b dark:border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
             <button
@@ -90,11 +90,11 @@ export default function AboutPage() {
       {/* Main Content */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20">
         <AnimatedSection>
-          <Card className="shadow-lg border-0 shadow-orange-900/5">
+          <Card className="shadow-lg border-0 shadow-orange-900/5 dark:shadow-orange-900/20">
             <CardContent className="p-6 sm:p-8 lg:p-10">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
-                  <Building2 className="size-5 text-orange-600" />
+                <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
+                  <Building2 className="size-5 text-orange-600 dark:text-orange-400" />
                 </div>
                 <h2 className="text-2xl font-bold text-foreground">Who We Are</h2>
               </div>
@@ -118,7 +118,7 @@ export default function AboutPage() {
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-20">
         <AnimatedSection>
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-sm font-medium mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 text-sm font-medium mb-4">
               <Heart className="size-4" />
               Our Mission
             </div>
@@ -128,7 +128,7 @@ export default function AboutPage() {
           </div>
         </AnimatedSection>
         <AnimatedSection delay={0.1}>
-          <Card className="shadow-lg border-0 shadow-orange-900/5 bg-gradient-to-br from-orange-50 to-white">
+          <Card className="shadow-lg border-0 shadow-orange-900/5 dark:shadow-orange-900/20 bg-gradient-to-br from-orange-50 dark:from-orange-950/30 to-white dark:to-card">
             <CardContent className="p-6 sm:p-8 text-center">
               <blockquote className="text-xl sm:text-2xl font-medium text-foreground leading-relaxed italic">
                 &ldquo;To make finding reliable home services simple, fast, and trustworthy for every homeowner in Southern California.&rdquo;
@@ -154,10 +154,10 @@ export default function AboutPage() {
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {differentiators.map((item) => (
             <StaggerItem key={item.title}>
-              <Card className="h-full shadow-md border-0 hover:shadow-lg transition-shadow duration-300 group">
+              <Card className="h-full shadow-md border-0 hover:shadow-lg dark:hover:shadow-orange-900/10 transition-shadow duration-300 group">
                 <CardContent className="p-6 text-center">
-                  <div className="w-14 h-14 rounded-2xl bg-orange-100 flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-200 transition-colors">
-                    <item.icon className="size-7 text-orange-600" />
+                  <div className="w-14 h-14 rounded-2xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-200 dark:group-hover:bg-orange-800/50 transition-colors">
+                    <item.icon className="size-7 text-orange-600 dark:text-orange-400" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">
                     {item.title}
@@ -187,11 +187,11 @@ export default function AboutPage() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {counties.map((county) => (
             <StaggerItem key={county.slug}>
-              <Card className="h-full shadow-md border-0 hover:shadow-lg transition-shadow duration-300">
+              <Card className="h-full shadow-md border-0 hover:shadow-lg dark:hover:shadow-orange-900/10 transition-shadow duration-300">
                 <CardContent className="p-6 sm:p-8">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
-                      <MapPin className="size-5 text-orange-600" />
+                    <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
+                      <MapPin className="size-5 text-orange-600 dark:text-orange-400" />
                     </div>
                     <h3 className="text-xl font-semibold text-foreground">
                       {county.name}
@@ -208,7 +208,7 @@ export default function AboutPage() {
                       {county.cities.map((city) => (
                         <span
                           key={city}
-                          className="px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-xs font-medium border border-orange-200"
+                          className="px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400 text-xs font-medium border border-orange-200 dark:border-orange-800/40"
                         >
                           {city}
                         </span>

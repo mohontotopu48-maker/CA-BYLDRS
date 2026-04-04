@@ -38,7 +38,7 @@ export default function HeroSection() {
                 </div>
                 <div className="relative rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 bg-white/[0.03] backdrop-blur-xl border-2 border-white/[0.06] shadow-2xl shadow-[#FF7B00]/20 ring-1 ring-white/[0.06]">
                   <img
-                    src="https://i.ibb.co/VchfWZ7x/Chat-GPT-Image-Apr-4-2026-03-27-52-AM.png"
+                    src="/logo.png"
                     alt="CA BYLDRS - Trusted Local Home Services"
                     width={256} height={256}
                     className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto object-contain drop-shadow-2xl"
