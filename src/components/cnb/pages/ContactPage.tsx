@@ -192,7 +192,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-foreground">Email</h3>
                       <p className="text-sm text-muted-foreground mt-0.5">
-                        <a href="mailto:info.vsualdm@gmail.com" className="hover:text-orange-600 transition-colors">info.vsualdm@gmail.com</a>
+                        <a href="mailto:hello@nxlbyldr.com" className="hover:text-orange-600 transition-colors">hello@nxlbyldr.com</a>
                       </p>
                     </div>
                   </CardContent>

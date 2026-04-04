@@ -190,7 +190,7 @@ export default function BookingCalendar() {
 
               {/* Email Option */}
               <a
-                href="mailto:info.vsualdm@gmail.com"
+                href="mailto:hello@nxlbyldr.com"
                 className="flex items-center gap-3 p-4 rounded-2xl glass-card hover:shadow-md hover:border-[#FF7B00]/20 transition-all group"
               >
                 <div className="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0 group-hover:bg-blue-500/20 transition-colors">
@@ -198,7 +198,7 @@ export default function BookingCalendar() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Email Us</p>
-                  <p className="text-sm text-muted-foreground">info.vsualdm@gmail.com</p>
+                  <p className="text-sm text-muted-foreground">hello@nxlbyldr.com</p>
                 </div>
               </a>
 
