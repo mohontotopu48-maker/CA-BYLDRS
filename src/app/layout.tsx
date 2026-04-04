@@ -59,13 +59,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://cabyldrs.com",
     siteName: "CA BYLDRS",
-    images: [{ url: "https://i.ibb.co/6308JrK/image.png", width: 512, height: 512, alt: "CA BYLDRS Logo" }],
+    images: [{ url: "https://cabyldrs.com/logo.png", width: 512, height: 512, alt: "CA BYLDRS Logo" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "CA BYLDRS — Trusted Local Home Services",
     description: "Connecting homeowners with verified local professionals in OC & LA County. No spam, no shared leads.",
-    images: ["https://i.ibb.co/6308JrK/image.png"],
+    images: ["https://cabyldrs.com/logo.png"],
   },
   alternates: {
     canonical: "https://cabyldrs.com",
@@ -109,7 +109,7 @@ export default function RootLayout({
             serviceType: ['Plumbing', 'Roofing', 'Cleaning', 'Pest Control', 'HVAC', 'Electrical', 'Handyman', 'Painting', 'Junk Removal'],
             openingHours: ['Mo-Fr 08:00-18:00', 'Sa 09:00-15:00'],
             priceRange: 'Free',
-            image: 'https://i.ibb.co/6308JrK/image.png',
+            image: 'https://cabyldrs.com/logo.png',
             sameAs: ['https://cabyldrs.com', 'https://nxlbyldr.com'],
           }),
         }}
@@ -123,7 +123,8 @@ export default function RootLayout({
         />
         {/* Preload critical logo image */}
         <link rel="preload" as="image" href="/logo.png" type="image/png" />
-        <link rel="icon" href="https://i.ibb.co/6308JrK/image.png" type="image/png" />
+        <link rel="icon" href="/logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
       </head>
       <body
         className={`${outfit.variable} ${inter.variable} antialiased bg-background text-foreground`}

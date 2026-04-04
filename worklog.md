@@ -471,3 +471,38 @@ Full recheck of all components for theme consistency, color accuracy, and lint e
 - All `#FF7B00` → `#FF6B00`, section bg `#050608` → `#0d0906`, submit button gradient updated
 
 **Verified Clean:** All other components (TrustBar, ServicesGrid, ServiceJourney, WhyChooseUs, WhyUsVsThem, SocialProof, CountyCoverage, BookingCalendar, HighIntentCTA, ContractorCTA) using consistent dark brown/orange palette. Zero ESLint errors. Dev server HTTP 200.
+
+---
+## Task ID: 8 - Logo Brand Color Fix
+### Work Task
+Check the logo and ensure it follows the brand color palette (dark brown #0d0906, orange #FF6B00, amber #FF9F1C).
+
+### Work Summary
+
+**Problem Found:**
+- `public/logo.png` was using **blue (#203080)** background with white foreground — completely wrong for the brand
+- `public/logo.svg` was a generic gray/white "Z" icon — not the CA BYLDRS brand logo at all
+- Favicon and OG images referenced old external URL (`https://i.ibb.co/6308JrK/image.png`)
+
+**Fixes Applied:**
+
+**1. Logo.png Recolored** — Python PIL script to map blue background → orange gradient:
+- Blue pixels (165K) mapped to orange gradient (#CC5500 → #FF6B00 → #FF9F1C) based on luminance
+- Anti-aliased edge pixels smoothly blended toward orange
+- White text/icon elements (237K pixels) preserved as-is
+- Result: 42% orange, 58% white — verified by VLM as "orange circular background with white elements"
+
+**2. Logo.svg Recreated** — New SVG with brand colors:
+- Orange gradient circle background (#FF6B00 → #FF9F1C)
+- White house icon with orange windows/door detail
+- White "CA" bold text + "BYLDRS" text + "CONTRACTORS" tagline
+- Subtle inner ring and outer glow effects
+
+**3. Layout.tsx Updated** — All image references now point to local `/logo.png`:
+- Favicon: `href="/logo.png"` (was external ibb.co URL)
+- Added `apple-touch-icon` for iOS
+- OpenGraph image: `https://cabyldrs.com/logo.png`
+- Twitter image: `https://cabyldrs.com/logo.png`
+- Structured data image: `https://cabyldrs.com/logo.png`
+
+**Verified:** Zero ESLint errors, all `ibb.co` references removed, VLM confirms orange+white logo.
